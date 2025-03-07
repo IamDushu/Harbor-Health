@@ -1,4 +1,5 @@
 import HomeHeader from "@/components/HomeHeader";
+import Colors from "@/constants/Colors";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
 
@@ -7,7 +8,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: "blue",
-        headerStyle: { backgroundColor: "#e66563" },
+        headerStyle: { backgroundColor: Colors.light.tint },
         headerTitleStyle: { color: "white" },
       }}
     >
@@ -18,7 +19,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="home" color={color} />
           ),
-          headerStyle: { height: 140, backgroundColor: "#e66563" },
+          headerStyle: { height: 140, backgroundColor: Colors.light.tint },
           headerTitle: () => <HomeHeader />,
         }}
       />

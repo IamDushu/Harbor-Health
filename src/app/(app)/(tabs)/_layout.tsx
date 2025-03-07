@@ -1,3 +1,4 @@
+import HomeHeader from "@/components/HomeHeader";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
 
@@ -18,6 +19,7 @@ export default function TabLayout() {
             <FontAwesome size={28} name="home" color={color} />
           ),
           headerStyle: { height: 140, backgroundColor: "#e66563" },
+          headerTitle: () => <HomeHeader />,
         }}
       />
       <Tabs.Screen

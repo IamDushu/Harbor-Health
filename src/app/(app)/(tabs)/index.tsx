@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from "react-native";
 export default function HomeTab() {
   return (
     <View style={styles.container}>
-      <Text>Tab [Home|Settings]</Text>
+      <Text>Home Page</Text>
     </View>
   );
 }

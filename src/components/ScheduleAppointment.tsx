@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   heading: {
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: "ginto-medium",
     color: Colors.light.text,
   },

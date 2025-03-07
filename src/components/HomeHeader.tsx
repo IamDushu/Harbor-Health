@@ -15,10 +15,10 @@ export default function HomeHeader() {
     >
       <View style={[styles.container, { gap: 15 }]}>
         <Image source={profileImg} style={[styles.profileImg]} />
-        <Text style={[styles.headerFont]}>Chaitu</Text>
+        <Text style={[styles.headerFont]}>Chaithanya</Text>
       </View>
       <View>
-        <FontAwesome6 size={25} name="gear" color={"white"} />
+        <FontAwesome6 size={20} name="gear" color={"white"} />
       </View>
     </View>
   );
@@ -33,13 +33,13 @@ const styles = StyleSheet.create({
   profileImg: {
     height: 60,
     width: 60,
-    borderRadius: "50%",
+    borderRadius: 50,
     borderColor: "white",
     borderWidth: 2,
   },
   headerFont: {
     fontFamily: "gt-bold",
-    fontSize: 30,
+    fontSize: 23,
     color: "white",
   },
 });

@@ -1,10 +1,11 @@
+import ScheduleAppointment from "@/components/ScheduleAppointment";
 import { Link } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
 
 export default function HomeTab() {
   return (
     <View style={styles.container}>
-      <Text>Home Page</Text>
+      <ScheduleAppointment />
     </View>
   );
 }
@@ -12,7 +13,5 @@ export default function HomeTab() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
 });

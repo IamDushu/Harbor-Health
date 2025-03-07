@@ -19,6 +19,7 @@ DefaultTheme.colors.primary = Colors.light.tint;
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     "gt-bold": require("../../assets/fonts/GT-Super-Display-Bold-Trial.otf"),
+    "ginto-medium": require("../../assets/fonts/Ginto-Medium.otf"),
   });
 
   const colorScheme = useColorScheme();

@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     padding: 20,
+    paddingBottom: 0,
     backgroundColor: "white",
   },
   heading: {
@@ -50,20 +51,34 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontFamily: "ginto-medium",
-    fontSize: 14,
+    fontSize: 15,
     color: Colors.light.secondaryText,
   },
   option: {
+    flex: 1,
+    borderRadius: 20,
     alignItems: "center",
+    paddingVertical: 20,
     gap: 7,
+    backgroundColor: "white",
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.07,
+    shadowRadius: 2.62,
+    elevation: 4,
   },
   optionsContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
     paddingVertical: 25,
+    gap: 12,
   },
   icon: {
-    height: 40,
-    width: 40,
+    height: 30,
+    width: 30,
   },
 });

@@ -1,14 +1,15 @@
 import OnDemandCare from "@/components/OnDemandCare";
+import Reminders from "@/components/Reminders";
 import ScheduleAppointment from "@/components/ScheduleAppointment";
-import { Link } from "expo-router";
-import { View, Text, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 
 export default function HomeTab() {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <ScheduleAppointment />
       <OnDemandCare />
-    </View>
+      <Reminders />
+    </ScrollView>
   );
 }
 

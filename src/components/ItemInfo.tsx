@@ -1,9 +1,13 @@
-import Colors from "@/constants/Colors";
-import { View, Text, StyleSheet, Image } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { Image, StyleSheet, View } from "react-native";
 import harborBuilding from "../../assets/icons/building.png";
+import { Text } from "./general/Themed";
 
-export default function ItemInfo() {
+type ItemInfoProps = {
+  bottomBorder?: boolean;
+};
+
+export default function ItemInfo({ bottomBorder = true }: ItemInfoProps) {
   return (
     <>
       <View style={[styles.container, { marginVertical: 20 }]}>
@@ -19,14 +23,8 @@ export default function ItemInfo() {
             <Image source={harborBuilding} style={[styles.icon]} />
           </View>
           <View>
-            <Text
-              style={{ fontSize: 18, fontWeight: "semibold", marginBottom: 5 }}
-            >
-              Manage Prescriptions
-            </Text>
-            <Text
-              style={{ fontSize: 14, color: "gray", fontWeight: "semibold" }}
-            >
+            <Text>Manage Prescriptions</Text>
+            <Text textType="light" style={{ marginTop: 2 }}>
               Requests and renewals
             </Text>
           </View>
@@ -39,14 +37,16 @@ export default function ItemInfo() {
           style={{ color: "lightgray", marginLeft: "auto", marginRight: 15 }}
         />
       </View>
-      <View
-        style={{
-          borderBottomColor: "lightgray",
-          borderBottomWidth: StyleSheet.hairlineWidth,
-          width: "82%",
-          marginLeft: "auto",
-        }}
-      />
+      {bottomBorder && (
+        <View
+          style={{
+            borderBottomColor: "lightgray",
+            borderBottomWidth: StyleSheet.hairlineWidth,
+            width: "82%",
+            marginLeft: "auto",
+          }}
+        />
+      )}
     </>
   );
 }

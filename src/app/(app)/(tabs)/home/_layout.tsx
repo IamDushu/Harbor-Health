@@ -11,7 +11,7 @@ export default function HomeStack() {
           header: () => <HomeHeader />,
         }}
       />
-      <Stack.Screen name="book" />
+      <Stack.Screen name="book" options={{ headerTitle: "Book Visit" }} />
     </Stack>
   );
 }

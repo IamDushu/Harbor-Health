@@ -7,12 +7,14 @@ type CustomButtonProps = {
   title: string;
   type?: "fill" | "outline";
   width?: "full" | "fit";
+  disabled?: boolean;
 } & ComponentProps<typeof Pressable>;
 
 export default function CustomButton({
   title,
   type = "fill",
   width = "fit",
+  disabled = false,
   ...pressableProps
 }: CustomButtonProps) {
   const { style } = pressableProps;
@@ -26,6 +28,7 @@ export default function CustomButton({
           alignSelf: "flex-start",
           marginHorizontal: "auto",
         },
+        disabled === true && styles.disabledButton,
       ]}
     >
       <Text style={type === "fill" ? styles.fillText : styles.outlineText}>
@@ -50,6 +53,10 @@ const styles = StyleSheet.create({
   },
   outlineButton: {
     backgroundColor: "white",
+  },
+  disabledButton: {
+    backgroundColor: "lightgray",
+    borderColor: "lightgray",
   },
   fillText: {
     color: "white",

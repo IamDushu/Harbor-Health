@@ -20,7 +20,7 @@ export default function Card({ title, children, style, href }: CardProps) {
 const styles = StyleSheet.create({
   card: {
     width: "100%",
-    paddingVertical: 20,
+    paddingTop: 20,
     backgroundColor: "white",
   },
   heading: {

@@ -7,7 +7,7 @@ import { Text } from "./general/Themed";
 
 export default function ScheduleAppointment() {
   return (
-    <Card title="Schedule an Appointment">
+    <Card title="Schedule an Appointment" style={{ paddingTop: 25 }}>
       <View style={[styles.optionsContainer]}>
         <View style={styles.option}>
           <View
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   optionsContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    paddingVertical: 25,
+    padding: 20,
     gap: 12,
   },
   icon: {

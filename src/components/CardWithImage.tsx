@@ -5,16 +5,18 @@ type CardWithImageProps = {
   image: ImageSourcePropType;
   title: string;
   description?: string;
+  lastLine?: string;
 };
 
 export default function CardWithImage({
   image,
   title,
   description,
+  lastLine,
 }: CardWithImageProps) {
   return (
     <View style={styles.card}>
-      <View style={{ height: "62%" }}>
+      <View style={{ height: "65%" }}>
         <Image
           source={image}
           style={{
@@ -28,8 +30,16 @@ export default function CardWithImage({
       </View>
       <View style={styles.textContainer}>
         <Text>{title}</Text>
-        <Text textType="light" style={{ marginTop: 5 }}>
+        <Text
+          textType="light"
+          numberOfLines={2}
+          ellipsizeMode="tail"
+          style={{ marginTop: 5 }}
+        >
           {description}
+        </Text>
+        <Text textType="light" style={{ marginTop: 5 }}>
+          {lastLine}
         </Text>
       </View>
     </View>
@@ -40,9 +50,9 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 20,
     backgroundColor: "white",
-    width: 350,
-    height: 300,
-    marginLeft: 15,
+    width: 320,
+    height: 320,
+    marginLeft: 20,
 
     shadowColor: "#000",
     shadowOffset: {
@@ -55,6 +65,7 @@ const styles = StyleSheet.create({
   },
 
   textContainer: {
+    height: "35%",
     padding: 20,
   },
 });

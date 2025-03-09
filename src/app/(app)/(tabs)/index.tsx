@@ -1,3 +1,4 @@
+import LocationsNearby from "@/components/LocationsNearby";
 import OnDemandCare from "@/components/OnDemandCare";
 import Recommended from "@/components/Recommended";
 import Reminders from "@/components/Reminders";
@@ -14,6 +15,7 @@ export default function HomeTab() {
       <OnDemandCare />
       <Reminders />
       <Recommended />
+      <LocationsNearby />
     </ScrollView>
   );
 }

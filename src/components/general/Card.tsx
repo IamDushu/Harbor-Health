@@ -20,12 +20,13 @@ export default function Card({ title, children, style, href }: CardProps) {
 const styles = StyleSheet.create({
   card: {
     width: "100%",
-    padding: 20,
+    paddingVertical: 20,
     backgroundColor: "white",
   },
   heading: {
     fontSize: 20,
     fontFamily: "ginto-medium",
     color: Colors.light.text,
+    paddingHorizontal: 20,
   },
 });

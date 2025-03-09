@@ -1,15 +1,19 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 import harborBuilding from "../../assets/icons/building.png";
 import remoteVisit from "../../assets/icons/remoteVisit.png";
 
 import Card from "./general/Card";
 import { Text } from "./general/Themed";
+import { router } from "expo-router";
 
 export default function ScheduleAppointment() {
   return (
     <Card title="Schedule an Appointment" style={{ paddingTop: 25 }}>
       <View style={[styles.optionsContainer]}>
-        <View style={styles.option}>
+        <Pressable
+          onPress={() => router.push("/home/book")}
+          style={styles.option}
+        >
           <View
             style={{
               backgroundColor: "#3a8369bf",
@@ -20,7 +24,7 @@ export default function ScheduleAppointment() {
             <Image source={harborBuilding} style={[styles.icon]} />
           </View>
           <Text>Office Visit</Text>
-        </View>
+        </Pressable>
         <View style={styles.option}>
           <View
             style={{

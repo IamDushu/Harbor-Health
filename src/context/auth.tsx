@@ -20,7 +20,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
     if (!user && rootSegment !== "(auth)") {
       router.replace("/(auth)/login");
     } else if (user && rootSegment !== "(app)") {
-      router.replace("/");
+      router.replace("/home");
     }
   }, [user, rootSegment]);
 

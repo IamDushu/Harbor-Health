@@ -1,14 +1,19 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import profileImg from "../../assets/profile.jpeg";
 import { FontAwesome6 } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Colors from "@/constants/Colors";
 
 export default function HomeHeader() {
   return (
-    <View
+    <SafeAreaView
+      edges={["top"]}
       style={[
         styles.container,
         {
           width: "100%",
+          paddingHorizontal: 20,
+          paddingBottom: 10,
           justifyContent: "space-between",
         },
       ]}
@@ -20,7 +25,7 @@ export default function HomeHeader() {
       <View>
         <FontAwesome6 size={20} name="gear" color={"white"} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -29,6 +34,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    backgroundColor: Colors.light.tint,
   },
   profileImg: {
     height: 60,

@@ -10,6 +10,7 @@ export default function HomeTab() {
     <ScrollView
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.container}
+      bounces={false}
     >
       <ScheduleAppointment />
       <OnDemandCare />

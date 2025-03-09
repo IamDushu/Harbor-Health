@@ -9,19 +9,21 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors.light.tint,
+        // tabBarInactiveTintColor: "white",
         headerStyle: { backgroundColor: Colors.light.tint },
         headerTitleStyle: { color: "white" },
+        // tabBarStyle: {
+        //   backgroundColor: Colors.dark.tint,
+        // },
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
-          title: "Home",
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <Ionicons name="home" size={24} color={color} />
           ),
-          headerStyle: { height: 140, backgroundColor: Colors.light.tint },
-          headerTitle: () => <HomeHeader />,
         }}
       />
 

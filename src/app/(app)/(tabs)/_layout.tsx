@@ -1,13 +1,14 @@
 import HomeHeader from "@/components/HomeHeader";
 import Colors from "@/constants/Colors";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Tabs } from "expo-router";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "blue",
+        tabBarActiveTintColor: Colors.light.tint,
         headerStyle: { backgroundColor: Colors.light.tint },
         headerTitleStyle: { color: "white" },
       }}
@@ -17,27 +18,41 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
+            <Ionicons name="home" size={24} color={color} />
           ),
           headerStyle: { height: 140, backgroundColor: Colors.light.tint },
           headerTitle: () => <HomeHeader />,
         }}
       />
+
       <Tabs.Screen
-        name="care"
+        name="messages"
         options={{
-          title: "Care",
+          title: "Messages",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="heart" color={color} />
+            <Ionicons name="mail" size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="settings"
+        name="care"
         options={{
-          title: "Settings",
+          title: "Core Plan",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
+            <MaterialIcons name="health-and-safety" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="myHealth"
+        options={{
+          title: "My Health",
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons
+              name="insert-chart-outlined"
+              size={24}
+              color={color}
+            />
           ),
         }}
       />

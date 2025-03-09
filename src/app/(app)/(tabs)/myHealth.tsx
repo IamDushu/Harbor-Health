@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 
-export default function CareTab() {
+export default function MyHealthTab() {
   return (
     <View style={styles.container}>
-      <Text>Core Plan</Text>
+      <Text>My Health</Text>
     </View>
   );
 }

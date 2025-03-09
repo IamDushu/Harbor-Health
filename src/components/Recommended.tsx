@@ -26,8 +26,14 @@ export default function Recommended() {
           title="Harbor Health opens 2 express care clinics in Central, South Austin"
         />
       </ScrollView>
-      <ItemInfo />
-      <ItemInfo />
+      <ItemInfo
+        title="COVID-19 Daily Check-in"
+        description="Get your daily status badge"
+      />
+      <ItemInfo
+        title="Give $25 off"
+        description="Invite friends to Harbor Health"
+      />
     </Card>
   );
 }

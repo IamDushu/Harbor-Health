@@ -5,9 +5,15 @@ import { Text } from "./general/Themed";
 
 type ItemInfoProps = {
   bottomBorder?: boolean;
+  title: string;
+  description: string;
 };
 
-export default function ItemInfo({ bottomBorder = true }: ItemInfoProps) {
+export default function ItemInfo({
+  bottomBorder = true,
+  title,
+  description,
+}: ItemInfoProps) {
   return (
     <>
       <View style={[styles.container, { marginVertical: 20 }]}>
@@ -23,9 +29,9 @@ export default function ItemInfo({ bottomBorder = true }: ItemInfoProps) {
             <Image source={harborBuilding} style={[styles.icon]} />
           </View>
           <View>
-            <Text>Manage Prescriptions</Text>
+            <Text>{title}</Text>
             <Text textType="light" style={{ marginTop: 2 }}>
-              Requests and renewals
+              {description}
             </Text>
           </View>
         </View>

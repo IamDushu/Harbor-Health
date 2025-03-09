@@ -1,8 +1,9 @@
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
 import CardWithImage from "./CardWithImage";
 import Card from "./general/Card";
 import location1 from "../../assets/OnionCreek.jpg";
 import location2 from "../../assets/WilliamsDrive.jpg";
+import CustomButton from "./general/CustomButton";
 
 export default function LocationsNearby() {
   return (
@@ -28,6 +29,13 @@ export default function LocationsNearby() {
           lastLine="Open until 6pm"
         />
       </ScrollView>
+      <View style={{ marginVertical: 10 }}>
+        <CustomButton
+          type="outline"
+          title="See All Locations"
+          style={{ marginVertical: 20 }}
+        />
+      </View>
     </Card>
   );
 }

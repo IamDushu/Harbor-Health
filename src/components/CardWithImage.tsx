@@ -16,7 +16,7 @@ export default function CardWithImage({
 }: CardWithImageProps) {
   return (
     <View style={styles.card}>
-      <View style={{ height: "65%" }}>
+      <View style={{ height: "60%" }}>
         <Image
           source={image}
           style={{
@@ -29,11 +29,15 @@ export default function CardWithImage({
         />
       </View>
       <View style={styles.textContainer}>
-        <Text>{title}</Text>
+        <Text numberOfLines={1} ellipsizeMode="tail">
+          {title}
+        </Text>
         <Text
           textType="light"
           numberOfLines={2}
           ellipsizeMode="tail"
+          adjustsFontSizeToFit
+          minimumFontScale={0.5}
           style={{ marginTop: 5 }}
         >
           {description}
@@ -67,5 +71,6 @@ const styles = StyleSheet.create({
   textContainer: {
     height: "35%",
     padding: 20,
+    overflow: "hidden",
   },
 });

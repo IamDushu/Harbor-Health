@@ -1,5 +1,5 @@
 import { Image, Text, View } from "react-native";
-import Luci from "../../../../../../assets/LuciLeykum.webp";
+import Luci from "../../../assets/LuciLeykum.webp";
 import CustomButton from "@/components/general/CustomButton";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
@@ -47,7 +47,7 @@ export default function BookingConfirm() {
         <CustomButton
           title="Done"
           width="full"
-          onPress={() => router.dismissAll()}
+          onPress={() => router.replace("/home")}
         />
       </View>
     </SafeAreaView>

@@ -58,7 +58,7 @@ export default function BookingSelect() {
               width="full"
               title="Next"
               disabled={true}
-              onPress={() => router.push("/home/bookingConfirm")}
+              onPress={() => router.push("/bookingConfirm")}
             />
           </View>
         </View>

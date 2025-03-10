@@ -2,9 +2,13 @@ import HomeHeader from "@/components/HomeHeader";
 import Colors from "@/constants/Colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { Tabs } from "expo-router";
+import { Tabs, usePathname } from "expo-router";
 
 export default function TabLayout() {
+  const pathname = usePathname();
+
+  const hideTabBarScreens = ["/home/bookingConfirm"];
+  // console.log(pathname);
   return (
     <Tabs
       screenOptions={{
@@ -12,9 +16,11 @@ export default function TabLayout() {
         // tabBarInactiveTintColor: "white",
         headerStyle: { backgroundColor: Colors.light.tint },
         headerTitleStyle: { color: "white" },
-        // tabBarStyle: {
-        //   backgroundColor: Colors.dark.tint,
-        // },
+        tabBarStyle: hideTabBarScreens.includes(pathname)
+          ? {
+              display: "none",
+            }
+          : {},
       }}
     >
       <Tabs.Screen

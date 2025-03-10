@@ -1,6 +1,7 @@
 import CustomButton from "@/components/general/CustomButton";
 import { Text } from "@/components/general/Themed";
 import Colors from "@/constants/Colors";
+import { router } from "expo-router";
 import { useState } from "react";
 import {
   Keyboard,
@@ -12,15 +13,13 @@ import {
   View,
 } from "react-native";
 
-export default function BookTab() {
+export default function BookingSelect() {
   const [issue, setIssue] = useState("");
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <KeyboardAvoidingView style={{ flex: 1 }}>
-        <T style={{ padding: 20, paddingVertical: 10, fontSize: 14 }}>
-          I would like to cover...
-        </T>
+        <T style={{ padding: 20, paddingVertical: 10, fontSize: 14 }}>Book 2</T>
         <View style={{ flex: 1, backgroundColor: "white" }}>
           <TextInput
             placeholder="Ex. I have a fever"
@@ -55,12 +54,15 @@ export default function BookTab() {
             <Text style={{ color: Colors.light.tint }}>Update</Text>
           </View>
           <View style={{ padding: 20, paddingHorizontal: 10 }}>
-            <CustomButton width="full" title="Next" disabled={true} />
+            <CustomButton
+              width="full"
+              title="Next"
+              disabled={true}
+              onPress={() => router.push("/home/bookingConfirm")}
+            />
           </View>
         </View>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
 }
-
-const styles = StyleSheet.create({});

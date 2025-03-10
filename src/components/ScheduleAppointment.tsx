@@ -11,7 +11,7 @@ export default function ScheduleAppointment() {
     <Card title="Schedule an Appointment" style={{ paddingTop: 25 }}>
       <View style={[styles.optionsContainer]}>
         <Pressable
-          onPress={() => router.push("/home/book")}
+          onPress={() => router.push("/home/bookingDetails")}
           style={styles.option}
         >
           <View

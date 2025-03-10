@@ -11,7 +11,22 @@ export default function HomeStack() {
           header: () => <HomeHeader />,
         }}
       />
-      <Stack.Screen name="book" options={{ headerTitle: "Book Visit" }} />
+      <Stack.Screen
+        name="(booking)/bookingDetails"
+        options={{
+          headerTitle: "Book Visit",
+        }}
+      />
+      <Stack.Screen
+        name="(booking)/bookingSelect"
+        options={{ headerTitle: "Book In-Office Visit" }}
+      />
+      <Stack.Screen
+        name="(booking)/bookingConfirm"
+        options={{
+          headerTitle: "Book Visit",
+        }}
+      />
     </Stack>
   );
 }

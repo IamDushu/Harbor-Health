@@ -5,6 +5,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
 
 export default function BookingConfirm() {
+  const onConfirm = () => {
+    router.replace("/home");
+  };
   return (
     <SafeAreaView
       edges={["bottom"]}
@@ -44,11 +47,7 @@ export default function BookingConfirm() {
       </Text>
       <View style={{ gap: 15, marginTop: "auto" }}>
         <CustomButton title="Go Back" type="outline" width="full" />
-        <CustomButton
-          title="Confirm"
-          width="full"
-          onPress={() => router.replace("/home")}
-        />
+        <CustomButton title="Confirm" width="full" onPress={onConfirm} />
       </View>
     </SafeAreaView>
   );

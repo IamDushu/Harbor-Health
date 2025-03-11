@@ -6,7 +6,7 @@ import { Text } from "./Themed";
 type CustomButtonProps = {
   title: string;
   type?: "fill" | "outline";
-  width?: "full" | "fit";
+  width?: "full" | "fit" | "fitNoMargin";
   disabled?: boolean;
 } & ComponentProps<typeof Pressable>;
 
@@ -17,7 +17,6 @@ export default function CustomButton({
   disabled = false,
   ...pressableProps
 }: CustomButtonProps) {
-  const { style } = pressableProps;
   return (
     <Pressable
       {...pressableProps}
@@ -27,6 +26,9 @@ export default function CustomButton({
         width === "fit" && {
           alignSelf: "flex-start",
           marginHorizontal: "auto",
+        },
+        width === "fitNoMargin" && {
+          alignSelf: "flex-start",
         },
         disabled === true && styles.disabledButton,
       ]}

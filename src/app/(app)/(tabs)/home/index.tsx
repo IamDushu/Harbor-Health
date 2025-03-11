@@ -3,7 +3,8 @@ import OnDemandCare from "@/components/OnDemandCare";
 import Recommended from "@/components/Recommended";
 import Reminders from "@/components/Reminders";
 import ScheduleAppointment from "@/components/ScheduleAppointment";
-import { ScrollView, StyleSheet } from "react-native";
+import UpcomingVisit from "@/components/UpcomingVisit";
+import { ScrollView, StyleSheet, View } from "react-native";
 
 export default function HomeTab() {
   return (
@@ -12,7 +13,10 @@ export default function HomeTab() {
       contentContainerStyle={styles.container}
       bounces={false}
     >
-      <ScheduleAppointment />
+      <View style={{ backgroundColor: "white" }}>
+        <UpcomingVisit />
+        <ScheduleAppointment />
+      </View>
       <OnDemandCare />
       <Reminders />
       <Recommended />

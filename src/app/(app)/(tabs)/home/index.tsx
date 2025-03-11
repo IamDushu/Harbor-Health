@@ -4,23 +4,38 @@ import Recommended from "@/components/Recommended";
 import Reminders from "@/components/Reminders";
 import ScheduleAppointment from "@/components/ScheduleAppointment";
 import UpcomingVisit from "@/components/UpcomingVisit";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function HomeTab() {
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={styles.container}
-      bounces={false}
-    >
-      <View style={{ backgroundColor: "white" }}>
-        <UpcomingVisit />
-        <ScheduleAppointment />
+    <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
+      <View style={styles.container}>
+        <View style={{ backgroundColor: "white" }}>
+          <UpcomingVisit />
+          <ScheduleAppointment />
+        </View>
+        <OnDemandCare />
+        <Reminders />
+        <Recommended />
+        <LocationsNearby />
       </View>
-      <OnDemandCare />
-      <Reminders />
-      <Recommended />
-      <LocationsNearby />
+      <View
+        style={{ backgroundColor: "white", padding: 30, paddingVertical: 70 }}
+      >
+        <Text style={styles.moto}>Live {"\n"}it up!</Text>
+
+        <Text
+          style={{
+            fontFamily: "ginto-medium",
+            marginTop: 10,
+            color: "gray",
+            fontSize: 17,
+            opacity: 0.9,
+          }}
+        >
+          Crafted with 🩷 in Austin, Texas
+        </Text>
+      </View>
     </ScrollView>
   );
 }
@@ -28,5 +43,11 @@ export default function HomeTab() {
 const styles = StyleSheet.create({
   container: {
     gap: 8,
+  },
+  moto: {
+    fontSize: 80,
+    fontFamily: "gt-bold",
+    color: "#e66563af",
+    letterSpacing: -2,
   },
 });

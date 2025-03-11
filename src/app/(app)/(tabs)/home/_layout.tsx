@@ -4,10 +4,16 @@ import { Stack } from "expo-router/stack";
 
 export default function HomeStack() {
   return (
-    <Stack>
+    <Stack
+      screenOptions={{
+        headerStyle: { backgroundColor: Colors.light.tint },
+        headerTintColor: "white",
+      }}
+    >
       <Stack.Screen
         name="index"
         options={{
+          headerTitle: "Home",
           header: () => <HomeHeader />,
         }}
       />
@@ -20,6 +26,14 @@ export default function HomeStack() {
       <Stack.Screen
         name="(booking)/bookingSelect"
         options={{ headerTitle: "Book In-Office Visit" }}
+      />
+      <Stack.Screen
+        name="visitDetails"
+        options={{
+          headerTitle: "Visit Details",
+          headerStyle: { backgroundColor: Colors.light.tint },
+          headerTintColor: "white",
+        }}
       />
     </Stack>
   );

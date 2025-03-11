@@ -3,6 +3,7 @@ import Luci from "../../assets/LuciLeykum.webp";
 import { Text } from "./general/Themed";
 import Colors from "@/constants/Colors";
 import CustomButton from "./general/CustomButton";
+import { router } from "expo-router";
 
 export default function UpcomingVisit() {
   return (
@@ -50,7 +51,12 @@ export default function UpcomingVisit() {
         </View>
       </View>
       <View style={{ marginTop: 20, flexDirection: "row", gap: 10 }}>
-        <CustomButton title="View Details" type="fill" width="fitNoMargin" />
+        <CustomButton
+          title="View Details"
+          type="fill"
+          width="fitNoMargin"
+          onPress={() => router.push("/home/visitDetails")}
+        />
         <CustomButton title="Modify" type="outline" width="fitNoMargin" />
       </View>
     </View>

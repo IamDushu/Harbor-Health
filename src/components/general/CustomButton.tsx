@@ -40,8 +40,8 @@ export default function CustomButton({
 
 const styles = StyleSheet.create({
   button: {
-    paddingVertical: 15,
-    paddingHorizontal: 25,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     borderRadius: 100,
     borderWidth: 2,
     borderColor: Colors.light.tint,

@@ -43,9 +43,9 @@ export default function BookingConfirm() {
         Should you need to cancel, please do so at least 24 hours in advance.
       </Text>
       <View style={{ gap: 15, marginTop: "auto" }}>
-        <CustomButton title="Add to Calendar" type="outline" width="full" />
+        <CustomButton title="Go Back" type="outline" width="full" />
         <CustomButton
-          title="Done"
+          title="Confirm"
           width="full"
           onPress={() => router.replace("/home")}
         />

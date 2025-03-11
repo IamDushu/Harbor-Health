@@ -54,6 +54,7 @@ export default function TabLayout() {
         name="myHealth"
         options={{
           title: "My Health",
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <MaterialIcons
               name="insert-chart-outlined"

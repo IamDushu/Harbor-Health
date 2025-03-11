@@ -6,7 +6,7 @@ import { Text } from "./general/Themed";
 type ItemInfoProps = {
   bottomBorder?: boolean;
   title: string;
-  description: string;
+  description?: string;
 };
 
 export default function ItemInfo({
@@ -30,9 +30,11 @@ export default function ItemInfo({
           </View>
           <View>
             <Text>{title}</Text>
-            <Text textType="light" style={{ marginTop: 2 }}>
-              {description}
-            </Text>
+            {description && (
+              <Text textType="light" style={{ marginTop: 2 }}>
+                {description}
+              </Text>
+            )}
           </View>
         </View>
 

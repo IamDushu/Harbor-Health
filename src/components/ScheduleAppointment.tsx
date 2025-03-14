@@ -6,6 +6,9 @@ import Card from "./general/Card";
 import { Text } from "./general/Themed";
 import { router } from "expo-router";
 
+import Hospital from "../../assets/icons/office.svg";
+import RemoteVisit from "../../assets/icons/remote.svg";
+
 export default function ScheduleAppointment() {
   return (
     <Card title="Schedule an Appointment" style={{ paddingTop: 25 }}>
@@ -16,24 +19,24 @@ export default function ScheduleAppointment() {
         >
           <View
             style={{
-              backgroundColor: "#3a8369bf",
+              backgroundColor: "#e659564b",
               padding: 10,
               borderRadius: 50,
             }}
           >
-            <Image source={harborBuilding} style={[styles.icon]} />
+            <Hospital width={40} height={40} />
           </View>
           <Text>Office Visit</Text>
         </Pressable>
         <View style={styles.option}>
           <View
             style={{
-              backgroundColor: "#e66563bf",
+              backgroundColor: "#63daae4b",
               padding: 10,
               borderRadius: 50,
             }}
           >
-            <Image source={remoteVisit} style={[styles.icon]} />
+            <RemoteVisit width={40} height={40} />
           </View>
           <Text>Remote Visit</Text>
         </View>

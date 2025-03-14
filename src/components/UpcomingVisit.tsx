@@ -10,54 +10,62 @@ export default function UpcomingVisit() {
     <View
       style={{
         padding: 20,
-        backgroundColor: "white",
-        borderRadius: 30,
-        margin: 20,
-
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 1,
-        },
-        shadowOpacity: 0.07,
-        shadowRadius: 2.62,
-        elevation: 4,
+        backgroundColor: Colors.light.tint,
+        borderBottomRightRadius: 30,
+        borderBottomLeftRadius: 30,
       }}
     >
       <View
         style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
+          padding: 20,
+          backgroundColor: "white",
+          borderRadius: 30,
+
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.07,
+          shadowRadius: 2.62,
+          elevation: 4,
         }}
       >
-        <View style={{ flex: 3 }}>
-          <Text>Upcoming in-office visit with Luci Leykum. MD</Text>
-          <Text textType="medium" style={{ marginTop: 5 }}>
-            Mon, Mar 10 4:00 PM
-          </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <View style={{ flex: 3 }}>
+            <Text>Upcoming in-office visit with Luci Leykum. MD</Text>
+            <Text textType="medium" style={{ marginTop: 5 }}>
+              Mon, Mar 10 4:00 PM
+            </Text>
+          </View>
+          <View style={{ flex: 1, alignItems: "flex-end" }}>
+            <Image
+              source={Luci}
+              style={{
+                borderRadius: 100,
+                height: 60,
+                width: 60,
+                borderColor: Colors.light.tint,
+                borderWidth: 2,
+                padding: 3,
+              }}
+            />
+          </View>
         </View>
-        <View style={{ flex: 1, alignItems: "flex-end" }}>
-          <Image
-            source={Luci}
-            style={{
-              borderRadius: 100,
-              height: 60,
-              width: 60,
-              borderColor: Colors.light.tint,
-              borderWidth: 2,
-              padding: 3,
-            }}
+        <View style={{ marginTop: 20, flexDirection: "row", gap: 10 }}>
+          <CustomButton
+            title="View Details"
+            type="fill"
+            width="fitNoMargin"
+            onPress={() => router.push("/home/visitDetails")}
           />
+          <CustomButton title="Modify" type="outline" width="fitNoMargin" />
         </View>
-      </View>
-      <View style={{ marginTop: 20, flexDirection: "row", gap: 10 }}>
-        <CustomButton
-          title="View Details"
-          type="fill"
-          width="fitNoMargin"
-          onPress={() => router.push("/home/visitDetails")}
-        />
-        <CustomButton title="Modify" type="outline" width="fitNoMargin" />
       </View>
     </View>
   );

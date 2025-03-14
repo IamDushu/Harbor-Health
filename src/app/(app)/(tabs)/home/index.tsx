@@ -4,6 +4,7 @@ import Recommended from "@/components/Recommended";
 import Reminders from "@/components/Reminders";
 import ScheduleAppointment from "@/components/ScheduleAppointment";
 import UpcomingVisit from "@/components/UpcomingVisit";
+import Colors from "@/constants/Colors";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function HomeTab() {
@@ -29,7 +30,7 @@ export default function HomeTab() {
             fontFamily: "ginto-medium",
             marginTop: 10,
             color: "gray",
-            fontSize: 17,
+            fontSize: 15,
             opacity: 0.9,
           }}
         >

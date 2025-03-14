@@ -3,6 +3,8 @@ import { Image, StyleSheet, View } from "react-native";
 import harborBuilding from "../../assets/icons/building.png";
 import { Text } from "./general/Themed";
 
+import RemoteVisit from "../../assets/icons/remote.svg";
+
 type ItemInfoProps = {
   bottomBorder?: boolean;
   title: string;
@@ -20,13 +22,13 @@ export default function ItemInfo({
         <View style={[styles.container, { gap: 10 }]}>
           <View
             style={{
-              backgroundColor: "#3a8369bf",
+              backgroundColor: "#63daae4b",
               padding: 10,
               borderRadius: 50,
               marginLeft: 20,
             }}
           >
-            <Image source={harborBuilding} style={[styles.icon]} />
+            <RemoteVisit width={40} height={40} />
           </View>
           <View>
             <Text>{title}</Text>

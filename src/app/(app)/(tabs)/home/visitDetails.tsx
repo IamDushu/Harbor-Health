@@ -16,6 +16,8 @@ import harborBuilding from "../../../../../assets/icons/building.png";
 import Luci from "../../../../../assets/LuciLeykum.webp";
 import MapView, { Marker } from "react-native-maps";
 
+import RemoteVisit from "../../../../../assets/icons/remote.svg";
+
 export default function visitDetails() {
   const clinicLocation = {
     latitude: 30.30482,
@@ -81,17 +83,19 @@ export default function visitDetails() {
           justifyContent: "space-around",
         }}
       >
-        <Pressable style={{ width: 50 }}>
+        <Pressable
+          style={{ width: 50, alignItems: "center", justifyContent: "center" }}
+        >
           <View
             style={{
               backgroundColor: "#e6656333",
               padding: 10,
-              height: 50,
-              width: 50,
               borderRadius: "100%",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <Image source={harborBuilding} style={[styles.icon]} />
+            <RemoteVisit width={35} height={35} />
           </View>
           <Text
             style={{
@@ -106,17 +110,19 @@ export default function visitDetails() {
             Modify Visit
           </Text>
         </Pressable>
-        <Pressable style={{ width: 50 }}>
+        <Pressable
+          style={{ width: 50, alignItems: "center", justifyContent: "center" }}
+        >
           <View
             style={{
               backgroundColor: "#e6656333",
               padding: 10,
-              height: 50,
-              width: 50,
               borderRadius: "100%",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <Image source={harborBuilding} style={[styles.icon]} />
+            <RemoteVisit width={35} height={35} />
           </View>
           <Text
             style={{
@@ -131,17 +137,19 @@ export default function visitDetails() {
             Call Office
           </Text>
         </Pressable>
-        <Pressable style={{ width: 50 }}>
+        <Pressable
+          style={{ width: 50, alignItems: "center", justifyContent: "center" }}
+        >
           <View
             style={{
               backgroundColor: "#e6656333",
               padding: 10,
-              height: 50,
-              width: 50,
               borderRadius: "100%",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <Image source={harborBuilding} style={[styles.icon]} />
+            <RemoteVisit width={35} height={35} />
           </View>
           <Text
             style={{
@@ -156,17 +164,19 @@ export default function visitDetails() {
             Add to Calendar
           </Text>
         </Pressable>
-        <Pressable style={{ width: 50 }}>
+        <Pressable
+          style={{ width: 50, alignItems: "center", justifyContent: "center" }}
+        >
           <View
             style={{
               backgroundColor: "#e6656333",
               padding: 10,
-              height: 50,
-              width: 50,
               borderRadius: "100%",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <Image source={harborBuilding} style={[styles.icon]} />
+            <RemoteVisit width={35} height={35} />
           </View>
           <Text
             style={{

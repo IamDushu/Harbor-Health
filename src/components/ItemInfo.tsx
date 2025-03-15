@@ -22,13 +22,15 @@ export default function ItemInfo({
         <View style={[styles.container, { gap: 10 }]}>
           <View
             style={{
-              backgroundColor: "#63daae4b",
+              backgroundColor: "#63daae4f",
               padding: 10,
               borderRadius: 50,
               marginLeft: 20,
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <RemoteVisit width={40} height={40} />
+            <RemoteVisit width={35} height={35} />
           </View>
           <View>
             <Text>{title}</Text>

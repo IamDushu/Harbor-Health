@@ -24,7 +24,7 @@ export default function ScheduleAppointment() {
               borderRadius: 50,
             }}
           >
-            <Hospital width={40} height={40} />
+            <Hospital width={35} height={35} />
           </View>
           <Text>Office Visit</Text>
         </Pressable>
@@ -36,7 +36,7 @@ export default function ScheduleAppointment() {
               borderRadius: 50,
             }}
           >
-            <RemoteVisit width={40} height={40} />
+            <RemoteVisit width={35} height={35} />
           </View>
           <Text>Remote Visit</Text>
         </View>

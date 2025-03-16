@@ -1,4 +1,4 @@
-import Colors from "@/constants/Colors";
+import Colors from "@/constants/theme";
 import { ComponentProps } from "react";
 import { Pressable, StyleProp, StyleSheet, View } from "react-native";
 import { Text } from "./Themed";
@@ -8,6 +8,7 @@ type CustomButtonProps = {
   type?: "fill" | "outline";
   width?: "full" | "fit" | "fitNoMargin";
   disabled?: boolean;
+  flex?: boolean;
 } & ComponentProps<typeof Pressable>;
 
 export default function CustomButton({
@@ -15,6 +16,7 @@ export default function CustomButton({
   type = "fill",
   width = "fit",
   disabled = false,
+  flex = false,
   ...pressableProps
 }: CustomButtonProps) {
   return (
@@ -31,6 +33,7 @@ export default function CustomButton({
           alignSelf: "flex-start",
         },
         disabled === true && styles.disabledButton,
+        flex === true && { flex: 1 },
       ]}
     >
       <Text style={type === "fill" ? styles.fillText : styles.outlineText}>

@@ -4,7 +4,7 @@ import Recommended from "@/components/Recommended";
 import Reminders from "@/components/Reminders";
 import ScheduleAppointment from "@/components/ScheduleAppointment";
 import UpcomingVisit from "@/components/UpcomingVisit";
-import Colors from "@/constants/Colors";
+import Colors from "@/constants/theme";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function HomeTab() {

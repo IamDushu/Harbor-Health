@@ -12,13 +12,13 @@ const AuthContext = createContext<any>(null);
 export function AuthProvider({ children }: PropsWithChildren) {
   const rootSegment = useSegments()[0];
   const router = useRouter();
-  const [user, setUser] = useState<string | undefined>("Dushu");
+  const [user, setUser] = useState<string | undefined>("");
 
   useEffect(() => {
     if (user === undefined) return;
 
     if (!user && rootSegment !== "(auth)") {
-      router.replace("/(auth)/login");
+      router.replace("/(auth)/onboard");
     } else if (user && rootSegment !== "(app)") {
       router.replace("/home");
     }

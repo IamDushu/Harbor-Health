@@ -1,4 +1,4 @@
-import Colors from "@/constants/Colors";
+import Colors from "@/constants/theme";
 import { Text as DefaultText, StyleSheet } from "react-native";
 
 type TextProps = {

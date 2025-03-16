@@ -1,5 +1,13 @@
+import { Dimensions } from "react-native";
+const { width, height } = Dimensions.get("window");
+
 const tintColorLight = "#e66362";
 const tintColorDark = "#141c42";
+
+export const SIZES = {
+  width,
+  height,
+};
 
 export default {
   light: {

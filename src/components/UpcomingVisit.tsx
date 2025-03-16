@@ -1,7 +1,7 @@
 import { View, Image } from "react-native";
 import Luci from "../../assets/LuciLeykum.webp";
 import { Text } from "./general/Themed";
-import Colors from "@/constants/Colors";
+import Colors from "@/constants/theme";
 import CustomButton from "./general/CustomButton";
 import { router } from "expo-router";
 

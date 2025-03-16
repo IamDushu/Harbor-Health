@@ -1,4 +1,4 @@
-import Colors from "@/constants/Colors";
+import Colors from "@/constants/theme";
 import { StyleProp, StyleSheet, Text, View, ViewStyle } from "react-native";
 
 type CardProps = {

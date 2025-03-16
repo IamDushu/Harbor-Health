@@ -1,6 +1,6 @@
 import CustomButton from "@/components/general/CustomButton";
 import { Text } from "@/components/general/Themed";
-import Colors from "@/constants/Colors";
+import Colors from "@/constants/theme";
 import { router } from "expo-router";
 import { useState } from "react";
 import {

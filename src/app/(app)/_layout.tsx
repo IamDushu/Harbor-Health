@@ -1,4 +1,4 @@
-import Colors from "@/constants/Colors";
+import Colors from "@/constants/theme";
 import { Stack } from "expo-router/stack";
 
 export default function AppEntry() {

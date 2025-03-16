@@ -2,7 +2,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import profileImg from "../../assets/profile.jpeg";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Colors from "@/constants/Colors";
+import Colors from "@/constants/theme";
 
 export default function HomeHeader() {
   return (

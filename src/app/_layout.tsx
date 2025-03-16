@@ -9,7 +9,7 @@ import {
   DefaultTheme,
   ThemeProvider,
 } from "@react-navigation/native";
-import Colors from "@/constants/Colors";
+import Colors from "@/constants/theme";
 
 SplashScreen.preventAutoHideAsync();
 

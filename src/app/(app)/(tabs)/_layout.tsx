@@ -1,5 +1,5 @@
 import HomeHeader from "@/components/HomeHeader";
-import Colors from "@/constants/Colors";
+import Colors from "@/constants/theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { Tabs, usePathname } from "expo-router";

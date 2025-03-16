@@ -7,6 +7,7 @@ type CustomButtonProps = {
   title: string;
   type?: "fill" | "outline";
   width?: "full" | "fit" | "fitNoMargin";
+  broadRadius?: boolean;
   disabled?: boolean;
   flex?: boolean;
 } & ComponentProps<typeof Pressable>;
@@ -17,6 +18,7 @@ export default function CustomButton({
   width = "fit",
   disabled = false,
   flex = false,
+  broadRadius = false,
   ...pressableProps
 }: CustomButtonProps) {
   return (
@@ -34,6 +36,7 @@ export default function CustomButton({
         },
         disabled === true && styles.disabledButton,
         flex === true && { flex: 1 },
+        broadRadius === true && { paddingVertical: 15, borderRadius: 10 },
       ]}
     >
       <Text style={type === "fill" ? styles.fillText : styles.outlineText}>

@@ -15,6 +15,7 @@ import onboard4 from "../../../assets/how-it-works.png";
 import HarborLogo from "../../../assets/icons/harbor_logo.svg";
 import theme, { SIZES } from "@/constants/theme";
 import CustomButton from "@/components/general/CustomButton";
+import { router } from "expo-router";
 
 export default function OnboardScreen() {
   const scrollX = new Animated.Value(0);
@@ -100,8 +101,21 @@ export default function OnboardScreen() {
           padding: 20,
         }}
       >
-        <CustomButton title="Log In" width="full" flex={true} />
-        <CustomButton title="Sign up" type="outline" width="full" flex={true} />
+        <CustomButton
+          title="Log In"
+          width="full"
+          flex={true}
+          broadRadius={true}
+          onPress={() => router.push("/(auth)/login")}
+        />
+        <CustomButton
+          title="Sign up"
+          type="outline"
+          width="full"
+          broadRadius={true}
+          flex={true}
+          onPress={() => router.push("/(auth)/signup")}
+        />
       </View>
     </SafeAreaView>
   );

@@ -10,8 +10,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import onboard1 from "../../../assets/clinic-lobby.jpg";
 import onboard2 from "../../../assets/bp-measure.png";
-import onboard3 from "../../../assets/bp-measure.png";
-import onboard4 from "../../../assets/bp-measure.png";
+import onboard3 from "../../../assets/locations_map.png";
+import onboard4 from "../../../assets/how-it-works.png";
 import HarborLogo from "../../../assets/icons/harbor_logo.svg";
 import theme, { SIZES } from "@/constants/theme";
 import CustomButton from "@/components/general/CustomButton";
@@ -171,7 +171,7 @@ const onBoardings = [
         </Text>
       </View>
     ),
-    img: onboard1,
+    img: onboard2,
     link: <Text style={styles.link}>See accepted insurance plans</Text>,
   },
   {
@@ -196,7 +196,7 @@ const onBoardings = [
         </View>
       </View>
     ),
-    img: onboard1,
+    img: onboard4,
     link: (
       <Text style={styles.link}>See additional Harbor Health Services</Text>
     ),
@@ -211,7 +211,7 @@ const onBoardings = [
         </Text>
       </View>
     ),
-    img: onboard1,
+    img: onboard3,
     link: <Text style={styles.link}>See all Harbor Health locations</Text>,
   },
 ];

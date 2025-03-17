@@ -1,3 +1,4 @@
+import theme from "@/constants/theme";
 import Colors from "@/constants/theme";
 import { Stack } from "expo-router/stack";
 
@@ -11,9 +12,9 @@ export default function AuthEntry() {
       <Stack.Screen
         name="login"
         options={{
-          headerTitle: "Login",
-          headerStyle: { backgroundColor: Colors.light.tint },
-          headerTintColor: "white",
+          headerTitle: "",
+          headerStyle: { backgroundColor: "white" },
+          headerTintColor: "#121c44",
           headerShown: false,
         }}
       />
@@ -21,6 +22,15 @@ export default function AuthEntry() {
         name="signup"
         options={{
           headerTitle: "Sign Up",
+          headerStyle: { backgroundColor: Colors.light.tint },
+          headerTintColor: "white",
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="OTPVerification"
+        options={{
+          headerTitle: "Verify OTP",
           headerStyle: { backgroundColor: Colors.light.tint },
           headerTintColor: "white",
           headerShown: false,

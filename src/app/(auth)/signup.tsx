@@ -34,10 +34,16 @@ export default function SignupScreen() {
             padding: 15,
           }}
           keyboardType="email-address"
+          autoFocus
         />
       </View>
       <View style={{ width: "90%", marginHorizontal: "auto" }}>
-        <CustomButton title="Get OTP" width="full" broadRadius={true} />
+        <CustomButton
+          title="Get OTP"
+          width="full"
+          broadRadius={true}
+          disabled
+        />
       </View>
     </SafeAreaView>
   );

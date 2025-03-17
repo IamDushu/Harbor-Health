@@ -55,7 +55,8 @@
             "./assets/fonts/GT-Super-Text-Regular-Trial.otf"
           ]
         }
-      ]
+      ],
+      "expo-secure-store"
     ]
   }
 }

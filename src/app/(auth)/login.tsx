@@ -1,19 +1,44 @@
-import { View, Text, StyleSheet, TextInput, Pressable } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Pressable,
+  Alert,
+} from "react-native";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import HarborLogo from "../../../assets/icons/harbor_logo.svg";
-import theme from "@/constants/theme";
 import CustomButton from "@/components/general/CustomButton";
 import { router } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { requestAuth } from "@/services/authService";
+import { useAuth } from "@/context/auth";
 
 export default function LoginScreen() {
+  const [email, setEmail] = useState("");
+  // const { setToken } = useAuth();
+
+  const handleAuthRequest = async () => {
+    if (!email) {
+      Alert.alert("Error", "Please enter a valid email");
+      return;
+    }
+
+    const token = await requestAuth(email, "login");
+    if (token) {
+      // setToken(token);
+      router.push({
+        pathname: "/(auth)/OTPVerification",
+        params: { token, email },
+      });
+    } else {
+      Alert.alert("Error", "Failed to send authentication request");
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <Pressable
-        onPress={() => router.back()}
-        style={{ width: "90%", marginHorizontal: "auto" }}
-      >
+      <Pressable onPress={() => router.back()}>
         <AntDesign name="arrowleft" size={24} color="black" />
       </Pressable>
       <Text
@@ -25,17 +50,17 @@ export default function LoginScreen() {
           letterSpacing: 1,
           // textAlign: "center",
           marginTop: 50,
-          width: "90%",
-          marginHorizontal: "auto",
         }}
       >
         Welcome back!
       </Text>
-      <View style={{ width: "90%", marginHorizontal: "auto", gap: 10 }}>
+      <View style={{ gap: 10 }}>
         <Text style={{ fontWeight: 500, color: "#121c44" }}>
           Verify your Email address
         </Text>
         <TextInput
+          value={email}
+          onChangeText={setEmail}
           placeholder="email"
           style={{
             borderColor: "gray",
@@ -45,16 +70,16 @@ export default function LoginScreen() {
             padding: 15,
           }}
           keyboardType="email-address"
+          autoCapitalize="none"
           autoFocus
         />
       </View>
-      <View style={{ width: "90%", marginHorizontal: "auto" }}>
+      <View>
         <CustomButton
           title="Get OTP"
           width="full"
           broadRadius={true}
-          disabled
-          onPress={() => router.push("/(auth)/OTPVerification")}
+          onPress={handleAuthRequest}
         />
       </View>
     </SafeAreaView>
@@ -68,5 +93,6 @@ const styles = StyleSheet.create({
     // alignItems: "center",
     backgroundColor: "white",
     gap: 30,
+    padding: 20,
   },
 });

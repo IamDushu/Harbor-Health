@@ -27,13 +27,8 @@ export function AuthProvider({ children }: PropsWithChildren) {
   return (
     <AuthContext.Provider
       value={{
-        user: user,
-        signIn: () => {
-          setUser("Dushu");
-        },
-        signOut: () => {
-          setUser("");
-        },
+        user,
+        setUser,
       }}
     >
       {children}

@@ -1,12 +1,36 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { OtpInput } from "react-native-otp-entry";
 import theme from "@/constants/theme";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import CustomButton from "@/components/general/CustomButton";
+import { useState } from "react";
+import { verifyOTP } from "@/services/authService";
+import { useAuth } from "@/context/auth";
 
 export default function OTPVerificationScreen() {
+  const { email, token } = useLocalSearchParams<{
+    email: string;
+    token: string;
+  }>();
+  const [otp, setOtp] = useState("");
+  const { setUser } = useAuth();
+
+  const handleVerify = async () => {
+    if (!otp) {
+      Alert.alert("Error", "Please enter the OTP");
+      return;
+    }
+
+    const sessionData = await verifyOTP(token, otp);
+    if (sessionData) {
+      setUser(sessionData.email);
+    } else {
+      Alert.alert("Error", "Invalid OTP");
+    }
+  };
+
   return (
     <SafeAreaView
       style={{ padding: 20, gap: 40, flex: 1, backgroundColor: "white" }}
@@ -24,7 +48,7 @@ export default function OTPVerificationScreen() {
           }}
         >
           Enter the OTP sent to {"\n"}
-          hey.dushyanth@gmail.com
+          {email}
         </Text>
       </View>
 
@@ -45,9 +69,14 @@ export default function OTPVerificationScreen() {
           //   borderColor: "red",
           // },
         }}
-        onTextChange={(text) => console.log(text)}
+        onTextChange={(text) => setOtp(text)}
       />
-      <CustomButton title="Done" broadRadius width="full" disabled />
+      <CustomButton
+        title="Done"
+        broadRadius
+        width="full"
+        onPress={handleVerify}
+      />
     </SafeAreaView>
   );
 }

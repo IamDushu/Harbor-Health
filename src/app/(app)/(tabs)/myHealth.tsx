@@ -33,7 +33,7 @@ export default function MyHealthTab() {
             marginBottom: 2,
           }}
         >
-          {user.firstName}
+          {user?.firstName}
         </Text>
         <Text
           style={{

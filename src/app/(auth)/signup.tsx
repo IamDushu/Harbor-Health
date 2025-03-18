@@ -1,12 +1,44 @@
-import { View, Text, StyleSheet, TextInput } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Pressable,
+  Alert,
+} from "react-native";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "@/components/general/CustomButton";
+import { router } from "expo-router";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import { requestAuth } from "@/services/authService";
 
 export default function SignupScreen() {
+  const [email, setEmail] = useState("");
+
+  const handleAuthRequest = async () => {
+    if (!email) {
+      Alert.alert("Oops", "Please enter a valid email");
+      return;
+    }
+
+    const token = await requestAuth(email, "signup");
+    if (token) {
+      // setToken(token);
+      router.push({
+        pathname: "/(auth)/OTPVerification",
+        params: { token, email },
+      });
+    } else {
+      Alert.alert("Error", "Failed to send authentication request");
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* <HarborLogo height={60} width={180} style={{ margin: 10 }} /> */}
+      <Pressable onPress={() => router.back()}>
+        <AntDesign name="arrowleft" size={24} color="black" />
+      </Pressable>
       <Text
         style={{
           fontFamily: "gt-bold",
@@ -14,17 +46,19 @@ export default function SignupScreen() {
           lineHeight: 35,
           color: "#121c44",
           letterSpacing: 1,
-          textAlign: "center",
-          marginTop: 80,
+          // textAlign: "center",
+          marginTop: 50,
         }}
       >
         Join Harbor Health
       </Text>
-      <View style={{ width: "90%", marginHorizontal: "auto", gap: 10 }}>
+      <View style={{ gap: 10 }}>
         <Text style={{ fontWeight: 500, color: "#121c44" }}>
           Enter your Email address
         </Text>
         <TextInput
+          value={email}
+          onChangeText={setEmail}
           placeholder="email"
           style={{
             borderColor: "gray",
@@ -34,15 +68,16 @@ export default function SignupScreen() {
             padding: 15,
           }}
           keyboardType="email-address"
+          autoCapitalize="none"
           autoFocus
         />
       </View>
-      <View style={{ width: "90%", marginHorizontal: "auto" }}>
+      <View>
         <CustomButton
           title="Get OTP"
           width="full"
           broadRadius={true}
-          disabled
+          onPress={handleAuthRequest}
         />
       </View>
     </SafeAreaView>
@@ -53,8 +88,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
     backgroundColor: "white",
     gap: 30,
+    padding: 20,
   },
 });

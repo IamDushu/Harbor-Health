@@ -25,7 +25,15 @@ export default function OTPVerificationScreen() {
 
     const sessionData = await verifyOTP(token, otp);
     if (sessionData) {
-      setUser(sessionData.email);
+      if (sessionData.mode === "signup") {
+        router.dismissAll();
+        router.replace("/personal_info");
+        // router.navigate("/personal_info");
+      }
+
+      if (sessionData.mode === "login") {
+        setUser(sessionData.email);
+      }
     } else {
       Alert.alert("Error", "Invalid OTP");
     }

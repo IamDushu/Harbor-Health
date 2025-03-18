@@ -1,0 +1,16 @@
+[
+  { "name": "Aetna", "code": "Aetna" },
+  { "name": "Blue Cross Blue Shield", "code": "Blue Cross Blue Shield" },
+  { "name": "Cigna", "code": "Cigna" },
+  { "name": "First Health", "code": "First Health" },
+  { "name": "Humana", "code": "Humana" },
+  { "name": "Oscar Health", "code": "Oscar Health" },
+  { "name": "Sendero", "code": "Sendero" },
+  { "name": "United Healthcare", "code": "United Healthcare" },
+  { "name": "SANA", "code": "SANA" },
+  { "name": "Medicare", "code": "Medicare" },
+  { "name": "Superior", "code": "Superior" },
+  { "name": "TRICARE", "code": "TRICARE" },
+  { "name": "Wellmed", "code": "Wellmed" },
+  { "name": "Other", "code": "Other" }
+]

@@ -1,4 +1,3 @@
-import theme from "@/constants/theme";
 import Colors from "@/constants/theme";
 import { Stack } from "expo-router/stack";
 
@@ -34,6 +33,15 @@ export default function AuthEntry() {
           headerStyle: { backgroundColor: Colors.light.tint },
           headerTintColor: "white",
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="(user_info)"
+        options={{
+          headerTitle: "Harbor Health",
+          headerStyle: { backgroundColor: "#121c44" },
+          headerTintColor: "white",
+          // headerShown: false,
         }}
       />
     </Stack>

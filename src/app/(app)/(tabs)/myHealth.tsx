@@ -6,7 +6,7 @@ import { logout } from "@/services/authService";
 import { useAuth } from "@/context/auth";
 
 export default function MyHealthTab() {
-  const { setUser } = useAuth();
+  const { user, setUser } = useAuth();
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <View
@@ -33,7 +33,7 @@ export default function MyHealthTab() {
             marginBottom: 2,
           }}
         >
-          Chaithanya
+          {user.firstName}
         </Text>
         <Text
           style={{
@@ -76,7 +76,7 @@ export default function MyHealthTab() {
           <ItemInfo
             title="Log Out"
             onPress={() => {
-              setUser("");
+              setUser(undefined);
               logout();
             }}
           />

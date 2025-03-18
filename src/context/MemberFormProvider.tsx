@@ -5,6 +5,7 @@ import { Alert } from "react-native";
 import { z } from "zod";
 import * as SecureStore from "expo-secure-store";
 import { useAuth } from "./auth";
+import { getUser } from "@/services/userService";
 
 const eighteenYearsAgo = new Date();
 eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
@@ -121,7 +122,13 @@ export default function MemberFormProvider({ children }: PropsWithChildren) {
       setAddressInfo(undefined);
       setTermsInfo(undefined);
 
-      setUser(response.user_id);
+      const userResponse = await getUser();
+      setUser({
+        id: userResponse.user_id,
+        email: userResponse.email,
+        firstName: userResponse.first_name,
+        lastName: userResponse.last_name,
+      });
 
       router.dismissAll();
       router.replace("/home");

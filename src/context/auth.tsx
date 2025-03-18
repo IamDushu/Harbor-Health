@@ -9,13 +9,20 @@ import {
 
 const AuthContext = createContext<any>(null);
 
+type User = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+};
+
 export function AuthProvider({ children }: PropsWithChildren) {
   const rootSegment = useSegments()[0];
   const router = useRouter();
-  const [user, setUser] = useState<string | undefined>("");
+  const [user, setUser] = useState<User | undefined>();
 
   useEffect(() => {
-    if (user === undefined) return;
+    // if (user === undefined) return;
 
     if (!user && rootSegment !== "(auth)") {
       router.replace("/(auth)/onboard");

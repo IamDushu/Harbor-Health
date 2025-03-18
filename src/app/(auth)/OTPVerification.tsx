@@ -37,7 +37,12 @@ export default function OTPVerificationScreen() {
         try {
           const response = await getUser();
           if (response.is_onboarded) {
-            setUser(sessionData.email);
+            setUser({
+              id: response.user_id,
+              email: response.email,
+              firstName: response.first_name,
+              lastName: response.last_name,
+            });
           } else {
             router.dismissAll();
             router.replace("/personal_info");

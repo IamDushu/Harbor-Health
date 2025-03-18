@@ -3,8 +3,11 @@ import profileImg from "../../assets/profile.jpeg";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "@/constants/theme";
+import { useAuth } from "@/context/auth";
 
 export default function HomeHeader() {
+  const { user } = useAuth();
+
   return (
     <SafeAreaView
       edges={["top"]}
@@ -20,7 +23,7 @@ export default function HomeHeader() {
     >
       <View style={[styles.container, { gap: 15 }]}>
         <Image source={profileImg} style={[styles.profileImg]} />
-        <Text style={[styles.headerFont]}>Chaithanya</Text>
+        <Text style={[styles.headerFont]}>{user.firstName}</Text>
       </View>
       <View>
         <FontAwesome6 size={20} name="gear" color={"white"} />
@@ -45,7 +48,7 @@ const styles = StyleSheet.create({
   },
   headerFont: {
     fontFamily: "gt-bold",
-    fontSize: 23,
+    fontSize: 25,
     color: "white",
   },
 });

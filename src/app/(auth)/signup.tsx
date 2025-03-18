@@ -30,7 +30,7 @@ export default function SignupScreen() {
         params: { token, email },
       });
     } else {
-      Alert.alert("Error", "Failed to send authentication request");
+      Alert.alert("Oops", "Check your email once.");
     }
   };
 

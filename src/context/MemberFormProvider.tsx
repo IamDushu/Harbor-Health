@@ -1,6 +1,10 @@
+import { createNewMember } from "@/services/memberService";
 import { router } from "expo-router";
 import { createContext, PropsWithChildren, useContext, useState } from "react";
+import { Alert } from "react-native";
 import { z } from "zod";
+import * as SecureStore from "expo-secure-store";
+import { useAuth } from "./auth";
 
 const eighteenYearsAgo = new Date();
 eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
@@ -63,7 +67,7 @@ type MemberFormContext = {
   setPersonalInfo: (val: PersonalInfo | undefined) => void;
   setAddressInfo: (val: AddressInfo | undefined) => void;
   setTermsInfo: (val: TermsInfo | undefined) => void;
-  onSubmit: () => void;
+  onSubmit: (val: TermsInfo) => void;
 };
 
 const memberFormContext = createContext<MemberFormContext>({
@@ -81,22 +85,49 @@ export default function MemberFormProvider({ children }: PropsWithChildren) {
   const [addressInfo, setAddressInfo] = useState<AddressInfo | undefined>();
   const [termsInfo, setTermsInfo] = useState<TermsInfo | undefined>();
 
-  const onSubmit = () => {
-    if (!personalInfo || !addressInfo || !termsInfo) {
-      console.log("The form is incomplete");
+  const { setUser } = useAuth();
+
+  //passing termsData here as termsInfo is not updated when we call this function.
+  const onSubmit = async (termsData?: TermsInfo) => {
+    if (!personalInfo || !addressInfo || !termsData) {
+      Alert.alert("Error", "Please complete all required fields.");
       return;
     }
 
     // send form data to the server
 
-    //clear fields
-    setPersonalInfo(undefined);
-    setAddressInfo(undefined);
-    setTermsInfo(undefined);
+    try {
+      const accessToken = await SecureStore.getItemAsync("access_token");
+      if (!accessToken) {
+        Alert.alert("Error", "No access token found. Please log in.");
+        return;
+      }
 
-    //set user and redirect next
-    router.dismissAll();
-    router.replace("/home");
+      const newMemberData = {
+        first_name: personalInfo.firstName,
+        last_name: personalInfo.lastName,
+        phone_number: personalInfo.phoneNumber,
+        date_of_birth: personalInfo.dateOfBirth.toISOString(),
+        gender: personalInfo.gender as "male" | "female",
+        address_line_one: addressInfo.address_line_one,
+        address_line_two: addressInfo.address_line_two,
+        insurance: addressInfo.insurance,
+        accepted_terms: termsData.accepted_terms,
+      };
+
+      const response = await createNewMember(newMemberData);
+
+      setPersonalInfo(undefined);
+      setAddressInfo(undefined);
+      setTermsInfo(undefined);
+
+      setUser(response.user_id);
+
+      router.dismissAll();
+      router.replace("/home");
+    } catch (error: any) {
+      Alert.alert("Error", error.message || "Failed to create member.");
+    }
   };
 
   return (

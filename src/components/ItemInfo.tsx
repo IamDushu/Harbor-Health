@@ -1,23 +1,25 @@
 import { AntDesign } from "@expo/vector-icons";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 import harborBuilding from "../../assets/icons/building.png";
 import { Text } from "./general/Themed";
 
 import RemoteVisit from "../../assets/icons/remote.svg";
+import { ComponentProps } from "react";
 
 type ItemInfoProps = {
   bottomBorder?: boolean;
   title: string;
   description?: string;
-};
+} & ComponentProps<typeof Pressable>;
 
 export default function ItemInfo({
   bottomBorder = true,
   title,
   description,
+  ...pressableProps
 }: ItemInfoProps) {
   return (
-    <>
+    <Pressable {...pressableProps}>
       <View style={[styles.container, { marginVertical: 20 }]}>
         <View style={[styles.container, { gap: 10 }]}>
           <View
@@ -59,7 +61,7 @@ export default function ItemInfo({
           }}
         />
       )}
-    </>
+    </Pressable>
   );
 }
 

@@ -1,4 +1,4 @@
-import { View, Text, KeyboardAvoidingView, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 import React from "react";
 import CustomButton from "@/components/general/CustomButton";
 import { router } from "expo-router";
@@ -22,7 +22,7 @@ export default function terms_info() {
 
   const onNext: SubmitHandler<TermsInfo> = (data) => {
     setTermsInfo(data);
-    onSubmit();
+    onSubmit(data);
   };
 
   return (

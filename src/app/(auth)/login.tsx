@@ -16,7 +16,6 @@ import { useAuth } from "@/context/auth";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
-  // const { setToken } = useAuth();
 
   const handleAuthRequest = async () => {
     if (!email) {
@@ -26,13 +25,12 @@ export default function LoginScreen() {
 
     const token = await requestAuth(email, "login");
     if (token) {
-      // setToken(token);
       router.push({
         pathname: "/(auth)/OTPVerification",
-        params: { token, email },
+        params: { token, email, mode: "login" },
       });
     } else {
-      Alert.alert("Error", "Failed to send authentication request");
+      Alert.alert("Oops", "Check your email once.");
     }
   };
 

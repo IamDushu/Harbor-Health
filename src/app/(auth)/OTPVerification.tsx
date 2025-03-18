@@ -10,9 +10,10 @@ import { verifyOTP } from "@/services/authService";
 import { useAuth } from "@/context/auth";
 
 export default function OTPVerificationScreen() {
-  const { email, token } = useLocalSearchParams<{
+  const { email, token, mode } = useLocalSearchParams<{
     email: string;
     token: string;
+    mode: "login" | "signup";
   }>();
   const [otp, setOtp] = useState("");
   const { setUser } = useAuth();
@@ -85,6 +86,20 @@ export default function OTPVerificationScreen() {
         width="full"
         onPress={handleVerify}
       />
+      <View style={{ flexDirection: "row", gap: 10 }}>
+        <AntDesign name="infocirlceo" size={12} color={theme.light.tint} />
+        {mode === "login" ? (
+          <Text style={{ fontSize: 12 }}>
+            A code has been sent to {email} if you have an account. Don’t have
+            one? Sign up now to receive your OTP.
+          </Text>
+        ) : (
+          <Text style={{ fontSize: 12 }}>
+            A code has been sent to {email}. Already have an account? Login to
+            receive your OTP.
+          </Text>
+        )}
+      </View>
     </SafeAreaView>
   );
 }

@@ -2,9 +2,11 @@ import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import profile from "../../../../assets/profile.jpeg";
 import ItemInfo from "@/components/ItemInfo";
-import Luci from "../../../../assets/LuciLeykum.webp";
+import { logout } from "@/services/authService";
+import { useAuth } from "@/context/auth";
 
 export default function MyHealthTab() {
+  const { setUser } = useAuth();
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <View
@@ -71,6 +73,13 @@ export default function MyHealthTab() {
           <ItemInfo title="Health Screenings" />
           <ItemInfo title="Request Records" />
           <ItemInfo title="Past Appointments" />
+          <ItemInfo
+            title="Log Out"
+            onPress={() => {
+              setUser("");
+              logout();
+            }}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>

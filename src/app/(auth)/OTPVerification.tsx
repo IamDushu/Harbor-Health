@@ -8,6 +8,7 @@ import CustomButton from "@/components/general/CustomButton";
 import { useState } from "react";
 import { verifyOTP } from "@/services/authService";
 import { useAuth } from "@/context/auth";
+import { getUser } from "@/services/userService";
 
 export default function OTPVerificationScreen() {
   const { email, token, mode } = useLocalSearchParams<{
@@ -33,7 +34,15 @@ export default function OTPVerificationScreen() {
       }
 
       if (sessionData.mode === "login") {
-        setUser(sessionData.email);
+        try {
+          const response = await getUser();
+          if (response.is_onboarded) {
+            setUser(sessionData.email);
+          } else {
+            router.dismissAll();
+            router.replace("/personal_info");
+          }
+        } catch {}
       }
     } else {
       Alert.alert("Error", "Invalid OTP");

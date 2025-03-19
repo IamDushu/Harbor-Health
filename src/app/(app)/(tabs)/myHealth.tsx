@@ -7,6 +7,7 @@ import { useAuth } from "@/context/auth";
 
 export default function MyHealthTab() {
   const { user, setUser } = useAuth();
+
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <View

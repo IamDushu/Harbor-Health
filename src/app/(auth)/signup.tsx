@@ -30,7 +30,7 @@ export default function SignupScreen() {
         params: { token, email },
       });
     } else {
-      Alert.alert("Oops", "Check your email once.");
+      Alert.alert("Oops", `Something went wrong.${"\n"}Contact Support`);
     }
   };
 

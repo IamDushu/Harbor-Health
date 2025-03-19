@@ -30,7 +30,7 @@ export default function LoginScreen() {
         params: { token, email, mode: "login" },
       });
     } else {
-      Alert.alert("Oops", "Check your email once.");
+      Alert.alert("Oops", `Something went wrong.${"\n"}Contact Support`);
     }
   };
 

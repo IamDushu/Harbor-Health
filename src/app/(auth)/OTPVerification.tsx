@@ -42,6 +42,7 @@ export default function OTPVerificationScreen() {
               email: response.email,
               firstName: response.first_name,
               lastName: response.last_name,
+              streamToken: sessionData.stream_token,
             });
           } else {
             router.dismissAll();

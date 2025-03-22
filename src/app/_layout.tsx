@@ -10,6 +10,7 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import Colors from "@/constants/theme";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -37,7 +38,9 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === "light" ? DefaultTheme : DarkTheme}>
       <AuthProvider>
-        <Slot />
+        <GestureHandlerRootView>
+          <Slot />
+        </GestureHandlerRootView>
       </AuthProvider>
     </ThemeProvider>
   );

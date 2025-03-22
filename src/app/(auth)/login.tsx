@@ -22,7 +22,6 @@ export default function LoginScreen() {
       Alert.alert("Error", "Please enter a valid email");
       return;
     }
-
     const token = await requestAuth(email, "login");
     if (token) {
       router.push({

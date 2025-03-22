@@ -39,6 +39,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <Ionicons name="mail" size={24} color={color} />
           ),
+          headerShown: false,
         }}
       />
       <Tabs.Screen

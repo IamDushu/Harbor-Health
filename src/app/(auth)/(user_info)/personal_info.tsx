@@ -74,6 +74,7 @@ export default function personal_info() {
               name="phoneNumber"
               autoCorrect={false}
               label="Phone number"
+              keyboardType="number-pad"
             />
             <CustomDateTimePicker
               name="dateOfBirth"

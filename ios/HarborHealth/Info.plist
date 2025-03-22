@@ -51,9 +51,42 @@
       <key>NSAllowsLocalNetworking</key>
       <true/>
     </dict>
+    <key>NSCameraUsageDescription</key>
+    <string>$(PRODUCT_NAME) would like to use your camera to share image in a message.</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>Allow $(PRODUCT_NAME) to access your Face ID biometric data.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>$(PRODUCT_NAME) would like to use your microphone for voice recording.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>$(PRODUCT_NAME) would like to save photos to your photo gallery after downloading from a message.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>$(PRODUCT_NAME) would like access to your photo gallery to share image in a message.</string>
     <key>NSUserActivityTypes</key>
     <array>
       <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
+    </array>
+    <key>UIAppFonts</key>
+    <array>
+      <string>GT-Super-Display-Bold-Italic-Trial.otf</string>
+      <string>GT-Super-Display-Bold-Trial.otf</string>
+      <string>GT-Super-Display-Light-Italic-Trial.otf</string>
+      <string>GT-Super-Display-Light-Trial.otf</string>
+      <string>GT-Super-Display-Medium-Italic-Trial.otf</string>
+      <string>GT-Super-Display-Medium-Trial.otf</string>
+      <string>GT-Super-Display-Regular-Italic-Trial.otf</string>
+      <string>GT-Super-Display-Regular-Trial.otf</string>
+      <string>GT-Super-Display-Super-Italic-Trial.otf</string>
+      <string>GT-Super-Display-Super-Trial.otf</string>
+      <string>GT-Super-Text-Black-Italic-Trial.otf</string>
+      <string>GT-Super-Text-Black-Trial.otf</string>
+      <string>GT-Super-Text-Bold-Italic-Trial.otf</string>
+      <string>GT-Super-Text-Bold-Trial.otf</string>
+      <string>GT-Super-Text-Book-Italic-Trial.otf</string>
+      <string>GT-Super-Text-Book-Trial.otf</string>
+      <string>GT-Super-Text-Medium-Italic-Trial.otf</string>
+      <string>GT-Super-Text-Medium-Trial.otf</string>
+      <string>GT-Super-Text-Regular-Italic-Trial.otf</string>
+      <string>GT-Super-Text-Regular-Trial.otf</string>
     </array>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>

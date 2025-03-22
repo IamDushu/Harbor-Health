@@ -11,11 +11,12 @@ import { getUser } from "@/services/userService";
 
 const AuthContext = createContext<any>(null);
 
-type User = {
+export type User = {
   id: string;
   firstName: string;
   lastName: string;
   email: string;
+  streamToken: string;
 };
 
 export function AuthProvider({ children }: PropsWithChildren) {
@@ -28,19 +29,20 @@ export function AuthProvider({ children }: PropsWithChildren) {
     try {
       const accessToken = await SecureStore.getItemAsync("access_token");
       const refreshToken = await SecureStore.getItemAsync("refresh_token");
+      const streamToken = await SecureStore.getItemAsync("stream_token");
       const email = await SecureStore.getItemAsync("email");
 
       if (accessToken && email) {
         const response = await getUser();
-
-        // Simulate fetching user details from a server using stored tokens
-        const userData = {
-          id: response.user_id,
-          email: response.email,
-          firstName: response.first_name,
-          lastName: response.last_name,
-        };
-        setUser(userData);
+        if (response.is_onboarded) {
+          setUser({
+            id: response.user_id,
+            email: response.email,
+            firstName: response.first_name,
+            lastName: response.last_name,
+            streamToken: streamToken!,
+          });
+        }
       }
     } catch (error) {
       console.error("Error loading user from SecureStore", error);

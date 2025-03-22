@@ -24,7 +24,7 @@ export const requestAuth = async (
   mode: "login" | "signup"
 ): Promise<string | null> => {
   try {
-    const response = await axios.post(`${API_BASE_URL!}/registration/email`, {
+    const response = await axios.post(`${API_BASE_URL}/registration/email`, {
       email,
       mode,
     });
@@ -53,6 +53,7 @@ export const verifyOTP = async (
 
     await saveToken("access_token", response.data.access_token);
     await saveToken("refresh_token", response.data.refresh_token);
+    await saveToken("stream_token", response.data.stream_token);
     await saveToken("session_id", response.data.session_id);
     await saveToken("email", response.data.email);
 
@@ -74,6 +75,7 @@ export const isAuthenticated = async (): Promise<boolean> => {
 export const logout = async () => {
   await removeToken("access_token");
   await removeToken("refresh_token");
+  await removeToken("stream_token");
   await removeToken("session_id");
   await removeToken("email");
 };

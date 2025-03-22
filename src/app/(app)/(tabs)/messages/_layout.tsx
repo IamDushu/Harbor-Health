@@ -1,3 +1,4 @@
+import theme from "@/constants/theme";
 import { useAuth } from "@/context/auth";
 import { Stack } from "expo-router";
 import { useEffect, useState } from "react";
@@ -14,11 +15,11 @@ export default function ChatLayout() {
     const connectUser = async () => {
       await client.connectUser(
         {
-          id: "dhana",
-          name: "Dhana",
+          id: user.id.toString(),
+          name: user.firstName,
           image: "https://i.imgur.com/fR9Jz14.png",
         },
-        client.devToken("dhana")
+        user.streamToken
       );
 
       const channel = client.channel("livestream", "public", {
@@ -38,7 +39,14 @@ export default function ChatLayout() {
     <OverlayProvider>
       <Chat client={client}>
         <Stack>
-          <Stack.Screen name="index" options={{ title: "Messages" }} />
+          <Stack.Screen
+            name="index"
+            options={{
+              title: "Messages",
+              headerStyle: { backgroundColor: theme.light.tint },
+              headerTintColor: "white",
+            }}
+          />
           <Stack.Screen name="channel/[id]" options={{ title: "Chat" }} />
         </Stack>
       </Chat>

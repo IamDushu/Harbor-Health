@@ -19,7 +19,7 @@ export default function BookingSelect() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <KeyboardAvoidingView style={{ flex: 1 }}>
-        <View
+        {/* <View
           style={{
             padding: 20,
             flexDirection: "row",
@@ -53,7 +53,7 @@ export default function BookingSelect() {
               style={{ paddingVertical: 0 }}
             />
           </ScrollView>
-        </View>
+        </View> */}
         <View
           style={{
             alignItems: "center",

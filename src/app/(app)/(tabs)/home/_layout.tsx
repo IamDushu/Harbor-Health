@@ -18,14 +18,10 @@ export default function HomeStack() {
         }}
       />
       <Stack.Screen
-        name="(booking)/bookingDetails"
+        name="(booking)"
         options={{
-          headerTitle: "Book Visit",
+          headerShown: false,
         }}
-      />
-      <Stack.Screen
-        name="(booking)/bookingSelect"
-        options={{ headerTitle: "Book In-Office Visit" }}
       />
       <Stack.Screen
         name="visitDetails"

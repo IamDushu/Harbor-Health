@@ -12,6 +12,18 @@ export type Visit = {
   notes?: string;
 };
 
+export type UpcomingVisit = {
+  visit_id?: string;
+  scheduled_at?: string;
+  provider_image_url?: {
+    String?: string;
+    Valid?: string;
+  };
+  provider_firstname?: string;
+  provider_lastname?: string;
+  provider_credentials?: string;
+};
+
 export type Provider = {
   provider_id?: string;
   first_name?: string;

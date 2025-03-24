@@ -3,8 +3,7 @@ import OnDemandCare from "@/components/OnDemandCare";
 import Recommended from "@/components/Recommended";
 import Reminders from "@/components/Reminders";
 import ScheduleAppointment from "@/components/ScheduleAppointment";
-import UpcomingVisit from "@/components/UpcomingVisit";
-import Colors from "@/constants/theme";
+import UpcomingVisits from "@/components/UpcomingVisit";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function HomeTab() {
@@ -12,7 +11,7 @@ export default function HomeTab() {
     <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
       <View style={styles.container}>
         <View style={{ backgroundColor: "white" }}>
-          <UpcomingVisit />
+          <UpcomingVisits />
           <ScheduleAppointment />
         </View>
         <OnDemandCare />

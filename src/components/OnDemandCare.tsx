@@ -8,10 +8,10 @@ export default function OnDemandCare() {
         title="Manage Prescriptions"
         description="Requests and renewals"
       />
-      <ItemInfo
+      {/* <ItemInfo
         title="Treat Me Now"
         description="In-app help with common issues"
-      />
+      /> */}
       <ItemInfo
         title="Urgent Video Chat"
         description="Ideal for time-sensitive needs"

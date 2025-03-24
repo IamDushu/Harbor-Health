@@ -64,3 +64,30 @@ export const getUpcomingVisits = async () => {
     );
   }
 };
+
+export const getUpcomingVisitInfo = async (visitId: string) => {
+  try {
+    const accessToken = await SecureStore.getItemAsync("access_token");
+
+    if (!accessToken) {
+      throw new Error("No access token found. Please log in.");
+    }
+
+    const response = await axios.get(`${API_BASE_URL}/visits/${visitId}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response.data;
+  } catch (error: any) {
+    console.error(
+      "Error getting upcoming visit info:",
+      error?.response?.data || error.message
+    );
+    throw new Error(
+      error?.response?.data?.message || "Failed to get upcoming visit info."
+    );
+  }
+};

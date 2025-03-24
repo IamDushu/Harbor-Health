@@ -7,21 +7,42 @@ import {
   StyleSheet,
   Linking,
   Platform,
+  ActivityIndicator,
 } from "react-native";
-import northCentral from "../../../../../assets/northCentral.jpg";
 import { LinearGradient } from "expo-linear-gradient";
 import { Text } from "@/components/general/Themed";
 import Colors from "@/constants/theme";
-import harborBuilding from "../../../../../assets/icons/building.png";
 import Luci from "../../../../../assets/LuciLeykum.webp";
 import MapView, { Marker } from "react-native-maps";
 
 import RemoteVisit from "../../../../../assets/icons/remote.svg";
+import { useLocalSearchParams } from "expo-router";
+import { useEffect, useState } from "react";
+import { getUpcomingVisitInfo } from "@/services/visitService";
+import { VisitInfo } from "@/types/models";
+import dayjs from "dayjs";
 
 export default function visitDetails() {
+  const { visit_id } = useLocalSearchParams();
+  const [visitInfo, setVisitInfo] = useState<VisitInfo>();
+
+  useEffect(() => {
+    const fetchVisitInfo = async () => {
+      const _id = typeof visit_id === "string" ? visit_id : visit_id[0];
+      const response = await getUpcomingVisitInfo(_id);
+      setVisitInfo(response);
+    };
+
+    fetchVisitInfo();
+  }, []);
+
+  if (!visitInfo) {
+    return <ActivityIndicator />;
+  }
+
   const clinicLocation = {
-    latitude: 30.30482,
-    longitude: -97.74298,
+    latitude: visitInfo?.latitude ? parseFloat(visitInfo.latitude) : 0,
+    longitude: visitInfo?.longitude ? parseFloat(visitInfo.longitude) : 0,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   };
@@ -36,11 +57,15 @@ export default function visitDetails() {
     url && Linking.openURL(url);
   };
 
+  const formattedTime = dayjs.utc(visitInfo.visit_time).format("h:mm A");
+
+  const formattedDay = dayjs.utc(visitInfo.visit_time).format("dddd, MMM D");
+
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
       <View style={{ height: 220, position: "relative" }}>
         <Image
-          source={northCentral}
+          source={{ uri: visitInfo.location_image?.String }}
           style={{ height: "100%", width: "100%" }}
         />
         <LinearGradient
@@ -54,10 +79,10 @@ export default function visitDetails() {
         />
         <View style={{ position: "absolute", bottom: 20, left: 20 }}>
           <T style={{ color: "white", fontSize: 20, opacity: 0.8 }}>
-            4:00 PM CST
+            {formattedTime} CST
           </T>
           <T style={{ color: "white", fontSize: 20, opacity: 0.8 }}>
-            Monday, March 10
+            {formattedDay}
           </T>
         </View>
       </View>
@@ -203,7 +228,7 @@ export default function visitDetails() {
       >
         <View>
           <Image
-            source={Luci}
+            source={{ uri: visitInfo.provider_image?.String }}
             style={{
               borderRadius: 100,
               height: 60,
@@ -212,19 +237,23 @@ export default function visitDetails() {
           />
         </View>
         <View>
-          <Text>Luci Leykum. MD</Text>
-          <Text textType="light" style={{ marginTop: 2 }}>
-            North Central Clinic{"\n"}
-            911 W 38th St Suite 101{"\n"}
-            Austin, TX
+          <Text>
+            {visitInfo.provider_name}. {visitInfo.provider_credentials}
+          </Text>
+          <Text
+            textType="light"
+            style={{ width: "50%" }}
+            lineBreakStrategyIOS="hangul-word"
+          >
+            {visitInfo.location_address}
           </Text>
         </View>
       </View>
       <MapView style={styles.map} initialRegion={clinicLocation}>
         <Marker
           coordinate={clinicLocation}
-          title="North Central Clinic"
-          description="911 W 38th St Suite 101, Austin, TX"
+          title={visitInfo.location_name}
+          description={visitInfo.location_address}
           onPress={openMaps}
         />
       </MapView>

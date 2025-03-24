@@ -12,6 +12,26 @@ export type Visit = {
   notes?: string;
 };
 
+export type VisitInfo = {
+  visit_id?: string;
+  location_phone?: string;
+  latitude?: string;
+  longitude?: string;
+  location_name?: string;
+  location_address?: string;
+  location_image?: {
+    String?: string;
+    Valid?: string;
+  };
+  provider_image?: {
+    String?: string;
+    Valid?: string;
+  };
+  provider_name?: string;
+  provider_credentials?: string;
+  visit_time?: string;
+};
+
 export type UpcomingVisit = {
   visit_id?: string;
   scheduled_at?: string;

@@ -1,19 +1,10 @@
-import { View, Image } from "react-native";
-import { Text } from "./general/Themed";
-import Colors from "@/constants/theme";
-
+import { View } from "react-native";
 import { useEffect, useState } from "react";
 import { getUpcomingVisits } from "@/services/visitService";
 import { UpcomingVisit } from "@/types/models";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import {
-  Extrapolation,
-  interpolate,
-  runOnJS,
-  useAnimatedStyle,
-  useSharedValue,
-} from "react-native-reanimated";
+import { useSharedValue } from "react-native-reanimated";
 import VisitCard from "./animated/VisitCard";
 import theme from "@/constants/theme";
 
@@ -22,7 +13,6 @@ dayjs.extend(utc);
 export default function UpcomingVisits() {
   const [upcomingVisits, setUpcomingVisits] = useState<UpcomingVisit[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [activityIndex, setActivityIndex] = useState(0);
   const animatedValue = useSharedValue(0);
   const MAX = 3;
 

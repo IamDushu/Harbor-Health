@@ -124,6 +124,13 @@ export default function VisitCard({
     .utc(item.scheduled_at)
     .format("ddd, MMM D h:mm A");
 
+  const handleClick = () => {
+    router.push({
+      pathname: "/home/visitDetails",
+      params: { visit_id: item.visit_id },
+    });
+  };
+
   return (
     <GestureDetector gesture={pan}>
       <Animated.View
@@ -182,7 +189,7 @@ export default function VisitCard({
             title="View Details"
             type="fill"
             width="fitNoMargin"
-            onPress={() => router.push("/home/visitDetails")}
+            onPress={handleClick}
           />
           <CustomButton title="Modify" type="outline" width="fitNoMargin" />
         </View>

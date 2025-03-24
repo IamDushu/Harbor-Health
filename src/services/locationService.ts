@@ -1,19 +1,9 @@
-import { Visit } from "@/types/models";
 import axios from "axios";
 import * as SecureStore from "expo-secure-store";
 
 const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL;
 
-export type CreateVisitArgs = {
-  user_id: string;
-  provider_id: string;
-  location_id: string;
-  date: string;
-  start_time: string;
-  notes: string;
-};
-
-export const bookNewVisit = async (visitData: CreateVisitArgs) => {
+export const getLocations = async () => {
   try {
     const accessToken = await SecureStore.getItemAsync("access_token");
 
@@ -21,7 +11,7 @@ export const bookNewVisit = async (visitData: CreateVisitArgs) => {
       throw new Error("No access token found. Please log in.");
     }
 
-    const response = await axios.post(`${API_BASE_URL}/visits`, visitData, {
+    const response = await axios.get(`${API_BASE_URL}/locations`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "application/json",
@@ -31,9 +21,11 @@ export const bookNewVisit = async (visitData: CreateVisitArgs) => {
     return response.data;
   } catch (error: any) {
     console.error(
-      "Error Booking new Visit",
+      "Error getting locations:",
       error?.response?.data || error.message
     );
-    throw new Error(error?.response?.data?.message || "Failed to book visit.");
+    throw new Error(
+      error?.response?.data?.message || "Failed to get locations."
+    );
   }
 };

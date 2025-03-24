@@ -1,238 +1,114 @@
-import CustomButton from "@/components/general/CustomButton";
 import { Text } from "@/components/general/Themed";
 import {
-  Image,
-  Keyboard,
+  FlatList,
   KeyboardAvoidingView,
-  ScrollView,
-  StyleSheet,
+  Pressable,
   Text as T,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
   View,
 } from "react-native";
-import Luci from "../../../../../../assets/LuciLeykum.webp";
-import Clay from "../../../../../../assets/ClayJohnston.webp";
-import Amy from "../../../../../../assets/AmyAcker.webp";
-import { router } from "expo-router";
+import ProviderAvailability from "@/components/ProviderAvailability";
+import { useEffect, useState } from "react";
+import { getProvidersFromLocation } from "@/services/providerService";
+import { useBooking } from "@/store";
+import { Provider } from "@/types/models";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+import dayjs from "dayjs";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 export default function BookingSelect() {
+  const booking = useBooking((state) => state.visitBooking);
+  const [providers, setProviders] = useState<Provider[]>([]);
+  const [isDatePickerVisible, setDatePickerVisible] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date>(
+    dayjs().add(1, "day").toDate()
+  );
+
+  useEffect(() => {
+    const fetchProviders = async () => {
+      if (booking?.location_id) {
+        const response = await getProvidersFromLocation(booking.location_id);
+        setProviders(response);
+      }
+    };
+
+    fetchProviders();
+  }, [booking]);
+
+  const handleDateConfirm = (date: Date) => {
+    setSelectedDate(dayjs(date).startOf("day").toDate());
+    setDatePickerVisible(false);
+  };
+
+  // TODO: Make this today after backend filtering is implemented
+  const today = dayjs().toDate();
+  const tomorrow = dayjs().add(1, "day").startOf("day").toDate();
+  const endOfYear = dayjs().endOf("year").toDate();
+
+  const increaseDate = () => {
+    const newDate = dayjs(selectedDate).add(1, "day");
+
+    if (newDate.isAfter(dayjs(endOfYear))) return;
+
+    setSelectedDate(newDate.toDate());
+  };
+
+  const decreaseDate = () => {
+    const newDate = dayjs(selectedDate).subtract(1, "day");
+
+    if (newDate.isBefore(dayjs(tomorrow).startOf("day"))) return;
+
+    setSelectedDate(newDate.toDate());
+  };
+
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <KeyboardAvoidingView style={{ flex: 1 }}>
-        {/* <View
-          style={{
-            padding: 20,
-            flexDirection: "row",
-            gap: 10,
-            alignItems: "center",
-            backgroundColor: "white",
-          }}
-        >
-          <Text style={{ paddingRight: 20 }}>Filters</Text>
-          <ScrollView
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            style={{
-              marginHorizontal: -20,
-            }}
-            contentContainerStyle={{ gap: 10 }}
-          >
-            <CustomButton
-              title="Locations"
-              type="outline"
-              style={{ paddingVertical: 0 }}
-            />
-            <CustomButton
-              title="Dates"
-              type="outline"
-              style={{ paddingVertical: 0 }}
-            />
-            <CustomButton
-              title="Providers"
-              type="outline"
-              style={{ paddingVertical: 0 }}
-            />
-          </ScrollView>
-        </View> */}
+    <KeyboardAvoidingView style={{ flex: 1 }}>
+      <TouchableOpacity onPress={() => setDatePickerVisible(true)}>
         <View
           style={{
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "space-between",
             padding: 20,
+            flexDirection: "row",
           }}
         >
-          <Text textType="bold">Tue Feb 22</Text>
+          <Pressable onPress={decreaseDate}>
+            <AntDesign name="left" size={24} color="black" />
+          </Pressable>
+          <Text>
+            {dayjs(selectedDate).format("ddd MMM D") || "Pick a Date"}
+          </Text>
+          <Pressable onPress={increaseDate}>
+            <AntDesign name="right" size={24} color="black" />
+          </Pressable>
         </View>
-        <ScrollView style={{ flex: 1, backgroundColor: "white" }}>
-          <View
-            style={{
-              marginLeft: 20,
-              paddingVertical: 20,
-              gap: 20,
-              borderBottomColor: "gray",
-              borderBottomWidth: StyleSheet.hairlineWidth,
-            }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 20,
-              }}
-            >
-              <Image
-                source={Luci}
-                style={{ borderRadius: "50%", width: 60, height: 60 }}
-              />
-              <View>
-                <Text>Luci Leykum, MD</Text>
-                <Text textType="light" style={{ marginTop: 2 }}>
-                  Internal Medicine Physician
-                </Text>
-              </View>
-            </View>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ gap: 3, paddingLeft: 20 }}
-              style={{
-                marginLeft: -20,
-              }}
-            >
-              <CustomButton
-                title="3:30pm"
-                type="fill"
-                style={{ paddingVertical: 0 }}
-              />
-              <CustomButton
-                title="4:00pm"
-                type="fill"
-                style={{ paddingVertical: 0 }}
-                onPress={() => router.push("/bookingConfirm")}
-              />
-              <CustomButton
-                title="4:30pm"
-                type="fill"
-                style={{ paddingVertical: 0 }}
-              />
-              <CustomButton
-                title="4:45pm"
-                type="fill"
-                style={{ paddingVertical: 0 }}
-              />
-            </ScrollView>
-          </View>
-          <View
-            style={{
-              marginLeft: 20,
-              paddingVertical: 20,
-              gap: 20,
-              borderBottomColor: "gray",
-              borderBottomWidth: StyleSheet.hairlineWidth,
-            }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 20,
-              }}
-            >
-              <Image
-                source={Clay}
-                style={{ borderRadius: "50%", width: 60, height: 60 }}
-              />
-              <View>
-                <Text>Clay Johnston, PhD, MD, MPH</Text>
-                <Text textType="light" style={{ marginTop: 2 }}>
-                  Family Physician
-                </Text>
-              </View>
-            </View>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ gap: 3, paddingLeft: 20 }}
-              style={{
-                marginLeft: -20,
-              }}
-            >
-              <CustomButton
-                title="1:00pm"
-                type="fill"
-                style={{ paddingVertical: 0 }}
-              />
-              <CustomButton
-                title="2:30pm"
-                type="fill"
-                style={{ paddingVertical: 0 }}
-              />
-              <CustomButton
-                title="3:15pm"
-                type="fill"
-                style={{ paddingVertical: 0 }}
-              />
-            </ScrollView>
-          </View>
-          <View
-            style={{
-              marginLeft: 20,
-              paddingVertical: 20,
-              gap: 20,
-              borderBottomColor: "gray",
-              borderBottomWidth: StyleSheet.hairlineWidth,
-            }}
-          >
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 20,
-              }}
-            >
-              <Image
-                source={Amy}
-                style={{ borderRadius: "50%", width: 60, height: 60 }}
-              />
-              <View>
-                <Text>Amy Acker, MSN, FNP-C</Text>
-                <Text textType="light" style={{ marginTop: 2 }}>
-                  Family Nurse Practitioner
-                </Text>
-              </View>
-            </View>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ gap: 3, paddingLeft: 20 }}
-              style={{
-                marginLeft: -20,
-              }}
-            >
-              <CustomButton
-                title="9:00am"
-                type="fill"
-                style={{ paddingVertical: 0 }}
-              />
-              <CustomButton
-                title="10:00am"
-                type="fill"
-                style={{ paddingVertical: 0 }}
-              />
-              <CustomButton
-                title="11:00am"
-                type="fill"
-                style={{ paddingVertical: 0 }}
-              />
-              <CustomButton
-                title="1:30am"
-                type="fill"
-                style={{ paddingVertical: 0 }}
-              />
-            </ScrollView>
-          </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
-    </TouchableWithoutFeedback>
+      </TouchableOpacity>
+
+      <DateTimePickerModal
+        isVisible={isDatePickerVisible}
+        mode="date"
+        onConfirm={handleDateConfirm}
+        onCancel={() => setDatePickerVisible(false)}
+        date={selectedDate}
+        minimumDate={tomorrow}
+        maximumDate={endOfYear}
+        display="inline"
+      />
+
+      <FlatList
+        data={providers}
+        keyExtractor={(item, index) =>
+          item.provider_id ? item.provider_id.toString() : index.toString()
+        }
+        renderItem={({ item: provider }) => (
+          <ProviderAvailability
+            provider={provider}
+            selectedDate={selectedDate}
+          />
+        )}
+        contentContainerStyle={{ flexGrow: 1, backgroundColor: "white" }}
+        scrollEnabled
+      />
+    </KeyboardAvoidingView>
   );
 }

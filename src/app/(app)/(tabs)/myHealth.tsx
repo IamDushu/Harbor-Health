@@ -3,6 +3,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import ItemInfo from "@/components/ItemInfo";
 import { logout } from "@/services/authService";
 import { useAuth } from "@/context/auth";
+import Family from "../../../../assets/icons/family.svg";
+import Credit from "../../../../assets/icons/credit.svg";
+import Lab from "../../../../assets/icons/flask.svg";
+import Pill from "../../../../assets/icons/pill.svg";
+import Syringe from "../../../../assets/icons/syringe.svg";
+import Vitals from "../../../../assets/icons/vitals.svg";
+import Allergy from "../../../../assets/icons/allergy.svg";
+import Clipboard from "../../../../assets/icons/clipboard.svg";
+import Calendar from "../../../../assets/icons/calendar.svg";
+import Logout from "../../../../assets/icons/signout.svg";
 
 export default function MyHealthTab() {
   const { user, setUser, setIsAuthenticated } = useAuth();
@@ -43,16 +53,25 @@ export default function MyHealthTab() {
             opacity: 0.8,
           }}
         >
-          Member since 2021
+          Harbor Member
         </Text>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ backgroundColor: "white" }}>
-          <ItemInfo title="Luci" description="Your Primary Care Provider" />
-          <ItemInfo title="Family" description="Your Primary Care Provider" />
+          {/* <ItemInfo
+            title="Luci"
+            description="Your Primary Care Provider"
+            Icon={Gift}
+          /> */}
+          <ItemInfo
+            title="Family"
+            description="Manage family accounts"
+            Icon={Family}
+          />
           <ItemInfo
             title="Insurance & Billing"
             description="Insurance Company"
+            Icon={Credit}
           />
         </View>
 
@@ -67,14 +86,14 @@ export default function MyHealthTab() {
           Health Record
         </Text>
         <View style={{ backgroundColor: "white" }}>
-          <ItemInfo title="Lab Results" />
-          <ItemInfo title="Current Medications" />
-          <ItemInfo title="Vaccines" />
-          <ItemInfo title="Vitals & Trends" />
-          <ItemInfo title="Allergies" />
-          <ItemInfo title="Health Screenings" />
-          <ItemInfo title="Request Records" />
-          <ItemInfo title="Past Appointments" />
+          <ItemInfo title="Lab Results" Icon={Lab} />
+          <ItemInfo title="Current Medications" Icon={Pill} />
+          <ItemInfo title="Vaccines" Icon={Syringe} />
+          <ItemInfo title="Vitals & Trends" Icon={Vitals} />
+          <ItemInfo title="Allergies" Icon={Allergy} />
+          <ItemInfo title="Health Screenings" Icon={Clipboard} />
+          {/* <ItemInfo title="Request Records" Icon={Gift} /> */}
+          <ItemInfo title="Past Appointments" Icon={Calendar} />
           <ItemInfo
             title="Log Out"
             onPress={() => {
@@ -82,6 +101,7 @@ export default function MyHealthTab() {
               logout();
               setIsAuthenticated(false);
             }}
+            Icon={Logout}
           />
         </View>
       </ScrollView>

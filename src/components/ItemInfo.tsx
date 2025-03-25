@@ -1,39 +1,40 @@
 import { AntDesign } from "@expo/vector-icons";
-import { Image, Pressable, StyleSheet, View } from "react-native";
-import harborBuilding from "../../assets/icons/building.png";
+import { Pressable, StyleSheet, View } from "react-native";
 import { Text } from "./general/Themed";
-
-import RemoteVisit from "../../assets/icons/remote.svg";
 import { ComponentProps } from "react";
 
 type ItemInfoProps = {
   bottomBorder?: boolean;
   title: string;
   description?: string;
+  Icon?: React.FC<{ width?: number; height?: number }>;
 } & ComponentProps<typeof Pressable>;
 
 export default function ItemInfo({
   bottomBorder = true,
   title,
   description,
+  Icon,
   ...pressableProps
 }: ItemInfoProps) {
   return (
     <Pressable {...pressableProps}>
       <View style={[styles.container, { marginVertical: 20 }]}>
         <View style={[styles.container, { gap: 10 }]}>
-          <View
-            style={{
-              backgroundColor: "#63daae4f",
-              padding: 10,
-              borderRadius: 50,
-              marginLeft: 20,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <RemoteVisit width={35} height={35} />
-          </View>
+          {Icon && (
+            <View
+              style={{
+                backgroundColor: "#63daae4f",
+                padding: 10,
+                borderRadius: 50,
+                marginLeft: 20,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Icon width={35} height={35} />
+            </View>
+          )}
           <View>
             <Text>{title}</Text>
             {description && (

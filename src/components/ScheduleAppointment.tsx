@@ -1,6 +1,4 @@
-import { Image, Pressable, StyleSheet, View } from "react-native";
-import harborBuilding from "../../assets/icons/building.png";
-import remoteVisit from "../../assets/icons/remoteVisit.png";
+import { Pressable, StyleSheet, View } from "react-native";
 
 import Card from "./general/Card";
 import { Text } from "./general/Themed";

@@ -3,6 +3,7 @@ import { FontAwesome6 } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "@/constants/theme";
 import { useAuth } from "@/context/auth";
+import theme from "@/constants/theme";
 
 export default function HomeHeader() {
   const { user } = useAuth();
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: Colors.light.tint,
+    backgroundColor: theme.light.tint,
   },
   profileImg: {
     height: 60,

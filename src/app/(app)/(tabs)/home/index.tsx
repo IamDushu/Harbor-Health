@@ -33,7 +33,7 @@ export default function HomeTab() {
             opacity: 0.9,
           }}
         >
-          Crafted with 🩷 in Austin, Texas
+          Crafted with 🩷 for Austin
         </Text>
       </View>
     </ScrollView>

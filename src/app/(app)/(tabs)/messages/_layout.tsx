@@ -23,7 +23,9 @@ export default function ChatLayout() {
       );
 
       const channel = client.channel("livestream", "public", {
-        name: "Support Team",
+        name: "Harbor Tribe",
+        image:
+          "https://media.licdn.com/dms/image/v2/C560BAQFptmTG30YowQ/company-logo_200_200/company-logo_200_200/0/1661952558881?e=2147483647&v=beta&t=-emxzyud9VPhhEDB0UEW_C15pXRnF5Tl04j2CG5Bl-g",
       });
       await channel.create();
     };

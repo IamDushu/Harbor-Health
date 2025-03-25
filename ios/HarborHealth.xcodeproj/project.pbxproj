@@ -7,74 +7,74 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CDFCA215D4842FD9E958B83 /* GT-Super-Display-Medium-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 331144E95C474EC6A433B1A8 /* GT-Super-Display-Medium-Trial.otf */; };
+		0AC2D8A068DF4029980DB81B /* GT-Super-Text-Bold-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 44248DA126DB4FCBA08F877A /* GT-Super-Text-Bold-Trial.otf */; };
+		1156743C73294CBDBBCF08AE /* GT-Super-Text-Medium-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 24366C2EFC74467D87915D2E /* GT-Super-Text-Medium-Trial.otf */; };
+		129EDB0CDE894B39B33A68C0 /* GT-Super-Text-Bold-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 441676381D8A4C4282F5F2B2 /* GT-Super-Text-Bold-Italic-Trial.otf */; };
+		12F7CFB4AD5F41FBB2E41A89 /* GT-Super-Display-Light-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69E9150D1CE24CA99BCC90F0 /* GT-Super-Display-Light-Trial.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1D8B26D65A0D4F9483FB394B /* GT-Super-Text-Book-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1B6894AF92DC453D839F3A47 /* GT-Super-Text-Book-Trial.otf */; };
-		1F06A091A82741A394E68694 /* GT-Super-Display-Regular-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0A2323B81C4C2FBBB51ABC /* GT-Super-Display-Regular-Italic-Trial.otf */; };
-		226EE8D8880C4866886D536D /* GT-Super-Text-Bold-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 230CDE4901734A83B821E18C /* GT-Super-Text-Bold-Trial.otf */; };
-		2368FBA39D7B495DA6F2384D /* GT-Super-Text-Regular-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3093274E0FC44DD7A05F4C23 /* GT-Super-Text-Regular-Trial.otf */; };
-		3B4FA414599F449FBF5CF7B2 /* GT-Super-Text-Regular-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F102FD0254DD097030B38 /* GT-Super-Text-Regular-Italic-Trial.otf */; };
+		2461BE736098430A996BFC9C /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBA5E8578747B0A31A723F /* noop-file.swift */; };
+		2C4784B3E8264B40AA387705 /* GT-Super-Display-Light-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8778F5CDBDA94DBC894D8E46 /* GT-Super-Display-Light-Italic-Trial.otf */; };
+		2C94BCC41478497BB8BAF52A /* GT-Super-Display-Bold-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = C1E3FB23736142C49DF75E44 /* GT-Super-Display-Bold-Italic-Trial.otf */; };
+		32B7CC2F1E0C45249166C078 /* GT-Super-Text-Book-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 524201FBA27E4F00B3C9597D /* GT-Super-Text-Book-Italic-Trial.otf */; };
+		35B8F8845F8E43D8924E0E7D /* GT-Super-Text-Black-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2B3F868E461C43738C26A8B7 /* GT-Super-Text-Black-Trial.otf */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		57B707D4B59D47BFAFE4F109 /* GT-Super-Text-Bold-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4BE7A3107884451B8D3361D4 /* GT-Super-Text-Bold-Italic-Trial.otf */; };
-		5C2778A4F307625ED7A019CF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E04165689D73F774A3770624 /* PrivacyInfo.xcprivacy */; };
-		5D41F66D29804A08B8E90861 /* GT-Super-Display-Super-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD2C2B7083284D8CA91C991E /* GT-Super-Display-Super-Trial.otf */; };
-		5EB3FF21AA2D465F984C40D6 /* GT-Super-Text-Black-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = B5FAAEB6D1974BF7B9BFB6D8 /* GT-Super-Text-Black-Italic-Trial.otf */; };
-		67ACD633E28C407BBB9C63C8 /* GT-Super-Display-Light-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA6015A0B733484CB92BA41E /* GT-Super-Display-Light-Trial.otf */; };
-		68E30CFD23B342FFBAE6AE68 /* GT-Super-Display-Super-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = ADC5070FBD5A401FB8132964 /* GT-Super-Display-Super-Italic-Trial.otf */; };
-		6B42E23D1BA24ACC8C949E33 /* GT-Super-Display-Bold-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 536C5A5BB13A4B5499396A7F /* GT-Super-Display-Bold-Trial.otf */; };
+		406D91F92BC21CDF9063B530 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9FA7D3C0A00870233BCF29A1 /* PrivacyInfo.xcprivacy */; };
+		596EA44BFC414EB799C03B77 /* GT-Super-Display-Regular-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A5032B408344822A7FC85DA /* GT-Super-Display-Regular-Italic-Trial.otf */; };
+		6EA09E4B53B745F4BF961163 /* GT-Super-Display-Regular-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 154DE34BDB594E2C8ED963AA /* GT-Super-Display-Regular-Trial.otf */; };
+		717D04F4249C4DAB8918EF8F /* GT-Super-Text-Regular-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 745CB2309A254E9E874C63B4 /* GT-Super-Text-Regular-Italic-Trial.otf */; };
+		7464B6909B4B4E3BA954F529 /* GT-Super-Display-Medium-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5B31B991BE084B42A441E67C /* GT-Super-Display-Medium-Italic-Trial.otf */; };
+		844E5CDDDD9542239CD419B6 /* GT-Super-Display-Super-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B82CC013048486096791AF7 /* GT-Super-Display-Super-Italic-Trial.otf */; };
+		8EACBAF97BA74EC1A1F62D23 /* GT-Super-Text-Regular-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 528D0603C1A54F66AA0D6BB1 /* GT-Super-Text-Regular-Trial.otf */; };
 		96905EF65AED1B983A6B3ABC /* libPods-HarborHealth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-HarborHealth.a */; };
-		98617A1A4B244EEABF97F450 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3FC7E2860146B9AD24536E /* noop-file.swift */; };
-		AB699BF2606645489F73D121 /* GT-Super-Display-Medium-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5027E17E38ED4DEE9B510B50 /* GT-Super-Display-Medium-Italic-Trial.otf */; };
-		ACEB0460572248698CDEE113 /* GT-Super-Display-Regular-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = AE0FFCC7A3C845C48FACBB7E /* GT-Super-Display-Regular-Trial.otf */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
-		B6B1EB22209E4220868343BF /* GT-Super-Text-Medium-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8ACF61F182EB4B14A5630F42 /* GT-Super-Text-Medium-Trial.otf */; };
+		B51034736EA7453294D1BCFB /* GT-Super-Display-Bold-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = D3431A5459DD470BB97772DC /* GT-Super-Display-Bold-Trial.otf */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		D25F8E6FD57F4147915C482F /* GT-Super-Display-Bold-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = CB1F3A7C2D754D0D9969E50D /* GT-Super-Display-Bold-Italic-Trial.otf */; };
-		D938183F64014C74B581826A /* GT-Super-Display-Light-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 46ACB31F239340EA869F21E9 /* GT-Super-Display-Light-Italic-Trial.otf */; };
-		E1E1D1E75406425196434BAC /* GT-Super-Text-Black-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 550D8946919B42E89B6059FD /* GT-Super-Text-Black-Trial.otf */; };
-		EF001CBADA7C43B7A65454E1 /* GT-Super-Text-Book-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = ABC1717BE347474087759371 /* GT-Super-Text-Book-Italic-Trial.otf */; };
-		FDADD8C096F5461CBDEA820D /* GT-Super-Text-Medium-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = CD953202ADA14A1388CB2031 /* GT-Super-Text-Medium-Italic-Trial.otf */; };
+		C95C68B2B474443E98A82A43 /* GT-Super-Display-Medium-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 10301B23A3054212A90C7DDA /* GT-Super-Display-Medium-Trial.otf */; };
+		CA30DE02AF1042DB857F36E3 /* GT-Super-Text-Medium-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D0627E1AD524E68B681F1E2 /* GT-Super-Text-Medium-Italic-Trial.otf */; };
+		D404F85B8F1847B89B758685 /* GT-Super-Display-Super-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 442B3922D1C1493EAEAF8EA9 /* GT-Super-Display-Super-Trial.otf */; };
+		E56D6E37443644A58E2F807D /* GT-Super-Text-Black-Italic-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8C69023504824B01A8AA1EAB /* GT-Super-Text-Black-Italic-Trial.otf */; };
+		F646225E8E9643D9AD023369 /* GT-Super-Text-Book-Trial.otf in Resources */ = {isa = PBXBuildFile; fileRef = 084F79A02D644C42A9546C7A /* GT-Super-Text-Book-Trial.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		084F79A02D644C42A9546C7A /* GT-Super-Text-Book-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Book-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Book-Trial.otf"; sourceTree = "<group>"; };
+		09182C6B807A48C5AB18215B /* HarborHealth-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "HarborHealth-Bridging-Header.h"; path = "HarborHealth/HarborHealth-Bridging-Header.h"; sourceTree = "<group>"; };
+		10301B23A3054212A90C7DDA /* GT-Super-Display-Medium-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Medium-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Medium-Trial.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* HarborHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarborHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = HarborHealth/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = HarborHealth/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HarborHealth/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HarborHealth/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = HarborHealth/main.m; sourceTree = "<group>"; };
-		1B6894AF92DC453D839F3A47 /* GT-Super-Text-Book-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Book-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Book-Trial.otf"; sourceTree = "<group>"; };
-		1F0A2323B81C4C2FBBB51ABC /* GT-Super-Display-Regular-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Regular-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Regular-Italic-Trial.otf"; sourceTree = "<group>"; };
-		230CDE4901734A83B821E18C /* GT-Super-Text-Bold-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Bold-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Bold-Trial.otf"; sourceTree = "<group>"; };
-		3093274E0FC44DD7A05F4C23 /* GT-Super-Text-Regular-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Regular-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Regular-Trial.otf"; sourceTree = "<group>"; };
-		331144E95C474EC6A433B1A8 /* GT-Super-Display-Medium-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Medium-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Medium-Trial.otf"; sourceTree = "<group>"; };
-		46ACB31F239340EA869F21E9 /* GT-Super-Display-Light-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Light-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Light-Italic-Trial.otf"; sourceTree = "<group>"; };
-		4BE7A3107884451B8D3361D4 /* GT-Super-Text-Bold-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Bold-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Bold-Italic-Trial.otf"; sourceTree = "<group>"; };
-		5027E17E38ED4DEE9B510B50 /* GT-Super-Display-Medium-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Medium-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Medium-Italic-Trial.otf"; sourceTree = "<group>"; };
-		530E6E9091614F29BCEFE155 /* HarborHealth-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "HarborHealth-Bridging-Header.h"; path = "HarborHealth/HarborHealth-Bridging-Header.h"; sourceTree = "<group>"; };
-		536C5A5BB13A4B5499396A7F /* GT-Super-Display-Bold-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Bold-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Bold-Trial.otf"; sourceTree = "<group>"; };
-		550D8946919B42E89B6059FD /* GT-Super-Text-Black-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Black-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Black-Trial.otf"; sourceTree = "<group>"; };
+		154DE34BDB594E2C8ED963AA /* GT-Super-Display-Regular-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Regular-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Regular-Trial.otf"; sourceTree = "<group>"; };
+		24366C2EFC74467D87915D2E /* GT-Super-Text-Medium-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Medium-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Medium-Trial.otf"; sourceTree = "<group>"; };
+		2B3F868E461C43738C26A8B7 /* GT-Super-Text-Black-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Black-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Black-Trial.otf"; sourceTree = "<group>"; };
+		441676381D8A4C4282F5F2B2 /* GT-Super-Text-Bold-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Bold-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Bold-Italic-Trial.otf"; sourceTree = "<group>"; };
+		44248DA126DB4FCBA08F877A /* GT-Super-Text-Bold-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Bold-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Bold-Trial.otf"; sourceTree = "<group>"; };
+		442B3922D1C1493EAEAF8EA9 /* GT-Super-Display-Super-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Super-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Super-Trial.otf"; sourceTree = "<group>"; };
+		4A5032B408344822A7FC85DA /* GT-Super-Display-Regular-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Regular-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Regular-Italic-Trial.otf"; sourceTree = "<group>"; };
+		4B82CC013048486096791AF7 /* GT-Super-Display-Super-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Super-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Super-Italic-Trial.otf"; sourceTree = "<group>"; };
+		524201FBA27E4F00B3C9597D /* GT-Super-Text-Book-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Book-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Book-Italic-Trial.otf"; sourceTree = "<group>"; };
+		528D0603C1A54F66AA0D6BB1 /* GT-Super-Text-Regular-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Regular-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Regular-Trial.otf"; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-HarborHealth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HarborHealth.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B31B991BE084B42A441E67C /* GT-Super-Display-Medium-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Medium-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Medium-Italic-Trial.otf"; sourceTree = "<group>"; };
+		5EEBA5E8578747B0A31A723F /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "HarborHealth/noop-file.swift"; sourceTree = "<group>"; };
+		69E9150D1CE24CA99BCC90F0 /* GT-Super-Display-Light-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Light-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Light-Trial.otf"; sourceTree = "<group>"; };
 		6C2E3173556A471DD304B334 /* Pods-HarborHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborHealth.debug.xcconfig"; path = "Target Support Files/Pods-HarborHealth/Pods-HarborHealth.debug.xcconfig"; sourceTree = "<group>"; };
+		745CB2309A254E9E874C63B4 /* GT-Super-Text-Regular-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Regular-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Regular-Italic-Trial.otf"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-HarborHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HarborHealth.release.xcconfig"; path = "Target Support Files/Pods-HarborHealth/Pods-HarborHealth.release.xcconfig"; sourceTree = "<group>"; };
-		8ACF61F182EB4B14A5630F42 /* GT-Super-Text-Medium-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Medium-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Medium-Trial.otf"; sourceTree = "<group>"; };
-		8D5F102FD0254DD097030B38 /* GT-Super-Text-Regular-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Regular-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Regular-Italic-Trial.otf"; sourceTree = "<group>"; };
+		8778F5CDBDA94DBC894D8E46 /* GT-Super-Display-Light-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Light-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Light-Italic-Trial.otf"; sourceTree = "<group>"; };
+		8C69023504824B01A8AA1EAB /* GT-Super-Text-Black-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Black-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Black-Italic-Trial.otf"; sourceTree = "<group>"; };
+		8D0627E1AD524E68B681F1E2 /* GT-Super-Text-Medium-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Medium-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Medium-Italic-Trial.otf"; sourceTree = "<group>"; };
+		9FA7D3C0A00870233BCF29A1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = HarborHealth/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = HarborHealth/SplashScreen.storyboard; sourceTree = "<group>"; };
-		ABC1717BE347474087759371 /* GT-Super-Text-Book-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Book-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Book-Italic-Trial.otf"; sourceTree = "<group>"; };
-		ADC5070FBD5A401FB8132964 /* GT-Super-Display-Super-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Super-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Super-Italic-Trial.otf"; sourceTree = "<group>"; };
-		AE0FFCC7A3C845C48FACBB7E /* GT-Super-Display-Regular-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Regular-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Regular-Trial.otf"; sourceTree = "<group>"; };
-		B5FAAEB6D1974BF7B9BFB6D8 /* GT-Super-Text-Black-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Black-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Black-Italic-Trial.otf"; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		CB1F3A7C2D754D0D9969E50D /* GT-Super-Display-Bold-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Bold-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Bold-Italic-Trial.otf"; sourceTree = "<group>"; };
-		CD2C2B7083284D8CA91C991E /* GT-Super-Display-Super-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Super-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Super-Trial.otf"; sourceTree = "<group>"; };
-		CD953202ADA14A1388CB2031 /* GT-Super-Text-Medium-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Text-Medium-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Text-Medium-Italic-Trial.otf"; sourceTree = "<group>"; };
-		DA6015A0B733484CB92BA41E /* GT-Super-Display-Light-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Light-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Light-Trial.otf"; sourceTree = "<group>"; };
-		E04165689D73F774A3770624 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = HarborHealth/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		C1E3FB23736142C49DF75E44 /* GT-Super-Display-Bold-Italic-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Bold-Italic-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Bold-Italic-Trial.otf"; sourceTree = "<group>"; };
+		D3431A5459DD470BB97772DC /* GT-Super-Display-Bold-Trial.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "GT-Super-Display-Bold-Trial.otf"; path = "../assets/fonts/GT-Super-Display-Bold-Trial.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-HarborHealth/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		FE3FC7E2860146B9AD24536E /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "HarborHealth/noop-file.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +99,9 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				FE3FC7E2860146B9AD24536E /* noop-file.swift */,
-				530E6E9091614F29BCEFE155 /* HarborHealth-Bridging-Header.h */,
-				E04165689D73F774A3770624 /* PrivacyInfo.xcprivacy */,
+				5EEBA5E8578747B0A31A723F /* noop-file.swift */,
+				09182C6B807A48C5AB18215B /* HarborHealth-Bridging-Header.h */,
+				9FA7D3C0A00870233BCF29A1 /* PrivacyInfo.xcprivacy */,
 			);
 			name = HarborHealth;
 			sourceTree = "<group>";
@@ -113,6 +113,34 @@
 				58EEBF8E8E6FB1BC6CAF49B5 /* libPods-HarborHealth.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A8BCB5A83344FF5BA809EA6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C1E3FB23736142C49DF75E44 /* GT-Super-Display-Bold-Italic-Trial.otf */,
+				D3431A5459DD470BB97772DC /* GT-Super-Display-Bold-Trial.otf */,
+				8778F5CDBDA94DBC894D8E46 /* GT-Super-Display-Light-Italic-Trial.otf */,
+				69E9150D1CE24CA99BCC90F0 /* GT-Super-Display-Light-Trial.otf */,
+				5B31B991BE084B42A441E67C /* GT-Super-Display-Medium-Italic-Trial.otf */,
+				10301B23A3054212A90C7DDA /* GT-Super-Display-Medium-Trial.otf */,
+				4A5032B408344822A7FC85DA /* GT-Super-Display-Regular-Italic-Trial.otf */,
+				154DE34BDB594E2C8ED963AA /* GT-Super-Display-Regular-Trial.otf */,
+				4B82CC013048486096791AF7 /* GT-Super-Display-Super-Italic-Trial.otf */,
+				442B3922D1C1493EAEAF8EA9 /* GT-Super-Display-Super-Trial.otf */,
+				8C69023504824B01A8AA1EAB /* GT-Super-Text-Black-Italic-Trial.otf */,
+				2B3F868E461C43738C26A8B7 /* GT-Super-Text-Black-Trial.otf */,
+				441676381D8A4C4282F5F2B2 /* GT-Super-Text-Bold-Italic-Trial.otf */,
+				44248DA126DB4FCBA08F877A /* GT-Super-Text-Bold-Trial.otf */,
+				524201FBA27E4F00B3C9597D /* GT-Super-Text-Book-Italic-Trial.otf */,
+				084F79A02D644C42A9546C7A /* GT-Super-Text-Book-Trial.otf */,
+				8D0627E1AD524E68B681F1E2 /* GT-Super-Text-Medium-Italic-Trial.otf */,
+				24366C2EFC74467D87915D2E /* GT-Super-Text-Medium-Trial.otf */,
+				745CB2309A254E9E874C63B4 /* GT-Super-Text-Regular-Italic-Trial.otf */,
+				528D0603C1A54F66AA0D6BB1 /* GT-Super-Text-Regular-Trial.otf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -131,7 +159,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
-				F6A0FF3049F14CACBE2C9C7B /* Resources */,
+				5A8BCB5A83344FF5BA809EA6 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -180,34 +208,6 @@
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
-		F6A0FF3049F14CACBE2C9C7B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CB1F3A7C2D754D0D9969E50D /* GT-Super-Display-Bold-Italic-Trial.otf */,
-				536C5A5BB13A4B5499396A7F /* GT-Super-Display-Bold-Trial.otf */,
-				46ACB31F239340EA869F21E9 /* GT-Super-Display-Light-Italic-Trial.otf */,
-				DA6015A0B733484CB92BA41E /* GT-Super-Display-Light-Trial.otf */,
-				5027E17E38ED4DEE9B510B50 /* GT-Super-Display-Medium-Italic-Trial.otf */,
-				331144E95C474EC6A433B1A8 /* GT-Super-Display-Medium-Trial.otf */,
-				1F0A2323B81C4C2FBBB51ABC /* GT-Super-Display-Regular-Italic-Trial.otf */,
-				AE0FFCC7A3C845C48FACBB7E /* GT-Super-Display-Regular-Trial.otf */,
-				ADC5070FBD5A401FB8132964 /* GT-Super-Display-Super-Italic-Trial.otf */,
-				CD2C2B7083284D8CA91C991E /* GT-Super-Display-Super-Trial.otf */,
-				B5FAAEB6D1974BF7B9BFB6D8 /* GT-Super-Text-Black-Italic-Trial.otf */,
-				550D8946919B42E89B6059FD /* GT-Super-Text-Black-Trial.otf */,
-				4BE7A3107884451B8D3361D4 /* GT-Super-Text-Bold-Italic-Trial.otf */,
-				230CDE4901734A83B821E18C /* GT-Super-Text-Bold-Trial.otf */,
-				ABC1717BE347474087759371 /* GT-Super-Text-Book-Italic-Trial.otf */,
-				1B6894AF92DC453D839F3A47 /* GT-Super-Text-Book-Trial.otf */,
-				CD953202ADA14A1388CB2031 /* GT-Super-Text-Medium-Italic-Trial.otf */,
-				8ACF61F182EB4B14A5630F42 /* GT-Super-Text-Medium-Trial.otf */,
-				8D5F102FD0254DD097030B38 /* GT-Super-Text-Regular-Italic-Trial.otf */,
-				3093274E0FC44DD7A05F4C23 /* GT-Super-Text-Regular-Trial.otf */,
-			);
-			name = Resources;
-			path = "";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,13 +216,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "HarborHealth" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				07060AB4B7132576932F2767 /* [Expo] Configure project */,
+				AA444659000346C9023EDFE5 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				E8C1840F9600457B0FDBE922 /* [CP] Embed Pods Frameworks */,
+				93E80B18FADD3063C13CC359 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,27 +272,27 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				D25F8E6FD57F4147915C482F /* GT-Super-Display-Bold-Italic-Trial.otf in Resources */,
-				6B42E23D1BA24ACC8C949E33 /* GT-Super-Display-Bold-Trial.otf in Resources */,
-				D938183F64014C74B581826A /* GT-Super-Display-Light-Italic-Trial.otf in Resources */,
-				67ACD633E28C407BBB9C63C8 /* GT-Super-Display-Light-Trial.otf in Resources */,
-				AB699BF2606645489F73D121 /* GT-Super-Display-Medium-Italic-Trial.otf in Resources */,
-				0CDFCA215D4842FD9E958B83 /* GT-Super-Display-Medium-Trial.otf in Resources */,
-				1F06A091A82741A394E68694 /* GT-Super-Display-Regular-Italic-Trial.otf in Resources */,
-				ACEB0460572248698CDEE113 /* GT-Super-Display-Regular-Trial.otf in Resources */,
-				68E30CFD23B342FFBAE6AE68 /* GT-Super-Display-Super-Italic-Trial.otf in Resources */,
-				5D41F66D29804A08B8E90861 /* GT-Super-Display-Super-Trial.otf in Resources */,
-				5EB3FF21AA2D465F984C40D6 /* GT-Super-Text-Black-Italic-Trial.otf in Resources */,
-				E1E1D1E75406425196434BAC /* GT-Super-Text-Black-Trial.otf in Resources */,
-				57B707D4B59D47BFAFE4F109 /* GT-Super-Text-Bold-Italic-Trial.otf in Resources */,
-				226EE8D8880C4866886D536D /* GT-Super-Text-Bold-Trial.otf in Resources */,
-				EF001CBADA7C43B7A65454E1 /* GT-Super-Text-Book-Italic-Trial.otf in Resources */,
-				1D8B26D65A0D4F9483FB394B /* GT-Super-Text-Book-Trial.otf in Resources */,
-				FDADD8C096F5461CBDEA820D /* GT-Super-Text-Medium-Italic-Trial.otf in Resources */,
-				B6B1EB22209E4220868343BF /* GT-Super-Text-Medium-Trial.otf in Resources */,
-				3B4FA414599F449FBF5CF7B2 /* GT-Super-Text-Regular-Italic-Trial.otf in Resources */,
-				2368FBA39D7B495DA6F2384D /* GT-Super-Text-Regular-Trial.otf in Resources */,
-				5C2778A4F307625ED7A019CF /* PrivacyInfo.xcprivacy in Resources */,
+				2C94BCC41478497BB8BAF52A /* GT-Super-Display-Bold-Italic-Trial.otf in Resources */,
+				B51034736EA7453294D1BCFB /* GT-Super-Display-Bold-Trial.otf in Resources */,
+				2C4784B3E8264B40AA387705 /* GT-Super-Display-Light-Italic-Trial.otf in Resources */,
+				12F7CFB4AD5F41FBB2E41A89 /* GT-Super-Display-Light-Trial.otf in Resources */,
+				7464B6909B4B4E3BA954F529 /* GT-Super-Display-Medium-Italic-Trial.otf in Resources */,
+				C95C68B2B474443E98A82A43 /* GT-Super-Display-Medium-Trial.otf in Resources */,
+				596EA44BFC414EB799C03B77 /* GT-Super-Display-Regular-Italic-Trial.otf in Resources */,
+				6EA09E4B53B745F4BF961163 /* GT-Super-Display-Regular-Trial.otf in Resources */,
+				844E5CDDDD9542239CD419B6 /* GT-Super-Display-Super-Italic-Trial.otf in Resources */,
+				D404F85B8F1847B89B758685 /* GT-Super-Display-Super-Trial.otf in Resources */,
+				E56D6E37443644A58E2F807D /* GT-Super-Text-Black-Italic-Trial.otf in Resources */,
+				35B8F8845F8E43D8924E0E7D /* GT-Super-Text-Black-Trial.otf in Resources */,
+				129EDB0CDE894B39B33A68C0 /* GT-Super-Text-Bold-Italic-Trial.otf in Resources */,
+				0AC2D8A068DF4029980DB81B /* GT-Super-Text-Bold-Trial.otf in Resources */,
+				32B7CC2F1E0C45249166C078 /* GT-Super-Text-Book-Italic-Trial.otf in Resources */,
+				F646225E8E9643D9AD023369 /* GT-Super-Text-Book-Trial.otf in Resources */,
+				CA30DE02AF1042DB857F36E3 /* GT-Super-Text-Medium-Italic-Trial.otf in Resources */,
+				1156743C73294CBDBBCF08AE /* GT-Super-Text-Medium-Trial.otf in Resources */,
+				717D04F4249C4DAB8918EF8F /* GT-Super-Text-Regular-Italic-Trial.otf in Resources */,
+				8EACBAF97BA74EC1A1F62D23 /* GT-Super-Text-Regular-Trial.otf in Resources */,
+				406D91F92BC21CDF9063B530 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,25 +313,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"$PODS_ROOT/../.xcode.env\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env\"\nfi\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n# The project root by default is one level up from the ios directory\nexport PROJECT_ROOT=\"$PROJECT_DIR\"/..\n\nif [[ \"$CONFIGURATION\" = *Debug* ]]; then\n  export SKIP_BUNDLING=1\nfi\nif [[ -z \"$ENTRY_FILE\" ]]; then\n  # Set the entry JS file using the bundler's entry resolution.\n  export ENTRY_FILE=\"$(\"$NODE_BINARY\" -e \"require('expo/scripts/resolveAppEntry')\" \"$PROJECT_ROOT\" ios absolute | tail -n 1)\"\nfi\n\nif [[ -z \"$CLI_PATH\" ]]; then\n  # Use Expo CLI\n  export CLI_PATH=\"$(\"$NODE_BINARY\" --print \"require.resolve('@expo/cli', { paths: [require.resolve('expo/package.json')] })\")\"\nfi\nif [[ -z \"$BUNDLE_COMMAND\" ]]; then\n  # Default Expo CLI command for bundling\n  export BUNDLE_COMMAND=\"export:embed\"\nfi\n\n# Source .xcode.env.updates if it exists to allow\n# SKIP_BUNDLING to be unset if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.updates\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.updates\"\nfi\n# Source local changes to allow overrides\n# if needed\nif [[ -f \"$PODS_ROOT/../.xcode.env.local\" ]]; then\n  source \"$PODS_ROOT/../.xcode.env.local\"\nfi\n\n`\"$NODE_BINARY\" --print \"require('path').dirname(require.resolve('react-native/package.json')) + '/scripts/react-native-xcode.sh'\"`\n\n";
-		};
-		07060AB4B7132576932F2767 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-HarborHealth/expo-configure-project.sh\"\n";
 		};
 		08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -397,7 +378,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HarborHealth/Pods-HarborHealth-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E8C1840F9600457B0FDBE922 /* [CP] Embed Pods Frameworks */ = {
+		93E80B18FADD3063C13CC359 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -415,6 +396,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HarborHealth/Pods-HarborHealth-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AA444659000346C9023EDFE5 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-HarborHealth/expo-configure-project.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -425,7 +425,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
-				98617A1A4B244EEABF97F450 /* noop-file.swift in Sources */,
+				2461BE736098430A996BFC9C /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

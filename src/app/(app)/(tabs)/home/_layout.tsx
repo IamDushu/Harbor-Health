@@ -24,6 +24,12 @@ export default function HomeStack() {
         }}
       />
       <Stack.Screen
+        name="(videoChat)"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
         name="visitDetails"
         options={{
           headerTitle: "Visit Details",

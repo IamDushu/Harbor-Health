@@ -8,7 +8,7 @@ export default function Messages() {
 
   const isPrivate = {
     type: "messaging",
-    members: { $in: [user.id.toString()] },
+    members: { $in: [user?.id.toString()] },
   };
   const isPublic = { type: "livestream" };
 

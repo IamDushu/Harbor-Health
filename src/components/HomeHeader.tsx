@@ -1,5 +1,4 @@
 import { View, Text, Image, StyleSheet } from "react-native";
-import profileImg from "../../assets/profile.jpeg";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "@/constants/theme";
@@ -22,7 +21,12 @@ export default function HomeHeader() {
       ]}
     >
       <View style={[styles.container, { gap: 15 }]}>
-        <Image source={profileImg} style={[styles.profileImg]} />
+        <Image
+          source={{
+            uri: user?.image_url?.String,
+          }}
+          style={[styles.profileImg]}
+        />
         <Text style={[styles.headerFont]}>{user?.firstName}</Text>
       </View>
       <View>

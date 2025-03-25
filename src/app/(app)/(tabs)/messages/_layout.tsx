@@ -17,7 +17,7 @@ export default function ChatLayout() {
         {
           id: user.id.toString(),
           name: user.firstName,
-          image: "https://i.imgur.com/fR9Jz14.png",
+          image: user?.image_url?.String,
         },
         user.streamToken
       );
@@ -33,7 +33,7 @@ export default function ChatLayout() {
     return () => {
       client.disconnectUser();
     };
-  }, []);
+  }, [user]);
 
   return (
     <OverlayProvider>

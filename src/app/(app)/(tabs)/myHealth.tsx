@@ -1,12 +1,11 @@
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import profile from "../../../../assets/profile.jpeg";
 import ItemInfo from "@/components/ItemInfo";
 import { logout } from "@/services/authService";
 import { useAuth } from "@/context/auth";
 
 export default function MyHealthTab() {
-  const { user, setUser } = useAuth();
+  const { user, setUser, setIsAuthenticated } = useAuth();
 
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
@@ -18,7 +17,9 @@ export default function MyHealthTab() {
         }}
       >
         <Image
-          source={profile}
+          source={{
+            uri: user?.image_url?.String,
+          }}
           style={{
             borderRadius: 100,
             height: 100,
@@ -79,6 +80,7 @@ export default function MyHealthTab() {
             onPress={() => {
               setUser(undefined);
               logout();
+              setIsAuthenticated(false);
             }}
           />
         </View>

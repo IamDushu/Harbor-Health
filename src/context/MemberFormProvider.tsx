@@ -4,7 +4,7 @@ import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { Alert } from "react-native";
 import { z } from "zod";
 import * as SecureStore from "expo-secure-store";
-import { useAuth } from "./auth";
+import { useAuth, User } from "./auth";
 import { getUser } from "@/services/userService";
 
 const eighteenYearsAgo = new Date();
@@ -86,7 +86,7 @@ export default function MemberFormProvider({ children }: PropsWithChildren) {
   const [addressInfo, setAddressInfo] = useState<AddressInfo | undefined>();
   const [termsInfo, setTermsInfo] = useState<TermsInfo | undefined>();
 
-  const { setUser } = useAuth();
+  const { setUser, setIsAuthenticated } = useAuth();
 
   //passing termsData here as termsInfo is not updated when we call this function.
   const onSubmit = async (termsData?: TermsInfo) => {
@@ -123,13 +123,22 @@ export default function MemberFormProvider({ children }: PropsWithChildren) {
       setTermsInfo(undefined);
 
       const userResponse = await getUser();
-      setUser({
+      setUser((prevState: User) => ({
+        ...prevState,
         id: userResponse.user_id,
         email: userResponse.email,
         firstName: userResponse.first_name,
         lastName: userResponse.last_name,
-      });
-
+        image_url: userResponse.image_url,
+      }));
+      // setUser({
+      //   id: userResponse.user_id,
+      //   email: userResponse.email,
+      //   firstName: userResponse.first_name,
+      //   lastName: userResponse.last_name,
+      //   image_url: userResponse.image_url,
+      // });
+      setIsAuthenticated(true);
       router.dismissAll();
       router.replace("/home");
     } catch (error: any) {

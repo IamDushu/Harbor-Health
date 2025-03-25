@@ -16,6 +16,10 @@ export type User = {
   firstName: string;
   lastName: string;
   email: string;
+  image_url: {
+    String: string;
+    Valid: boolean;
+  };
   streamToken: string;
 };
 
@@ -24,6 +28,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
   const router = useRouter();
   const [user, setUser] = useState<User | undefined>();
   const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const loadUser = async () => {
     try {
@@ -40,8 +45,11 @@ export function AuthProvider({ children }: PropsWithChildren) {
             email: response.email,
             firstName: response.first_name,
             lastName: response.last_name,
+            image_url: response.image_url,
             streamToken: streamToken!,
           });
+
+          setIsAuthenticated(true);
         }
       }
     } catch (error) {
@@ -58,18 +66,19 @@ export function AuthProvider({ children }: PropsWithChildren) {
   useEffect(() => {
     if (loading) return;
 
-    if (!user && rootSegment !== "(auth)") {
+    if (!isAuthenticated && rootSegment !== "(auth)") {
       router.replace("/(auth)/onboard");
-    } else if (user && rootSegment !== "(app)") {
+    } else if (isAuthenticated && rootSegment !== "(app)") {
       router.replace("/home");
     }
-  }, [user, rootSegment, loading]);
+  }, [isAuthenticated, rootSegment, loading]);
 
   return (
     <AuthContext.Provider
       value={{
         user,
         setUser,
+        setIsAuthenticated,
       }}
     >
       {!loading && children}

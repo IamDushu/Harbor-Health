@@ -17,7 +17,7 @@ export default function OTPVerificationScreen() {
     mode: "login" | "signup";
   }>();
   const [otp, setOtp] = useState("");
-  const { setUser } = useAuth();
+  const { setUser, setIsAuthenticated } = useAuth();
 
   const handleVerify = async () => {
     if (!otp) {
@@ -28,6 +28,9 @@ export default function OTPVerificationScreen() {
     const sessionData = await verifyOTP(token, otp);
     if (sessionData) {
       if (sessionData.mode === "signup") {
+        setUser({
+          streamToken: sessionData.stream_token,
+        });
         router.dismissAll();
         router.replace("/personal_info");
         // router.navigate("/personal_info");
@@ -42,9 +45,14 @@ export default function OTPVerificationScreen() {
               email: response.email,
               firstName: response.first_name,
               lastName: response.last_name,
+              image_url: response.image_url,
               streamToken: sessionData.stream_token,
             });
+            setIsAuthenticated(true);
           } else {
+            setUser({
+              streamToken: sessionData.stream_token,
+            });
             router.dismissAll();
             router.replace("/personal_info");
           }

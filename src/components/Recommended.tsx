@@ -1,9 +1,14 @@
-import { ScrollView } from "react-native";
+import { Pressable, ScrollView } from "react-native";
 import CardWithImage from "./CardWithImage";
 import Card from "./general/Card";
 import ItemInfo from "./ItemInfo";
 import bannerImg from "../../assets/banner.webp";
 import harbor from "../../assets/harbor.jpg";
+import * as WebBrowser from "expo-web-browser";
+
+const openWebPage = async (url: string) => {
+  await WebBrowser.openBrowserAsync(url);
+};
 
 export default function Recommended() {
   return (
@@ -16,11 +21,20 @@ export default function Recommended() {
           flexDirection: "row",
         }}
       >
-        <CardWithImage
-          image={bannerImg}
-          title="Flu, COVID, strep or norovirus?"
-          description="Here's what's spreading this cold and flu season in Austin"
-        />
+        <Pressable
+          onPress={() =>
+            openWebPage(
+              "https://harborhealth.com/blog/health-tips/heart-health-2025"
+            )
+          }
+        >
+          <CardWithImage
+            image={bannerImg}
+            title="Flu, COVID, strep or norovirus?"
+            description="Here's what's spreading this cold and flu season in Austin"
+          />
+        </Pressable>
+
         <CardWithImage
           image={harbor}
           title="Harbor Health opens 2 express care clinics in Central, South Austin"

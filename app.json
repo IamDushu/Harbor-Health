@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Harbor-Health",
+    "name": "Harbor Health",
     "slug": "Harbor-Health",
     "version": "1.0.0",
     "scheme": "harbor-health",
@@ -29,6 +29,14 @@
     },
     "plugins": [
       "expo-router",
+      "@stream-io/video-react-native-sdk",
+      [
+        "@config-plugins/react-native-webrtc",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) requires camera access in order to capture and transmit video",
+          "microphonePermission": "Allow $(PRODUCT_NAME) requires microphone access in order to capture and transmit audio"
+        }
+      ],
       [
         "expo-font",
         {
@@ -80,6 +88,14 @@
         "expo-av",
         {
           "microphonePermission": "$(PRODUCT_NAME) would like to use your microphone for voice recording."
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 24
+          }
         }
       ]
     ]

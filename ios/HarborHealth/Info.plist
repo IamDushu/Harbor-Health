@@ -7,7 +7,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>$(DEVELOPMENT_LANGUAGE)</string>
     <key>CFBundleDisplayName</key>
-    <string>Harbor-Health</string>
+    <string>Harbor Health</string>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIdentifier</key>
@@ -52,11 +52,11 @@
       <true/>
     </dict>
     <key>NSCameraUsageDescription</key>
-    <string>$(PRODUCT_NAME) would like to use your camera to share image in a message.</string>
+    <string>Allow $(PRODUCT_NAME) requires camera access in order to capture and transmit video</string>
     <key>NSFaceIDUsageDescription</key>
     <string>Allow $(PRODUCT_NAME) to access your Face ID biometric data.</string>
     <key>NSMicrophoneUsageDescription</key>
-    <string>$(PRODUCT_NAME) would like to use your microphone for voice recording.</string>
+    <string>Allow $(PRODUCT_NAME) requires microphone access in order to capture and transmit audio</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
     <string>$(PRODUCT_NAME) would like to save photos to your photo gallery after downloading from a message.</string>
     <key>NSPhotoLibraryUsageDescription</key>
@@ -87,6 +87,10 @@
       <string>GT-Super-Text-Medium-Trial.otf</string>
       <string>GT-Super-Text-Regular-Italic-Trial.otf</string>
       <string>GT-Super-Text-Regular-Trial.otf</string>
+    </array>
+    <key>UIBackgroundModes</key>
+    <array>
+      <string>audio</string>
     </array>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>

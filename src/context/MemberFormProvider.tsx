@@ -6,6 +6,7 @@ import { z } from "zod";
 import * as SecureStore from "expo-secure-store";
 import { useAuth, User } from "./auth";
 import { getUser } from "@/services/userService";
+import { unMask } from "react-native-mask-text";
 
 const eighteenYearsAgo = new Date();
 eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
@@ -26,8 +27,20 @@ export const PersonalInfoSchema = z.object({
   phoneNumber: z
     .string()
     .trim()
-    .min(10, { message: "Phone number must be at least 10 digits" })
-    .regex(/^\d+$/, { message: "Phone number must contain only digits" }),
+    .refine(
+      (value) => {
+        const unmaskedPhoneNumber = unMask(value);
+        return unmaskedPhoneNumber.length >= 10;
+      },
+      { message: "Phone number must be at least 10 digits" }
+    )
+    .refine(
+      (value) => {
+        const unmaskedPhoneNumber = unMask(value);
+        return /^\d+$/.test(unmaskedPhoneNumber);
+      },
+      { message: "Phone number must contain only digits" }
+    ),
 
   dateOfBirth: z
     .date({ required_error: "Date of birth is required" })
@@ -104,10 +117,12 @@ export default function MemberFormProvider({ children }: PropsWithChildren) {
         return;
       }
 
+      const unmaskedPhoneNumber = "+1" + unMask(personalInfo.phoneNumber);
+
       const newMemberData = {
         first_name: personalInfo.firstName,
         last_name: personalInfo.lastName,
-        phone_number: personalInfo.phoneNumber,
+        phone_number: unmaskedPhoneNumber,
         date_of_birth: personalInfo.dateOfBirth.toISOString(),
         gender: personalInfo.gender as "male" | "female",
         address_line_one: addressInfo.address_line_one,

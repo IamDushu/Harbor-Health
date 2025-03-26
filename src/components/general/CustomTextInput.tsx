@@ -9,17 +9,20 @@ import {
   StyleProp,
   ViewStyle,
 } from "react-native";
+import { MaskedTextInput } from "react-native-mask-text";
 
 type CustomTextInput = {
   label?: string;
   containerStyle?: StyleProp<ViewStyle>;
   name: string;
+  mask?: string;
 } & ComponentProps<typeof TextInput>;
 
 export default function CustomTextInput({
   label,
   containerStyle,
   name,
+  mask,
   ...textInputProps
 }: CustomTextInput) {
   const {
@@ -30,19 +33,36 @@ export default function CustomTextInput({
   return (
     <View style={[containerStyle]}>
       {label && <Text style={styles.label}>{label}</Text>}
-      <TextInput
-        {...textInputProps}
-        onBlur={onBlur}
-        onChangeText={onChange}
-        value={value}
-        style={[
-          styles.input,
-          textInputProps.style,
-          error?.message ? styles.errorInput : {},
-        ]}
-        autoCorrect={false}
-      />
-      {/* <Text style={styles.error} numberOfLines={1}>
+      {mask ? (
+        <MaskedTextInput
+          {...textInputProps}
+          onBlur={onBlur}
+          onChangeText={onChange}
+          value={value}
+          mask={mask}
+          style={[
+            styles.input,
+            textInputProps.style,
+            error?.message ? styles.errorInput : {},
+          ]}
+          autoCorrect={false}
+        />
+      ) : (
+        <TextInput
+          {...textInputProps}
+          onBlur={onBlur}
+          onChangeText={onChange}
+          value={value}
+          style={[
+            styles.input,
+            textInputProps.style,
+            error?.message ? styles.errorInput : {},
+          ]}
+          autoCorrect={false}
+        />
+      )}
+      {/* 
+      <Text style={styles.error} numberOfLines={1}>
         {error?.message}
       </Text> */}
     </View>

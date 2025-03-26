@@ -8,13 +8,17 @@ import {
   Linking,
   Platform,
   ActivityIndicator,
+  Alert,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Text } from "@/components/general/Themed";
 import Colors from "@/constants/theme";
 import MapView, { Marker } from "react-native-maps";
 
-import RemoteVisit from "../../../../../assets/icons/remote.svg";
+import Pencil from "../../../../../assets/icons/pencil.svg";
+import AddCalendar from "../../../../../assets/icons/addCalendar.svg";
+import PhoneCall from "../../../../../assets/icons/call.svg";
+import Direction from "../../../../../assets/icons/direction.svg";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { getUpcomingVisitInfo } from "@/services/visitService";
@@ -56,12 +60,27 @@ export default function visitDetails() {
     url && Linking.openURL(url);
   };
 
+  const handlePhonePress = (phoneNumber: string | undefined) => {
+    const phoneNumbers = "+18554818375";
+    if (!phoneNumber) {
+      return;
+    }
+    const url = `tel:${phoneNumbers}`;
+
+    Linking.openURL(url).catch((err) =>
+      Alert.alert("Error", "Unable to open phone dialer")
+    );
+  };
+
   const formattedTime = dayjs.utc(visitInfo.visit_time).format("h:mm A");
 
   const formattedDay = dayjs.utc(visitInfo.visit_time).format("dddd, MMM D");
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{ flex: 1, backgroundColor: "white" }}
+    >
       <View style={{ height: 220, position: "relative" }}>
         <Image
           source={{ uri: visitInfo.location_image?.String }}
@@ -119,7 +138,7 @@ export default function visitDetails() {
               justifyContent: "center",
             }}
           >
-            <RemoteVisit width={35} height={35} />
+            <Pencil width={35} height={35} />
           </View>
           <Text
             style={{
@@ -136,6 +155,7 @@ export default function visitDetails() {
         </Pressable>
         <Pressable
           style={{ width: 50, alignItems: "center", justifyContent: "center" }}
+          onPress={() => handlePhonePress(visitInfo.location_phone)}
         >
           <View
             style={{
@@ -146,7 +166,7 @@ export default function visitDetails() {
               justifyContent: "center",
             }}
           >
-            <RemoteVisit width={35} height={35} />
+            <PhoneCall width={35} height={35} />
           </View>
           <Text
             style={{
@@ -173,7 +193,7 @@ export default function visitDetails() {
               justifyContent: "center",
             }}
           >
-            <RemoteVisit width={35} height={35} />
+            <AddCalendar width={35} height={35} />
           </View>
           <Text
             style={{
@@ -190,6 +210,7 @@ export default function visitDetails() {
         </Pressable>
         <Pressable
           style={{ width: 50, alignItems: "center", justifyContent: "center" }}
+          onPress={openMaps}
         >
           <View
             style={{
@@ -200,7 +221,7 @@ export default function visitDetails() {
               justifyContent: "center",
             }}
           >
-            <RemoteVisit width={35} height={35} />
+            <Direction width={35} height={35} />
           </View>
           <Text
             style={{

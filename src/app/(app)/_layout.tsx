@@ -55,8 +55,8 @@ export default function AppEntry() {
     connectUser();
 
     return () => {
-      // chatClient?.disconnectUser();
-      // videoClient?.disconnectUser();
+      chatClient?.disconnectUser();
+      videoClient?.disconnectUser();
     };
   }, [user]);
 
@@ -70,7 +70,7 @@ export default function AppEntry() {
       <OverlayProvider>
         <Chat client={chatClient}>
           <Stack>
-            <Stack.Screen name="(room)/[id]" />
+            <Stack.Screen name="(room)/[id]" options={{ headerShown: false }} />
             <Stack.Screen
               name="(tabs)"
               options={{ title: "Back", headerShown: false }}

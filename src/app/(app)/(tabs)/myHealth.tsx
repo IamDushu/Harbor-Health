@@ -13,6 +13,7 @@ import Allergy from "../../../../assets/icons/allergy.svg";
 import Clipboard from "../../../../assets/icons/clipboard.svg";
 import Calendar from "../../../../assets/icons/calendar.svg";
 import Logout from "../../../../assets/icons/signout.svg";
+import { StatusBar } from "expo-status-bar";
 
 export default function MyHealthTab() {
   const { user, setUser, setIsAuthenticated } = useAuth();

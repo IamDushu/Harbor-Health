@@ -4,6 +4,7 @@ import Recommended from "@/components/Recommended";
 import Reminders from "@/components/Reminders";
 import ScheduleAppointment from "@/components/ScheduleAppointment";
 import UpcomingVisits from "@/components/UpcomingVisit";
+import { StatusBar } from "expo-status-bar";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function HomeTab() {

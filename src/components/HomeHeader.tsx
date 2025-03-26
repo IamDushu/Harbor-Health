@@ -1,9 +1,9 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Colors from "@/constants/theme";
 import { useAuth } from "@/context/auth";
 import theme from "@/constants/theme";
+import { StatusBar } from "expo-status-bar";
 
 export default function HomeHeader() {
   const { user } = useAuth();
@@ -21,6 +21,7 @@ export default function HomeHeader() {
         },
       ]}
     >
+      <StatusBar style="light" />
       <View style={[styles.container, { gap: 15 }]}>
         <Image
           source={{

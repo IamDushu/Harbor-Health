@@ -12,7 +12,6 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { Text } from "@/components/general/Themed";
 import Colors from "@/constants/theme";
-import Luci from "../../../../../assets/LuciLeykum.webp";
 import MapView, { Marker } from "react-native-maps";
 
 import RemoteVisit from "../../../../../assets/icons/remote.svg";

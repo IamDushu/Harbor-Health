@@ -9,17 +9,23 @@ import {
   User,
 } from "@stream-io/video-react-native-sdk";
 import { StreamChat } from "stream-chat";
+import { logout } from "@/services/authService";
+import Call from "@/components/CallScreen";
+import { StyleSheet, View } from "react-native";
 
 const STREAM_API_KEY = process.env.EXPO_PUBLIC_STREAM_API_KEY;
 const chatClient = StreamChat.getInstance(STREAM_API_KEY!);
 
 export default function AppEntry() {
-  const { user } = useAuth();
+  const { user, setIsAuthenticated, setUser } = useAuth();
   const [videoClient, setVideoClient] = useState<StreamVideoClient | null>(
     null
   );
+  const [showOverlay, setShowOverlay] = useState(false);
 
   useEffect(() => {
+    if (!user) return;
+
     const connectUser = async () => {
       try {
         await chatClient.connectUser(
@@ -47,8 +53,20 @@ export default function AppEntry() {
             "https://media.licdn.com/dms/image/v2/C560BAQFptmTG30YowQ/company-logo_200_200/company-logo_200_200/0/1661952558881?e=2147483647&v=beta&t=-emxzyud9VPhhEDB0UEW_C15pXRnF5Tl04j2CG5Bl-g",
         });
         await channel.create();
-      } catch (error) {
+      } catch (error: any) {
         console.log("Error creating stream client: ", error);
+
+        if (
+          error?.message?.includes("userToken does not have a user_id") ||
+          error?.message?.includes("not matching with user.id")
+        ) {
+          console.warn("Logging out due to Stream token mismatch");
+
+          // Perform logout cleanup
+          setUser?.(undefined);
+          logout?.();
+          setIsAuthenticated?.(false);
+        }
       }
     };
 
@@ -60,15 +78,24 @@ export default function AppEntry() {
     };
   }, [user]);
 
-  if (!videoClient) {
+  if (!user || !videoClient) {
     //Can use loading screen?
-    return;
+    return null;
   }
 
   return (
     <StreamVideo client={videoClient}>
       <OverlayProvider>
         <Chat client={chatClient}>
+          <View
+            style={{
+              ...StyleSheet.absoluteFillObject,
+              zIndex: 99,
+              pointerEvents: showOverlay ? "auto" : "none",
+            }}
+          >
+            <Call setOverlayVisible={setShowOverlay} />
+          </View>
           <Stack>
             <Stack.Screen name="(room)/[id]" options={{ headerShown: false }} />
             <Stack.Screen

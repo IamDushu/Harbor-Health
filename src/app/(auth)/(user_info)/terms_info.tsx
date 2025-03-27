@@ -27,7 +27,7 @@ export default function terms_info() {
 
   return (
     <KeyboardAwareScrollView
-      scrollViewStyle={{ padding: 20, backgroundColor: "white" }}
+      scrollViewStyle={{ padding: 10, backgroundColor: "white" }}
     >
       <Text
         style={{
@@ -44,7 +44,7 @@ export default function terms_info() {
       <Text style={{ color: "#121c44", textAlign: "center", fontSize: 12 }}>
         In order to join Harbor Health, you must agree to{"\n"}the terms below.
       </Text>
-      <View style={{ padding: 10, paddingVertical: 30 }}>
+      <View style={{ paddingVertical: 30 }}>
         <FormProvider {...form}>
           <Text style={{ marginBottom: 10 }}>
             I am at least 18 years of age and I have read and accept:

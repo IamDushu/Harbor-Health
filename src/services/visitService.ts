@@ -55,10 +55,6 @@ export const getUpcomingVisits = async () => {
 
     return response.data;
   } catch (error: any) {
-    console.error(
-      "Error getting upcoming visits:",
-      error?.response?.data || error.message
-    );
     throw new Error(
       error?.response?.data?.message || "Failed to get upcoming visits."
     );
@@ -82,10 +78,6 @@ export const getUpcomingVisitInfo = async (visitId: string) => {
 
     return response.data;
   } catch (error: any) {
-    console.error(
-      "Error getting upcoming visit info:",
-      error?.response?.data || error.message
-    );
     throw new Error(
       error?.response?.data?.message || "Failed to get upcoming visit info."
     );

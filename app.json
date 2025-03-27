@@ -97,6 +97,12 @@
             "minSdkVersion": 24
           }
         }
+      ],
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "The app needs to access your calendar."
+        }
       ]
     ]
   }

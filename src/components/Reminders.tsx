@@ -1,7 +1,7 @@
-import { Image, StyleSheet, View } from "react-native";
-import harborBuilding from "../../assets/icons/building.png";
+import { StyleSheet, View } from "react-native";
 import Card from "./general/Card";
 import { Text } from "./general/Themed";
+import Flask from "../../assets/icons/flask.svg";
 
 export default function Reminders() {
   return (
@@ -13,17 +13,17 @@ export default function Reminders() {
             Full metabolic panel, Lipid test
           </Text>
         </View>
-        <View>
-          <Image
-            source={harborBuilding}
-            style={{
-              height: 50,
-              width: 50,
-              backgroundColor: "#3a8369bf",
-              padding: 10,
-              borderRadius: 50,
-            }}
-          />
+        <View
+          style={{
+            backgroundColor: "#63daae4f",
+            padding: 10,
+            borderRadius: 50,
+            marginLeft: 20,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Flask width={35} height={35} />
         </View>
       </View>
     </Card>

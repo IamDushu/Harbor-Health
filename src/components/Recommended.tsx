@@ -5,6 +5,8 @@ import ItemInfo from "./ItemInfo";
 import bannerImg from "../../assets/banner.webp";
 import harbor from "../../assets/harbor.jpg";
 import * as WebBrowser from "expo-web-browser";
+import Gift from "../../assets/icons/gift.svg";
+import Virus from "../../assets/icons/virus.svg";
 
 const openWebPage = async (url: string) => {
   await WebBrowser.openBrowserAsync(url);
@@ -43,10 +45,12 @@ export default function Recommended() {
       <ItemInfo
         title="COVID-19 Daily Check-in"
         description="Get your daily status badge"
+        Icon={Virus}
       />
       <ItemInfo
         title="Give $25 off"
         description="Invite friends to Harbor Health"
+        Icon={Gift}
       />
     </Card>
   );

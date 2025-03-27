@@ -8,6 +8,7 @@ import {
   useChatContext,
 } from "stream-chat-expo";
 import { ActivityIndicator } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 export default function ChannelScreen() {
   const [channel, setChannel] = useState<ChannelType | null>(null);
@@ -31,9 +32,12 @@ export default function ChannelScreen() {
   }
 
   return (
-    <Channel channel={channel}>
-      <MessageList />
-      <MessageInput />
-    </Channel>
+    <>
+      <StatusBar style="dark" />
+      <Channel channel={channel}>
+        <MessageList />
+        <MessageInput />
+      </Channel>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 import HomeHeader from "@/components/HomeHeader";
 import Colors from "@/constants/theme";
 import { Stack } from "expo-router/stack";
+import { StatusBar } from "expo-status-bar";
 
 export default function HomeStack() {
   return (

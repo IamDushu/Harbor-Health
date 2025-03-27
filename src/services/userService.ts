@@ -20,10 +20,7 @@ export const getUser = async () => {
 
     return response.data;
   } catch (error: any) {
-    console.error(
-      "Error getting user:",
-      error?.response?.data || error.message
-    );
+    console.log("Error getting user:", error?.response?.data || error.message);
     throw new Error(error?.response?.data?.message || "Failed to get user.");
   }
 };

@@ -1,6 +1,8 @@
 import { router } from "expo-router";
 import ItemInfo from "./ItemInfo";
 import Card from "./general/Card";
+import Pill from "../../assets/icons/pill.svg";
+import VideoCam from "../../assets/icons/video.svg";
 
 export default function OnDemandCare() {
   return (
@@ -8,6 +10,7 @@ export default function OnDemandCare() {
       <ItemInfo
         title="Manage Prescriptions"
         description="Requests and renewals"
+        Icon={Pill}
       />
       {/* <ItemInfo
         title="Treat Me Now"
@@ -17,6 +20,7 @@ export default function OnDemandCare() {
       <ItemInfo
         title="Urgent Video Chat"
         description="Ideal for time-sensitive needs"
+        Icon={VideoCam}
         onPress={() => router.push("/home/videoChatInfo")}
       />
     </Card>

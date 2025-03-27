@@ -8,19 +8,23 @@ import {
   Linking,
   Platform,
   ActivityIndicator,
+  Alert,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Text } from "@/components/general/Themed";
 import Colors from "@/constants/theme";
-import Luci from "../../../../../assets/LuciLeykum.webp";
 import MapView, { Marker } from "react-native-maps";
 
-import RemoteVisit from "../../../../../assets/icons/remote.svg";
+import Pencil from "../../../../../assets/icons/pencil.svg";
+import AddCalendar from "../../../../../assets/icons/addCalendar.svg";
+import PhoneCall from "../../../../../assets/icons/call.svg";
+import Direction from "../../../../../assets/icons/direction.svg";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { getUpcomingVisitInfo } from "@/services/visitService";
 import { VisitInfo } from "@/types/models";
 import dayjs from "dayjs";
+import * as Calendar from "expo-calendar";
 
 export default function visitDetails() {
   const { visit_id } = useLocalSearchParams();
@@ -40,12 +44,18 @@ export default function visitDetails() {
     return <ActivityIndicator />;
   }
 
+  console.log(visitInfo);
+
   const clinicLocation = {
     latitude: visitInfo?.latitude ? parseFloat(visitInfo.latitude) : 0,
     longitude: visitInfo?.longitude ? parseFloat(visitInfo.longitude) : 0,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   };
+
+  const formattedTime = dayjs.utc(visitInfo.visit_time).format("h:mm A");
+
+  const formattedDay = dayjs.utc(visitInfo.visit_time).format("dddd, MMM D");
 
   const openMaps = () => {
     const { latitude, longitude } = clinicLocation;
@@ -57,12 +67,73 @@ export default function visitDetails() {
     url && Linking.openURL(url);
   };
 
-  const formattedTime = dayjs.utc(visitInfo.visit_time).format("h:mm A");
+  const handlePhonePress = (phoneNumber: string | undefined) => {
+    const phoneNumbers = "+18554818375";
+    if (!phoneNumber) {
+      return;
+    }
+    const url = `tel:${phoneNumbers}`;
 
-  const formattedDay = dayjs.utc(visitInfo.visit_time).format("dddd, MMM D");
+    Linking.openURL(url).catch((err) =>
+      Alert.alert("Error", "Unable to open phone dialer")
+    );
+  };
+
+  const addBookingToCalendar = async () => {
+    try {
+      if (!visitInfo?.visit_time) {
+        Alert.alert("Error", "No visit time available.");
+        return;
+      }
+
+      const { status } = await Calendar.requestCalendarPermissionsAsync();
+      if (status !== "granted") {
+        Alert.alert(
+          "Permission Denied",
+          "Calendar access is required to add the event."
+        );
+        return;
+      }
+
+      const calendars = await Calendar.getCalendarsAsync(
+        Calendar.EntityTypes.EVENT
+      );
+      const defaultCalendar =
+        calendars.find((cal) => cal.allowsModifications) || calendars[0];
+
+      if (!defaultCalendar) {
+        Alert.alert("No Calendar Found", "Please create a calendar first.");
+        return;
+      }
+
+      const startDate = new Date(visitInfo.visit_time);
+      const endDate = new Date(startDate.getTime() + 30 * 60 * 1000);
+
+      const eventDetails = {
+        title: "Booking Confirmation - Harbor Deck",
+        startDate: startDate,
+        endDate: endDate,
+        timeZone: "UTC",
+        location: visitInfo.location_address,
+        notes: "This is a confirmation of your booking at Harbor Deck.",
+      };
+
+      const eventId = await Calendar.createEventAsync(
+        defaultCalendar.id,
+        eventDetails
+      );
+      Alert.alert("Success", "Event added to your calendar!");
+    } catch (error) {
+      console.error("Error adding to calendar:", error);
+      Alert.alert("Error", "Could not add the event to your calendar.");
+    }
+  };
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{ flex: 1, backgroundColor: "white" }}
+    >
       <View style={{ height: 220, position: "relative" }}>
         <Image
           source={{ uri: visitInfo.location_image?.String }}
@@ -120,7 +191,7 @@ export default function visitDetails() {
               justifyContent: "center",
             }}
           >
-            <RemoteVisit width={35} height={35} />
+            <Pencil width={35} height={35} />
           </View>
           <Text
             style={{
@@ -137,6 +208,7 @@ export default function visitDetails() {
         </Pressable>
         <Pressable
           style={{ width: 50, alignItems: "center", justifyContent: "center" }}
+          onPress={() => handlePhonePress(visitInfo.location_phone)}
         >
           <View
             style={{
@@ -147,7 +219,7 @@ export default function visitDetails() {
               justifyContent: "center",
             }}
           >
-            <RemoteVisit width={35} height={35} />
+            <PhoneCall width={35} height={35} />
           </View>
           <Text
             style={{
@@ -164,6 +236,7 @@ export default function visitDetails() {
         </Pressable>
         <Pressable
           style={{ width: 50, alignItems: "center", justifyContent: "center" }}
+          onPress={addBookingToCalendar}
         >
           <View
             style={{
@@ -174,7 +247,7 @@ export default function visitDetails() {
               justifyContent: "center",
             }}
           >
-            <RemoteVisit width={35} height={35} />
+            <AddCalendar width={35} height={35} />
           </View>
           <Text
             style={{
@@ -191,6 +264,7 @@ export default function visitDetails() {
         </Pressable>
         <Pressable
           style={{ width: 50, alignItems: "center", justifyContent: "center" }}
+          onPress={openMaps}
         >
           <View
             style={{
@@ -201,7 +275,7 @@ export default function visitDetails() {
               justifyContent: "center",
             }}
           >
-            <RemoteVisit width={35} height={35} />
+            <Direction width={35} height={35} />
           </View>
           <Text
             style={{

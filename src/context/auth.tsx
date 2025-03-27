@@ -39,7 +39,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
       if (accessToken && email) {
         const response = await getUser();
-        if (response.is_onboarded) {
+        if (response && response.is_onboarded) {
           setUser({
             id: response.user_id,
             email: response.email,
@@ -50,10 +50,14 @@ export function AuthProvider({ children }: PropsWithChildren) {
           });
 
           setIsAuthenticated(true);
+        } else {
+          console.log("User is not onboarded or may have been deleted.");
         }
       }
     } catch (error) {
-      console.error("Error loading user from SecureStore", error);
+      console.log(
+        "No user data found in SecureStore. User might not be logged in."
+      );
     } finally {
       setLoading(false);
     }

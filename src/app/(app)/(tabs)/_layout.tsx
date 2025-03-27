@@ -1,7 +1,7 @@
-import HomeHeader from "@/components/HomeHeader";
 import Colors from "@/constants/theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import AntDesign from "@expo/vector-icons/AntDesign";
 import { Tabs, usePathname } from "expo-router";
 
 export default function TabLayout() {
@@ -27,7 +27,7 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <Ionicons name="home" size={24} color={color} />
+            <Ionicons name="home-outline" size={24} color={color} />
           ),
         }}
       />
@@ -37,7 +37,7 @@ export default function TabLayout() {
         options={{
           title: "Messages",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="mail" size={24} color={color} />
+            <Ionicons name="mail-outline" size={24} color={color} />
           ),
           headerShown: false,
         }}
@@ -47,7 +47,7 @@ export default function TabLayout() {
         options={{
           title: "Core Plan",
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="health-and-safety" size={24} color={color} />
+            <MaterialIcons name="anchor" size={24} color={color} />
           ),
         }}
       />

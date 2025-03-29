@@ -1,12 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ActivityIndicator,
-  Image,
-  Pressable,
-} from "react-native";
+import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { Location } from "@/types/models";
 import { getLocations } from "@/services/locationService";
@@ -16,19 +9,21 @@ import theme from "@/constants/theme";
 import { router } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet";
+import LottieView from "lottie-react-native";
+import loadingAnimation from "../../../assets/lottie/marker.json";
 
 export default function LocationsMap() {
   const [locations, setLocations] = useState<Location[]>([]);
   const [selectedLocation, setSelectedLocation] = useState<Location>();
   const mapRef = useRef<MapView>(null);
   const bottomSheetRef = useRef<BottomSheet>(null);
+  const [loadingLocations, setLoadingLocations] = useState(true);
 
   const snapPoints = useMemo(() => [78, "50%"], []);
 
   const handleSelectLocation = (location: Location) => {
     setSelectedLocation(location);
 
-    // Animate the map to the selected location
     mapRef.current?.animateToRegion(
       {
         latitude: Number(location.latitude),
@@ -39,25 +34,37 @@ export default function LocationsMap() {
       350
     );
 
-    // Collapse the bottom sheet
     bottomSheetRef.current?.collapse();
   };
 
   useEffect(() => {
     const fetchLocations = async () => {
-      const response = await getLocations();
-      setLocations(response);
+      try {
+        const response = await getLocations();
+        setLocations(response);
+      } finally {
+        setLoadingLocations(false);
+      }
     };
 
     fetchLocations();
   }, []);
 
-  if (!locations.length) {
-    return <ActivityIndicator />;
+  if (loadingLocations) {
+    return (
+      <View style={styles.loadingContainer}>
+        <LottieView
+          source={loadingAnimation}
+          autoPlay
+          loop
+          style={styles.lottie}
+        />
+      </View>
+    );
   }
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <MapView
         ref={mapRef}
         style={styles.map}
@@ -189,5 +196,15 @@ const styles = StyleSheet.create({
   truck: {
     width: 70,
     height: 40,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+  },
+  lottie: {
+    width: 200,
+    height: 200,
   },
 });

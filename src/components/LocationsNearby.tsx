@@ -4,6 +4,7 @@ import Card from "./general/Card";
 import location1 from "../../assets/OnionCreek.jpg";
 import location2 from "../../assets/WilliamsDrive.jpg";
 import CustomButton from "./general/CustomButton";
+import { router } from "expo-router";
 
 export default function LocationsNearby() {
   return (
@@ -34,6 +35,7 @@ export default function LocationsNearby() {
           type="outline"
           title="See All Locations"
           style={{ marginVertical: 20 }}
+          onPress={() => router.push("(app)/locationsMap")}
         />
       </View>
     </Card>

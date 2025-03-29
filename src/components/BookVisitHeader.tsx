@@ -18,7 +18,7 @@ export default function BookVisitHeader() {
       ]}
     >
       <View style={[styles.container, { gap: 15 }]}>
-        <Pressable onPress={() => router.back()}>
+        <Pressable onPress={() => router.back()} style={{ paddingVertical: 8 }}>
           <AntDesign name="arrowleft" size={24} color="white" />
         </Pressable>
         <Text style={[styles.headerFont]}>Book Visit</Text>

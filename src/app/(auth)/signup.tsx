@@ -12,9 +12,12 @@ import CustomButton from "@/components/general/CustomButton";
 import { router } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { requestAuth } from "@/services/authService";
+import LottieView from "lottie-react-native";
+import theme from "@/constants/theme";
 
 export default function SignupScreen() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleAuthRequest = async () => {
     if (!email) {
@@ -22,7 +25,9 @@ export default function SignupScreen() {
       return;
     }
 
+    setLoading(true);
     const token = await requestAuth(email, "signup");
+    setLoading(false);
     if (token) {
       // setToken(token);
       router.push({
@@ -70,15 +75,31 @@ export default function SignupScreen() {
           keyboardType="email-address"
           autoCapitalize="none"
           autoFocus
+          autoCorrect={false}
         />
       </View>
       <View>
-        <CustomButton
-          title="Get OTP"
-          width="full"
-          broadRadius={true}
-          onPress={handleAuthRequest}
-        />
+        {!loading ? (
+          <CustomButton
+            title="Get OTP"
+            width="full"
+            broadRadius={true}
+            onPress={handleAuthRequest}
+          />
+        ) : (
+          <LottieView
+            source={require("../../../assets/lottie/loading.json")}
+            autoPlay
+            loop
+            style={{
+              width: 50,
+              height: 50,
+              backgroundColor: theme.light.tint,
+              borderRadius: "100%",
+              margin: "auto",
+            }}
+          />
+        )}
       </View>
     </SafeAreaView>
   );

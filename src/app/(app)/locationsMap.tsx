@@ -11,6 +11,7 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import BottomSheet, { BottomSheetFlatList } from "@gorhom/bottom-sheet";
 import LottieView from "lottie-react-native";
 import loadingAnimation from "../../../assets/lottie/marker.json";
+import { StatusBar } from "expo-status-bar";
 
 export default function LocationsMap() {
   const [locations, setLocations] = useState<Location[]>([]);
@@ -28,8 +29,8 @@ export default function LocationsMap() {
       {
         latitude: Number(location.latitude),
         longitude: Number(location.longitude),
-        latitudeDelta: 0.05,
-        longitudeDelta: 0.05,
+        latitudeDelta: 0.03,
+        longitudeDelta: 0.03,
       },
       350
     );
@@ -65,6 +66,7 @@ export default function LocationsMap() {
 
   return (
     <View style={{ flex: 1 }}>
+      <StatusBar style="dark" />
       <MapView
         ref={mapRef}
         style={styles.map}
@@ -163,7 +165,7 @@ export default function LocationsMap() {
             fontWeight: 500,
             marginVertical: 10,
             textAlign: "center",
-            color: theme.light.tint,
+            color: theme.light.secondaryText,
           }}
         >
           Over {locations.length} Locations

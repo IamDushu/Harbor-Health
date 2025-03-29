@@ -5,10 +5,17 @@ import theme from "@/constants/theme";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router, useLocalSearchParams } from "expo-router";
 import CustomButton from "@/components/general/CustomButton";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { verifyOTP } from "@/services/authService";
 import { useAuth } from "@/context/auth";
 import { getUser } from "@/services/userService";
+import LottieView from "lottie-react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSequence,
+  withTiming,
+} from "react-native-reanimated";
 
 export default function OTPVerificationScreen() {
   const { email, token, mode } = useLocalSearchParams<{
@@ -18,6 +25,15 @@ export default function OTPVerificationScreen() {
   }>();
   const [otp, setOtp] = useState("");
   const { setUser, setIsAuthenticated } = useAuth();
+  const [showSuccessAnimation, setShowSuccessAnimation] = useState(false);
+  const successAnimationRef = useRef<LottieView>(null);
+  const [hasError, setHasError] = useState(false);
+
+  const shake = useSharedValue(0);
+
+  const shakeStyle = useAnimatedStyle(() => ({
+    transform: [{ translateX: shake.value }],
+  }));
 
   const handleVerify = async () => {
     if (!otp) {
@@ -27,41 +43,78 @@ export default function OTPVerificationScreen() {
 
     const sessionData = await verifyOTP(token, otp);
     if (sessionData) {
-      if (sessionData.mode === "signup") {
-        setUser({
-          streamToken: sessionData.stream_token,
-        });
-        router.dismissAll();
-        router.replace("/personal_info");
-        // router.navigate("/personal_info");
-      }
+      setShowSuccessAnimation(true);
 
-      if (sessionData.mode === "login") {
-        try {
-          const response = await getUser();
-          if (response.is_onboarded) {
-            setUser({
-              id: response.user_id,
-              email: response.email,
-              firstName: response.first_name,
-              lastName: response.last_name,
-              image_url: response.image_url,
-              streamToken: sessionData.stream_token,
-            });
-            setIsAuthenticated(true);
-          } else {
-            setUser({
-              streamToken: sessionData.stream_token,
-            });
-            router.dismissAll();
-            router.replace("/personal_info");
-          }
-        } catch {}
-      }
+      setTimeout(() => {
+        successAnimationRef.current?.reset();
+        successAnimationRef.current?.play();
+      }, 0);
+
+      setTimeout(async () => {
+        if (sessionData.mode === "signup") {
+          setUser({
+            streamToken: sessionData.stream_token,
+          });
+          router.dismissAll();
+          router.replace("/personal_info");
+          // router.navigate("/personal_info");
+        }
+
+        if (sessionData.mode === "login") {
+          try {
+            const response = await getUser();
+            if (response.is_onboarded) {
+              setUser({
+                id: response.user_id,
+                email: response.email,
+                firstName: response.first_name,
+                lastName: response.last_name,
+                image_url: response.image_url,
+                streamToken: sessionData.stream_token,
+              });
+              setIsAuthenticated(true);
+            } else {
+              setUser({
+                streamToken: sessionData.stream_token,
+              });
+              router.dismissAll();
+              router.replace("/personal_info");
+            }
+          } catch {}
+        }
+      }, 2000);
     } else {
-      Alert.alert("Error", "Invalid OTP");
+      setHasError(true);
+      shake.value = withSequence(
+        withTiming(-10, { duration: 50 }),
+        withTiming(10, { duration: 50 }),
+        withTiming(-10, { duration: 50 }),
+        withTiming(10, { duration: 50 }),
+        withTiming(0, { duration: 50 })
+      );
     }
   };
+
+  if (showSuccessAnimation) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "white",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <LottieView
+          ref={successAnimationRef}
+          source={require("../../../assets/lottie/unlock.json")}
+          autoPlay={false}
+          loop={false}
+          style={{ width: 200, height: 200 }}
+        />
+      </View>
+    );
+  }
 
   return (
     <SafeAreaView
@@ -83,26 +136,31 @@ export default function OTPVerificationScreen() {
           {email}
         </Text>
       </View>
-
-      <OtpInput
-        numberOfDigits={5}
-        focusColor={theme.light.tint}
-        theme={{
-          pinCodeContainerStyle: {
-            backgroundColor: "white",
-            width: 58,
-            height: 58,
-            borderRadius: 12,
-          },
-          pinCodeTextStyle: {
-            color: "#121c44",
-          },
-          // filledPinCodeContainerStyle: {
-          //   borderColor: "red",
-          // },
-        }}
-        onTextChange={(text) => setOtp(text)}
-      />
+      <Animated.View style={[shakeStyle]}>
+        <OtpInput
+          numberOfDigits={5}
+          focusColor={theme.light.tint}
+          theme={{
+            pinCodeContainerStyle: {
+              backgroundColor: "white",
+              width: 58,
+              height: 58,
+              borderRadius: 12,
+              borderColor: hasError ? theme.light.tint : "#D3D3D3",
+            },
+            pinCodeTextStyle: {
+              color: "#121c44",
+            },
+            // filledPinCodeContainerStyle: {
+            //   borderColor: "red",
+            // },
+          }}
+          onTextChange={(text) => {
+            setOtp(text);
+            if (hasError) setHasError(false);
+          }}
+        />
+      </Animated.View>
       <CustomButton
         title="Done"
         broadRadius

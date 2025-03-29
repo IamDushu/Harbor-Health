@@ -5,11 +5,31 @@ import Reminders from "@/components/Reminders";
 import ScheduleAppointment from "@/components/ScheduleAppointment";
 import UpcomingVisits from "@/components/UpcomingVisit";
 import { StatusBar } from "expo-status-bar";
+import { useEffect } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+} from "react-native-reanimated";
 
 export default function HomeTab() {
+  const opacity = useSharedValue(0);
+
+  useEffect(() => {
+    opacity.value = withTiming(1, { duration: 500 });
+  }, []);
+
+  const animatedStyle = useAnimatedStyle(() => ({
+    opacity: opacity.value,
+  }));
+
   return (
-    <ScrollView showsVerticalScrollIndicator={false} bounces={false}>
+    <Animated.ScrollView
+      showsVerticalScrollIndicator={false}
+      bounces={false}
+      style={animatedStyle}
+    >
       <View style={styles.container}>
         <View style={{ backgroundColor: "white" }}>
           <UpcomingVisits />
@@ -37,7 +57,7 @@ export default function HomeTab() {
           Crafted with 🩷 for Austin
         </Text>
       </View>
-    </ScrollView>
+    </Animated.ScrollView>
   );
 }
 

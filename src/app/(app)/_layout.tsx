@@ -11,7 +11,8 @@ import {
 import { StreamChat } from "stream-chat";
 import { logout } from "@/services/authService";
 import Call from "@/components/CallScreen";
-import { StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 import { router } from "expo-router";
 
@@ -108,8 +109,17 @@ export default function AppEntry() {
               name="bookingConfirm"
               options={{
                 headerTitle: "Book Visit",
-                headerStyle: { backgroundColor: Colors.light.tint },
-                headerTintColor: "white",
+                // headerStyle: { backgroundColor: Colors.light.tint },
+                // headerTintColor: "white",
+                // headerLeft: () => (
+                //   <Pressable
+                //     onPress={() => router.back()}
+                //     style={{ padding: 10 }}
+                //   >
+                //     <AntDesign name="arrowleft" size={24} color="white" />
+                //   </Pressable>
+                // ),
+                headerShown: false,
               }}
             />
             <Stack.Screen

@@ -13,16 +13,21 @@ import { router } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { requestAuth } from "@/services/authService";
 import { useAuth } from "@/context/auth";
+import LottieView from "lottie-react-native";
+import theme from "@/constants/theme";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleAuthRequest = async () => {
     if (!email) {
       Alert.alert("Error", "Please enter a valid email");
       return;
     }
+    setLoading(true);
     const token = await requestAuth(email, "login");
+    setLoading(false);
     if (token) {
       router.push({
         pathname: "/(auth)/OTPVerification",
@@ -69,15 +74,31 @@ export default function LoginScreen() {
           keyboardType="email-address"
           autoCapitalize="none"
           autoFocus
+          autoCorrect={false}
         />
       </View>
       <View>
-        <CustomButton
-          title="Get OTP"
-          width="full"
-          broadRadius={true}
-          onPress={handleAuthRequest}
-        />
+        {!loading ? (
+          <CustomButton
+            title="Get OTP"
+            width="full"
+            broadRadius={true}
+            onPress={handleAuthRequest}
+          />
+        ) : (
+          <LottieView
+            source={require("../../../assets/lottie/loading.json")}
+            autoPlay
+            loop
+            style={{
+              width: 50,
+              height: 50,
+              backgroundColor: theme.light.tint,
+              borderRadius: "100%",
+              margin: "auto",
+            }}
+          />
+        )}
       </View>
     </SafeAreaView>
   );

@@ -92,15 +92,15 @@ export default function BookTab() {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                alignItems: "center",
+                alignItems: "flex-start",
                 justifyContent: "space-between",
                 padding: 20,
                 borderBottomColor: "gray",
                 borderBottomWidth: StyleSheet.hairlineWidth,
               }}
             >
-              <Text>{selectedLocationName}</Text>
-              <Text style={{ color: Colors.light.tint }}>
+              <Text style={{ flex: 4 }}>{selectedLocationName}</Text>
+              <Text style={{ color: Colors.light.tint, flex: 1 }}>
                 {location ? "Update" : "Select"}
               </Text>
             </View>

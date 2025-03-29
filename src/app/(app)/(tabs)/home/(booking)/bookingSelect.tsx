@@ -3,6 +3,7 @@ import {
   FlatList,
   KeyboardAvoidingView,
   Pressable,
+  StyleSheet,
   Text as T,
   TouchableOpacity,
   View,
@@ -63,26 +64,62 @@ export default function BookingSelect() {
 
   return (
     <KeyboardAvoidingView style={{ flex: 1 }}>
-      <TouchableOpacity onPress={() => setDatePickerVisible(true)}>
-        <View
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: "space-between",
+
+          flexDirection: "row",
+          height: 50,
+        }}
+      >
+        <Pressable
+          onPress={decreaseDate}
           style={{
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: 20,
-            flexDirection: "row",
+            flex: 1,
+            height: "100%",
+            borderRightWidth: StyleSheet.hairlineWidth,
+            borderColor: "lightgray",
           }}
         >
-          <Pressable onPress={decreaseDate}>
-            <AntDesign name="left" size={24} color="black" />
-          </Pressable>
-          <Text>
+          <AntDesign
+            name="left"
+            size={24}
+            color="black"
+            style={{ margin: "auto" }}
+          />
+        </Pressable>
+        <TouchableOpacity
+          onPress={() => setDatePickerVisible(true)}
+          style={{
+            flex: 3,
+          }}
+        >
+          <Text
+            style={{
+              textAlign: "center",
+            }}
+          >
             {dayjs(selectedDate).format("ddd MMM D") || "Pick a Date"}
           </Text>
-          <Pressable onPress={increaseDate}>
-            <AntDesign name="right" size={24} color="black" />
-          </Pressable>
-        </View>
-      </TouchableOpacity>
+        </TouchableOpacity>
+        <Pressable
+          onPress={increaseDate}
+          style={{
+            flex: 1,
+            height: "100%",
+            borderLeftWidth: StyleSheet.hairlineWidth,
+            borderColor: "lightgray",
+          }}
+        >
+          <AntDesign
+            name="right"
+            size={24}
+            color="black"
+            style={{ margin: "auto" }}
+          />
+        </Pressable>
+      </View>
 
       <DateTimePickerModal
         isVisible={isDatePickerVisible}

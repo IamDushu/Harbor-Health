@@ -1,4 +1,4 @@
-import { Alert, Image, Text, View } from "react-native";
+import { Alert, Image, Modal, Text, View } from "react-native";
 import CustomButton from "@/components/general/CustomButton";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
@@ -6,11 +6,17 @@ import { useBooking } from "@/store";
 import dayjs from "dayjs";
 import { bookNewVisit, CreateVisitArgs } from "@/services/visitService";
 import { useAuth } from "@/context/auth";
+import { useRef, useState } from "react";
+import LottieView from "lottie-react-native";
 
 export default function BookingConfirm() {
   const visit = useBooking((store) => store.visitBooking);
   const { user } = useAuth();
   const resetVisit = useBooking((store) => store.resetVisit);
+
+  const [showSuccess, setShowSuccess] = useState(false);
+  const confettiRef = useRef<LottieView>(null);
+  const tickRef = useRef<LottieView>(null);
 
   const onConfirm = async () => {
     try {
@@ -24,10 +30,19 @@ export default function BookingConfirm() {
       };
 
       await bookNewVisit(newVisit);
-
       resetVisit();
 
-      await router.replace("/home");
+      setShowSuccess(true);
+      setTimeout(() => {
+        confettiRef.current?.reset();
+        tickRef.current?.reset();
+        confettiRef.current?.play();
+        tickRef.current?.play();
+      }, 0);
+
+      setTimeout(() => {
+        router.replace("/home");
+      }, 3000);
     } catch (error) {
       console.error("Booking failed:", error);
       Alert.alert(
@@ -40,9 +55,36 @@ export default function BookingConfirm() {
 
   const formattedDate = dayjs(visit?.date).format("dddd, MMMM D");
 
+  if (showSuccess) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "white",
+        }}
+      >
+        <LottieView
+          ref={confettiRef}
+          source={require("../../../assets/lottie/AnimationConfetti.json")}
+          autoPlay={false}
+          loop={false}
+          style={{ width: "100%", height: "100%", position: "absolute" }}
+        />
+        <LottieView
+          ref={tickRef}
+          source={require("../../../assets/lottie/confirm.json")}
+          autoPlay={false}
+          loop={false}
+          style={{ width: 150, height: 150 }}
+        />
+      </View>
+    );
+  }
+
   return (
     <SafeAreaView
-      edges={["bottom"]}
       style={{ backgroundColor: "white", flex: 1, paddingHorizontal: 20 }}
     >
       <Image

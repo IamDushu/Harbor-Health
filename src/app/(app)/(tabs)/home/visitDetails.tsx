@@ -25,6 +25,8 @@ import { getUpcomingVisitInfo } from "@/services/visitService";
 import { VisitInfo } from "@/types/models";
 import dayjs from "dayjs";
 import * as Calendar from "expo-calendar";
+import LottieView from "lottie-react-native";
+import theme from "@/constants/theme";
 
 export default function visitDetails() {
   const { visit_id } = useLocalSearchParams();
@@ -41,10 +43,19 @@ export default function visitDetails() {
   }, []);
 
   if (!visitInfo) {
-    return <ActivityIndicator />;
+    return (
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "white",
+        }}
+      >
+        <ActivityIndicator />
+      </View>
+    );
   }
-
-  console.log(visitInfo);
 
   const clinicLocation = {
     latitude: visitInfo?.latitude ? parseFloat(visitInfo.latitude) : 0,

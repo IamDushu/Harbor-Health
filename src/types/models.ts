@@ -63,6 +63,10 @@ export type Location = {
   address: string;
   latitude: string;
   longitude: string;
+  image_url: {
+    String: string;
+    Valid: boolean;
+  };
 };
 
 export type AvailableSlot = {

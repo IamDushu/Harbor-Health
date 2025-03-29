@@ -13,6 +13,8 @@ import { logout } from "@/services/authService";
 import Call from "@/components/CallScreen";
 import { StyleSheet, View } from "react-native";
 
+import { router } from "expo-router";
+
 const STREAM_API_KEY = process.env.EXPO_PUBLIC_STREAM_API_KEY;
 const chatClient = StreamChat.getInstance(STREAM_API_KEY!);
 
@@ -108,6 +110,12 @@ export default function AppEntry() {
                 headerTitle: "Book Visit",
                 headerStyle: { backgroundColor: Colors.light.tint },
                 headerTintColor: "white",
+              }}
+            />
+            <Stack.Screen
+              name="locationsMap"
+              options={{
+                headerShown: false,
               }}
             />
           </Stack>

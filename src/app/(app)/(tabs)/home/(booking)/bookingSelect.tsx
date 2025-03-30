@@ -57,7 +57,7 @@ export default function BookingSelect() {
   const decreaseDate = () => {
     const newDate = dayjs(selectedDate).subtract(1, "day");
 
-    if (newDate.isBefore(dayjs(tomorrow).startOf("day"))) return;
+    if (newDate.isBefore(dayjs(today).startOf("day"))) return;
 
     setSelectedDate(newDate.toDate());
   };
@@ -127,7 +127,7 @@ export default function BookingSelect() {
         onConfirm={handleDateConfirm}
         onCancel={() => setDatePickerVisible(false)}
         date={selectedDate}
-        minimumDate={tomorrow}
+        minimumDate={today}
         maximumDate={endOfYear}
         display="inline"
       />

@@ -2,7 +2,7 @@ import { ScrollView, View } from "react-native";
 import CardWithImage from "./CardWithImage";
 import Card from "./general/Card";
 import location1 from "../../assets/OnionCreek.jpg";
-import location2 from "../../assets/WilliamsDrive.jpg";
+import location2 from "../../assets/kyle.jpg";
 import CustomButton from "./general/CustomButton";
 import { router } from "expo-router";
 
@@ -15,6 +15,7 @@ export default function LocationsNearby() {
         contentContainerStyle={{
           marginVertical: 15,
           flexDirection: "row",
+          paddingRight: 10,
         }}
       >
         <CardWithImage
@@ -25,7 +26,7 @@ export default function LocationsNearby() {
         />
         <CardWithImage
           image={location2}
-          title="Williams Drive Clinic"
+          title="Kyle Clinic"
           description="0.1 mi away"
           lastLine="Open until 6pm"
         />

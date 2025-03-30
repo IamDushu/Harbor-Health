@@ -3,7 +3,8 @@ import CardWithImage from "./CardWithImage";
 import Card from "./general/Card";
 import ItemInfo from "./ItemInfo";
 import bannerImg from "../../assets/banner.webp";
-import harbor from "../../assets/harbor.jpg";
+import bannerBlogImg from "../../assets/HarborBlog.webp";
+import harbor from "../../assets/georgetown.webp";
 import * as WebBrowser from "expo-web-browser";
 import Gift from "../../assets/icons/gift.svg";
 import Virus from "../../assets/icons/virus.svg";
@@ -22,6 +23,7 @@ export default function Recommended() {
         contentContainerStyle={{
           marginVertical: 15,
           flexDirection: "row",
+          paddingRight: 10,
         }}
       >
         <Pressable
@@ -32,20 +34,43 @@ export default function Recommended() {
           }
         >
           <CardWithImage
-            image={bannerImg}
-            title="Flu, COVID, strep or norovirus?"
-            description="Here's what's spreading this cold and flu season in Austin"
+            image={bannerBlogImg}
+            title="Seven Things to Show Your Heart Some Love"
+            description="Here are seven things to incorporate into your lifestyle that may help prevent heart disease."
           />
         </Pressable>
 
-        <CardWithImage
-          image={harbor}
-          title="Harbor Health opens 2 express care clinics in Central, South Austin"
-        />
+        <Pressable
+          onPress={() =>
+            openWebPage(
+              "https://harborhealth.com/blog/announcements/measles-update"
+            )
+          }
+        >
+          <CardWithImage
+            image={bannerImg}
+            title="Texas Measles Outbreak: What You Need to Know"
+            description="Texas is experiencing its largest measles outbreak in 30 years. Learn more about it.."
+          />
+        </Pressable>
+
+        <Pressable
+          onPress={() =>
+            openWebPage(
+              "https://harborhealth.com/blog/health-tips/heart-health-2025"
+            )
+          }
+        >
+          <CardWithImage
+            image={harbor}
+            title="Georgetown Clinic Opens"
+            description="Opening our brand-new multi-specialty care clinic in Georgetown!"
+          />
+        </Pressable>
       </ScrollView>
       <ItemInfo
-        title="COVID-19 Daily Check-in"
-        description="Get your daily status badge"
+        title="Measles Vaccine Check-in"
+        description="Get your MMR vaccine today"
         Icon={Virus}
         rightElement={
           <AntDesign

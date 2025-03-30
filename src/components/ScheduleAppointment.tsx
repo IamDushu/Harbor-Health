@@ -26,7 +26,10 @@ export default function ScheduleAppointment() {
           </View>
           <Text>Office Visit</Text>
         </Pressable>
-        <View style={styles.option}>
+        <Pressable
+          onPress={() => router.push("/home/bookingDetails")}
+          style={styles.option}
+        >
           <View
             style={{
               backgroundColor: "#63daae4b",
@@ -37,7 +40,7 @@ export default function ScheduleAppointment() {
             <RemoteVisit width={35} height={35} />
           </View>
           <Text>Remote Visit</Text>
-        </View>
+        </Pressable>
       </View>
     </Card>
   );

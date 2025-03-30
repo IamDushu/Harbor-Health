@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { getProviderAvailability } from "@/services/providerService";
 import dayjs from "dayjs";
 import { useBooking } from "@/store";
+import ShimmerPlaceHolder from "react-native-shimmer-placeholder";
 
 export default function ProviderAvailability({
   provider,
@@ -18,6 +19,7 @@ export default function ProviderAvailability({
   const [availableSlots, setAvailableSlots] = useState<AvailableSlot[] | null>(
     []
   );
+  const [isLoading, setIsLoading] = useState(false);
 
   const setVisit = useBooking((store) => store.setVisitDetails);
 
@@ -26,11 +28,13 @@ export default function ProviderAvailability({
 
     const getAvailability = async () => {
       if (provider?.provider_id) {
+        setIsLoading(true);
         const response = await getProviderAvailability(
           provider.provider_id,
           formattedDate
         );
         setAvailableSlots(response.available_slots);
+        setIsLoading(false);
       }
     };
 
@@ -89,7 +93,15 @@ export default function ProviderAvailability({
           marginLeft: -20,
         }}
       >
-        {availableSlots && availableSlots.length > 0 ? (
+        {isLoading ? (
+          Array.from({ length: 4 }).map((_, i) => (
+            <ShimmerPlaceHolder
+              key={i}
+              style={{ width: 80, height: 40, borderRadius: 8, marginRight: 6 }}
+              shimmerStyle={{ borderRadius: 8 }}
+            />
+          ))
+        ) : availableSlots && availableSlots.length > 0 ? (
           availableSlots.map((slot, index) => (
             <CustomButton
               title={String(slot.start_time)}
@@ -100,7 +112,9 @@ export default function ProviderAvailability({
             />
           ))
         ) : (
-          <Text textType="light">No available slots</Text>
+          <Text textType="light" style={{ height: 40 }}>
+            {"\n"}No available slots
+          </Text>
         )}
       </ScrollView>
     </View>

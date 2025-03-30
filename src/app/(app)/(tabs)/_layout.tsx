@@ -1,8 +1,7 @@
 import Colors from "@/constants/theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import { Tabs, usePathname } from "expo-router";
+import { Tabs } from "expo-router";
 
 export default function TabLayout() {
   // const pathname = usePathname();

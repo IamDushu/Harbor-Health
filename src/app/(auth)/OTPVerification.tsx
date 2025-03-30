@@ -122,7 +122,7 @@ export default function OTPVerificationScreen() {
     >
       <View style={{ gap: 20 }}>
         <Pressable onPress={() => router.back()}>
-          <AntDesign name="arrowleft" size={24} color="black" />
+          <AntDesign name="arrowleft" size={28} color="black" />
         </Pressable>
         <Text
           style={{

@@ -4,7 +4,7 @@ import Colors from "@/constants/theme";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
 
-export default function BookVisitHeader() {
+export default function CustomHeader({ title }: { title: string }) {
   return (
     <SafeAreaView
       edges={["top"]}
@@ -18,10 +18,10 @@ export default function BookVisitHeader() {
       ]}
     >
       <View style={[styles.container, { gap: 15 }]}>
-        <Pressable onPress={() => router.back()} style={{ paddingVertical: 8 }}>
-          <AntDesign name="arrowleft" size={24} color="white" />
+        <Pressable onPress={() => router.back()}>
+          <AntDesign name="arrowleft" size={28} color="white" />
         </Pressable>
-        <Text style={[styles.headerFont]}>Book Visit</Text>
+        <Text style={[styles.headerFont]}>{title}</Text>
       </View>
     </SafeAreaView>
   );

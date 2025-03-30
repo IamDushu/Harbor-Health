@@ -28,6 +28,12 @@ export default function HomeStack() {
         }}
       />
       <Stack.Screen
+        name="(prescriptions)"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
         name="(videoChat)"
         options={{
           headerShown: false,
@@ -41,7 +47,7 @@ export default function HomeStack() {
           headerTintColor: "white",
           headerLeft: () => (
             <Pressable onPress={() => router.back()}>
-              <AntDesign name="arrowleft" size={24} color="white" />
+              <AntDesign name="arrowleft" size={28} color="white" />
             </Pressable>
           ),
         }}

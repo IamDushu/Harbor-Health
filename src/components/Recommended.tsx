@@ -7,6 +7,7 @@ import harbor from "../../assets/harbor.jpg";
 import * as WebBrowser from "expo-web-browser";
 import Gift from "../../assets/icons/gift.svg";
 import Virus from "../../assets/icons/virus.svg";
+import { AntDesign } from "@expo/vector-icons";
 
 const openWebPage = async (url: string) => {
   await WebBrowser.openBrowserAsync(url);
@@ -46,11 +47,27 @@ export default function Recommended() {
         title="COVID-19 Daily Check-in"
         description="Get your daily status badge"
         Icon={Virus}
+        rightElement={
+          <AntDesign
+            name="right"
+            size={24}
+            color="black"
+            style={{ color: "lightgray", marginLeft: "auto", marginRight: 15 }}
+          />
+        }
       />
       <ItemInfo
         title="Give $25 off"
         description="Invite friends to Harbor Health"
         Icon={Gift}
+        rightElement={
+          <AntDesign
+            name="right"
+            size={24}
+            color="black"
+            style={{ color: "lightgray", marginLeft: "auto", marginRight: 15 }}
+          />
+        }
       />
     </Card>
   );

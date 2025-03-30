@@ -1,20 +1,24 @@
-import { AntDesign } from "@expo/vector-icons";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, TextInput, View } from "react-native";
 import { Text } from "./general/Themed";
 import { ComponentProps } from "react";
+import CustomTextInput from "./general/CustomTextInput";
 
 type ItemInfoProps = {
   bottomBorder?: boolean;
+  comment?: boolean;
   title: string;
   description?: string;
   Icon?: React.FC<{ width?: number; height?: number }>;
+  rightElement?: React.ReactNode;
 } & ComponentProps<typeof Pressable>;
 
 export default function ItemInfo({
   bottomBorder = true,
+  comment = false,
   title,
   description,
   Icon,
+  rightElement,
   ...pressableProps
 }: ItemInfoProps) {
   return (
@@ -44,14 +48,25 @@ export default function ItemInfo({
             )}
           </View>
         </View>
-
-        <AntDesign
-          name="right"
-          size={24}
-          color="black"
-          style={{ color: "lightgray", marginLeft: "auto", marginRight: 15 }}
-        />
+        {rightElement}
       </View>
+
+      {comment && (
+        <TextInput
+          placeholder="Optional comment"
+          style={{
+            borderColor: "gray",
+            borderWidth: StyleSheet.hairlineWidth,
+            padding: 10,
+            margin: 10,
+            marginTop: 0,
+            width: "77%",
+            marginLeft: "auto",
+            borderRadius: 5,
+          }}
+        />
+      )}
+
       {bottomBorder && (
         <View
           style={{

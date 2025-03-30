@@ -150,7 +150,7 @@ export default function LocationsMap() {
         onPress={() => router.back()}
         pointerEvents="box-only"
       >
-        <AntDesign name="arrowleft" size={24} color="white" />
+        <AntDesign name="arrowleft" size={28} color="white" />
         <Text style={{ color: "white", fontWeight: "bold" }}>Back</Text>
       </Pressable>
       <BottomSheet

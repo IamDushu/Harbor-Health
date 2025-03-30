@@ -1,4 +1,4 @@
-import BookVisitHeader from "@/components/BookVisitHeader";
+import BookVisitHeader from "@/components/general/CustomHeader";
 import theme from "@/constants/theme";
 import { router, Stack } from "expo-router";
 import { Pressable } from "react-native";
@@ -14,7 +14,7 @@ export default function VideoChatLayout() {
           headerLeft: () => {
             return (
               <Pressable onPress={() => router.back()}>
-                <AntDesign name="arrowleft" size={24} color="white" />
+                <AntDesign name="arrowleft" size={28} color="white" />
               </Pressable>
             );
           },
@@ -31,7 +31,7 @@ export default function VideoChatLayout() {
           headerLeft: () => {
             return (
               <Pressable onPress={() => router.back()}>
-                <AntDesign name="arrowleft" size={24} color="white" />
+                <AntDesign name="arrowleft" size={28} color="white" />
               </Pressable>
             );
           },

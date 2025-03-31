@@ -57,7 +57,7 @@ export default function Recommended() {
         <Pressable
           onPress={() =>
             openWebPage(
-              "https://harborhealth.com/blog/health-tips/heart-health-2025"
+              "https://harborhealth.com/blog/health-tips/georgetown-clinic-opens"
             )
           }
         >

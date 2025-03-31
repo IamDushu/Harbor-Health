@@ -16,13 +16,29 @@ import HarborLogo from "../../../assets/icons/harbor_logo.svg";
 import theme, { SIZES } from "@/constants/theme";
 import CustomButton from "@/components/general/CustomButton";
 import { router } from "expo-router";
+import { useEffect, useRef } from "react";
 
 export default function OnboardScreen() {
-  const scrollX = new Animated.Value(0);
+  const scrollX = useRef(new Animated.Value(0)).current;
+  const scrollViewRef = useRef<ScrollView>(null);
+  const currentIndex = useRef(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      currentIndex.current = (currentIndex.current + 1) % onBoardings.length;
+      scrollViewRef.current?.scrollTo({
+        x: currentIndex.current * SIZES.width,
+        animated: true,
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   function renderContent() {
     return (
       <Animated.ScrollView
+        ref={scrollViewRef}
         horizontal
         pagingEnabled
         scrollEnabled
@@ -216,12 +232,13 @@ const onBoardings = [
     ),
   },
   {
-    title: "Members can book appointments in app at 200+ offices in the U.S.",
+    title:
+      "Members can book appointments in the app at 10+ locations across Austin",
     description: (
       <View style={{ marginVertical: 10 }}>
         <Text style={styles.description}>
-          We offer in-person care in the cities above as well as 24/7 on-demand
-          virtual care nationwide. See a provider on your schedule.
+          We offer in-person care at 10+ locations in Austin, along with 24/7
+          on-demand virtual care. See a provider on your schedule.
         </Text>
       </View>
     ),

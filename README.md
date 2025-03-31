@@ -122,3 +122,9 @@ pnpm dlx expo start
 
 - Use this method if you prefer manual control through Xcode or if expo run:ios --device doesn’t work
 - All native modules (e.g. Reanimated, Lottie, Stream) will function correctly in this build
+
+### 👨‍⚕️ Provider Testing
+
+- You can use ```cjohnston@example.com``` as email at the time of login to Login as provider and test the video calling functionality. 
+- When prompted for OTP just use ```18375```
+- This is a workaround to test the video calling feature from the provider end. Provider App flow is WIP.
